@@ -1,0 +1,499 @@
+{
+  "active": false,
+  "connections": {
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "RAG Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Voice or Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File": {
+      "main": [
+        [
+          {
+            "node": "Transcribe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe": {
+      "main": [
+        [
+          {
+            "node": "RAG Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Vector Store2": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "RemarkKnowledgeBase",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "RemarkKnowledgeBase",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text": {
+      "main": [
+        [
+          {
+            "node": "RAG Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Voice or Text": {
+      "main": [
+        [
+          {
+            "node": "Download File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Supabase Vector Store2",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RAG Agent": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "RAG Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RemarkKnowledgeBase": {
+      "ai_tool": [
+        [
+          {
+            "node": "RAG Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-26T18:44:27.612Z",
+  "id": "878eHbXT7Z6bDrNZ",
+  "meta": null,
+  "name": "Telegram Knowledge Base Assistant",
+  "nodes": [
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger').item.json.message.chat.id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1240,
+        500
+      ],
+      "id": "7bc92c11-49ad-4d32-9630-b9117eb5c597",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "dc4c06d0-3e32-49c3-b9fe-c35adf22eadd",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        100,
+        320
+      ],
+      "webhookId": "99eab1a0-569d-4f0f-a49e-578a02abfe63"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.voice.file_id }}"
+      },
+      "id": "a796eca8-dce7-4c53-b13d-c0653fef663f",
+      "name": "Download File",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        580,
+        180
+      ],
+      "webhookId": "83bb7385-33f6-4105-8294-1a91c0ebbee5"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "id": "baeadb44-7b84-42d9-b1eb-b06125960afc",
+      "name": "Transcribe",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        760,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "tableName": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "options": {
+          "queryName": "match_documents"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        680
+      ],
+      "id": "d46f9bc7-3442-47ca-bb66-2a11f1a74a42",
+      "name": "Supabase Vector Store2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1580,
+        680
+      ],
+      "id": "fbfa8bfd-0210-4b0d-81dd-d5a98dc0d733",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe7ecc99-e1e8-4a5e-bdd6-6fce9757b234",
+              "name": "text",
+              "value": "={{ $json.message.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c9ee3a4f-392c-4a69-a3d0-53503772e68d",
+      "name": "Text",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        660,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.voice.file_id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Voice"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "8c844924-b2ed-48b0-935c-c66a8fd0c778",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Text"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "490a40f8-db73-4456-93b8-7415dceeffce",
+      "name": "Voice or Text",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        360,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "906bfba1-4f11-4642-9d70-abcfec7f4a4f",
+      "name": "Response",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1800,
+        300
+      ],
+      "webhookId": "5dced4b9-5066-4036-a4d4-14fc07edd53c"
+    },
+    {
+      "parameters": {
+        "content": "# Chatbot\n",
+        "height": 80,
+        "width": 280,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "f17c1466-4e8c-4487-aa65-c109b633db20",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1160,
+        860
+      ],
+      "id": "51bfae55-a6d1-4819-aeb2-83a60e2da57a",
+      "name": "Embeddings OpenAI"
+    },
+    {
+      "parameters": {
+        "content": "## Get New Message\n",
+        "height": 260,
+        "width": 280,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        260
+      ],
+      "typeVersion": 1,
+      "id": "819519c1-8021-4b10-af34-79fa4724b85c",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Convert Message to Text\n\n",
+        "height": 460,
+        "width": 680,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        300,
+        140
+      ],
+      "typeVersion": 1,
+      "id": "d3d67571-cd1c-40d9-9e38-d26a3312899a",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## RAG System\n\n",
+        "height": 860,
+        "width": 720,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1000,
+        140
+      ],
+      "typeVersion": 1,
+      "id": "2b5bcc0e-f0cf-47a8-883f-f170b698918d",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "options": {
+          "systemMessage": "=# Overview\nYou are Remark's real estate agent assistant chatbot. Real estate agents will ask you questions about Remark's services and you will answer them using the RemarkKnowledgeBase.\n\n## Tools\n- RemarkKnowledgeBase: This tool is a vector store that gives you access to information about Remark's services, pricing, features, and benefits. Every time you're asked a question about Remark, you should query this database to find the relevant information required to answer the question.\n\n## Rules\n- The person asking you questions will always be a real estate agent interested in or using Remark's services.\n- If the question is not related to Remark's services, you must say \"Sorry, but I'm specifically designed to help with questions about Remark's property documentation services.\"\n- Some questions may not be direct. You can interpret them in accordance with Remark's service offerings. But don't make anything up. Especially don't make up any features, prices, or processes.\n- All incoming questions about services are referring to Remark. But in your query to the vector store, you don't need to specify Remark as the vector store only contains Remark's service information.\n- Always use RemarkKnowledgeBase to find information in response to a question. Don't make anything up.\n- Focus on how Remark helps agents save time, save money, look more professional, and grow their business.\n\n## Examples\n1) \n- Input: How much does the basic package cost?\n  - Action: Use the RemarkKnowledgeBase vector store to search through Remark's service information to get the answer.\n- Output: Remark's base Digital Twin package costs $529 for homes up to 3,000 square feet. For larger homes, there's a small $20 addition for each additional 1,000 square feet (rounded up). This includes professional-grade floor plans, precise measurements, material documentation, paint calculations, furniture specifications, accessible appliance documentation, 3D tour capabilities, and complete third-party verification.\n\n2)\n- Input: How is this different from just hiring a photographer?\n  - Action: Use the RemarkKnowledgeBase vector store to search for comparison information.\n- Output: Unlike just hiring a photographer, Remark provides a comprehensive \"Digital Twin\" of the property with just one appointment. Traditional methods require coordinating multiple vendors (costing $1,150-$1,700 and 8-13 hours of your time). With Remark, you get precise measurements, professional floor plans, third-party verification, appliance documentation, insurance documentation, AND a 3D tour that lets you capture photos from any angle - all for $529 and just 2 hours of your time. This saves you up to $1,171 per listing while making you look more professional to clients."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1180,
+        300
+      ],
+      "id": "600b3af4-2b31-4c20-b311-8a0f8b5d2bef",
+      "name": "RAG Agent"
+    },
+    {
+      "parameters": {
+        "content": "## Send Output as Message\n",
+        "height": 260,
+        "width": 320,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1740,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "c68c38f8-da03-4391-b85b-b47392f98c1e",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1060,
+        500
+      ],
+      "id": "b01285eb-a01f-465d-ad4f-f2b9ea8b3a73",
+      "name": "OpenAI Chat Model1"
+    },
+    {
+      "parameters": {
+        "name": "RemarkKnowledgeBase",
+        "description": "This vector store has information about Remark and it's products."
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        500
+      ],
+      "id": "8aa74349-1cd5-4e52-9fb3-75ddf9fcdee4",
+      "name": "RemarkKnowledgeBase"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-02-26T20:54:23.364Z",
+  "versionId": "6ff677f3-0eba-49f4-b430-a08425cb471a"
+}
