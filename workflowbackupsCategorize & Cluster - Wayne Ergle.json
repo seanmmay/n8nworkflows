@@ -1,0 +1,1734 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent Create Content Opps": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable": {
+      "main": [
+        [
+          {
+            "node": "Set WF Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Category AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Out Unknown": {
+      "main": [
+        [
+          {
+            "node": "Set Content from Category Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Category Table Fields": {
+      "main": [
+        [
+          {
+            "node": "Category Table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Category Table": {
+      "main": [
+        [
+          {
+            "node": "Filter Out Unknown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Content from Category Fields": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Category AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Set Category Table Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content Ideas from Category AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Set Content Ideas Table Field",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set WF Fields": {
+      "main": [
+        [
+          {
+            "node": "Category AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Content Ideas Table Field": {
+      "main": [
+        [
+          {
+            "node": "Categories Content Ideas Table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Analyze and Cluster KWs",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Set Fields for Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Fields for Airtable": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "Airtable1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agent Create Content Opps",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent Analyze and Cluster KWs": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Split Out2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out2": {
+      "main": [
+        [
+          {
+            "node": "Agent Create Content Opps",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Split Out3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out3": {
+      "main": [
+        [
+          {
+            "node": "Airtable2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Keywords for Agent": {
+      "main": [
+        [
+          {
+            "node": "Set Field for Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Field for Agent": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Analyze and Cluster KWs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Content Ideas from Category AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Content Ideas from Category AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Categories Content Ideas Table": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-02T04:02:33.489Z",
+  "id": "SPRdWGpslDBlyXK0",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Categorize & Cluster - Wayne Ergle",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -740,
+        840
+      ],
+      "id": "0e692972-1fcb-4121-8074-355490576fe9",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "content": "## Gets KWs from Master List and Categorizes\nCategorizes keywords as Quick Wins, Authority Builders, Emerging Topics, and Unknown.",
+        "height": 540,
+        "width": 520
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        40,
+        220
+      ],
+      "id": "4b5d4de8-0b40-4886-9c06-34fc475508ad",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Send All Categorized Keywords to Airtable\nSends all classifications including unknown. (Not sure if unknown is needed.)\n",
+        "height": 260,
+        "width": 520
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        640,
+        140
+      ],
+      "id": "40e11673-ee86-4745-bba0-d4957538f00d",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Creates Title and Description for each categorized keyword.\nSends to Airtable",
+        "height": 460,
+        "width": 1260
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        620,
+        420
+      ],
+      "id": "3a894a7c-d941-47c5-81e0-17fa879ce91f",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=For each of the {{ $('Edit Fields2').item.json.number_of_clusters }} clusters, consider its:\n- cluster_name: {{ $json.cluster_name }}\n- core_topic: {{ $json.core_topic }}\n- intent_pattern:{{ $json.intent_pattern }}\n- keywords: {{ $json.keywords }}\n- reasoning: {{ $json.reasoning }}\n- primary_keyword: {{ $json.primary_keyword }}\nTo create one hub article and 5 spoke articles.\n\nYou are creating a hub and spoke content strategy. For each hub and spoke article, you will create:\n- title: an seo-optimized title that is engaging and reflects the article content. It is around 60 characters long.\n- description: 3 to 5 paragraphs desribing the article\n\nTo create the clusters group all keywords with the same cluster_name. Give each cluster a name and type of either hub or spoke. There will be one hub article and up to 5 spoke articles per cluster.\n\nThe hub article serves as the central piece of content that provides a broad overview of a main topic. The spoke articles are detailed content pieces that branch out from the hub, each focusing on specific subtopics.\n\nImportant: Each cluster as defined above should have one hub article and up to 5 spoke articles. Always make sure that hub and spoke articles are created for each cluster.\nConsider the following when creating the hub and spoke articles.\n1. cluster_name\n2. title\n- SEO-optimized\n- Under 62 characters\n3. description\n- 3-5 paragraphs desribing the article\n4. type \n- hub or spoke\n\nReturn a single-line JSON object with this structure for each cluster (no line breaks):\n    {\n      \"cluster_name\": \"descriptive name\",\n      \"title\": \"the title\",\n      \"description\": \"the description\",\n      \"type\": \"either hub or spoke\",\n      \"reasoning\": \"reasoning for the cluster\"\n    }\n\nImportant: Return ONLY the JSON array with NO line breaks (\\n), NO extra quotations, NO extra spaces, and NO additional text.\n\n\n\n",
+        "options": {
+          "systemMessage": "You are an AI content strategist specializing in creating seo-optimized hub and spoke content structures. For each cluster, create one main hub article and up to 5 supporting spoke articles that comprehensively cover the topic while maintaining SEO best practices and user intent.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1440,
+        1500
+      ],
+      "id": "994e9ef7-b524-4fd4-a50f-7fb779648904",
+      "name": "Agent Create Content Opps"
+    },
+    {
+      "parameters": {
+        "content": "## Clusters KWs from Master KW All Variations List\nCreates clusters based on semantic similarity and search intent.",
+        "height": 520,
+        "width": 800
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        20,
+        1060
+      ],
+      "id": "5ab2ffdf-2268-4f6b-a3db-30fbdda21d3a",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## Adds Cluster and Keywords to Clusters Sheet\n",
+        "height": 260,
+        "width": 1120
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        880,
+        1060
+      ],
+      "id": "ea81d414-08f2-4bab-92b0-6725b216daf4",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "## Create Pillar and Supporting Content Opps\nCreates title and description for Pillar and Support content opportunities.\nPrompted (at the moment) to create two supporting articles for each pillar.",
+        "height": 460,
+        "width": 1600
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        880,
+        1360
+      ],
+      "id": "2496c45a-ff99-4d06-94ab-18617782c4b6",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "content": "## Categorize and Create Content Opportunities\n",
+        "height": 920,
+        "width": 1980,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "28047ca7-f365-45d1-9f47-d54b5ea00768",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "content": "## Cluster and Create Content Opportunities\n",
+        "height": 920,
+        "width": 2540,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        960
+      ],
+      "id": "d8b1b085-53d5-4bda-bba1-625569504ea6",
+      "name": "Sticky Note8"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblHz4bwclrB24afu",
+          "mode": "list",
+          "cachedResultName": "Master All KW Variations",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblHz4bwclrB24afu"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -520,
+        840
+      ],
+      "id": "6974d84e-9a77-40c0-b22f-02f49694c3a2",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        120,
+        600
+      ],
+      "id": "e84b3a70-9bcd-4ed3-88eb-0e2e8eb75395",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "6nbdViyBEluwTDha",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fa613938-57a8-49f6-a01b-723028c6cbf3",
+              "leftValue": "={{ $json.fields.Category }}",
+              "rightValue": "Unknown",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        660,
+        560
+      ],
+      "id": "0f7aae2e-936e-406d-9a61-372a78b0d1c1",
+      "name": "Filter Out Unknown"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3f1f38b9-8941-4047-8904-270b17bfc2ed",
+              "name": "keyword",
+              "value": "={{ JSON.parse($json.output).keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "849f572c-1339-4a83-bd4c-2b4c13cd80d4",
+              "name": "category",
+              "value": "={{ JSON.parse($json.output).category }}",
+              "type": "string"
+            },
+            {
+              "id": "5909d7fe-6050-490d-bf90-ad0817d882a0",
+              "name": "reasoning",
+              "value": "={{ JSON.parse($json.output).reasoning }}",
+              "type": "string"
+            },
+            {
+              "id": "aeb81379-fba7-483d-828c-427f2851ee87",
+              "name": "msv",
+              "value": "={{ JSON.parse($json.output).msv }}",
+              "type": "number"
+            },
+            {
+              "id": "3b7b8188-de51-4a6b-95cb-73a8de200996",
+              "name": "kw_difficulty",
+              "value": "={{ JSON.parse($json.output).kw_difficulty }}",
+              "type": "number"
+            },
+            {
+              "id": "013f802d-6c2e-4519-8104-5d3951f845cd",
+              "name": "search_intent",
+              "value": "={{ JSON.parse($json.output).search_intent }}",
+              "type": "string"
+            },
+            {
+              "id": "a2799b9e-8c28-4c02-8162-2874cae2bf2b",
+              "name": "competition",
+              "value": "={{ JSON.parse($json.output).competition }}",
+              "type": "string"
+            },
+            {
+              "id": "7929eaff-788c-43fa-899f-cd04953f8f7f",
+              "name": "cpc",
+              "value": "={{ JSON.parse($json.output).cpc }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        720,
+        240
+      ],
+      "id": "e70c93e6-9a73-442a-80e7-c98e868326f9",
+      "name": "Set Category Table Fields"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblD8sMi6W4EikkN4",
+          "mode": "list",
+          "cachedResultName": "Keyword Categories",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblD8sMi6W4EikkN4"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Category": "={{ $json.category }}",
+            "Keyword": "={{ $json.keyword }}",
+            "Reasoning": "={{ $json.reasoning }}",
+            "MSV": "={{ $json.msv }}",
+            "KW Difficulty": "={{ $json.kw_difficulty }}",
+            "Search Intent": "={{ $json.search_intent }}",
+            "Competition": "={{ $json.competition }}",
+            "CPC": "={{ $json.cpc }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Category",
+              "displayName": "Category",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Keyword",
+              "displayName": "Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Reasoning",
+              "displayName": "Reasoning",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "MSV",
+              "displayName": "MSV",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "KW Difficulty",
+              "displayName": "KW Difficulty",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Search Intent",
+              "displayName": "Search Intent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Competition",
+              "displayName": "Competition",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CPC",
+              "displayName": "CPC",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        940,
+        240
+      ],
+      "id": "817d381e-ba74-41e8-938b-b38c86002e9b",
+      "name": "Category Table",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cae1e309-cab6-472a-9bfc-75448a504455",
+              "name": "keyword",
+              "value": "={{ $json.fields.Keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "1c725316-fa66-401c-b028-6039c7845540",
+              "name": "category",
+              "value": "={{ $json.fields.Category }}",
+              "type": "string"
+            },
+            {
+              "id": "328a070b-312e-4c39-bacb-970d0e485e7a",
+              "name": "reasoning",
+              "value": "={{ $json.fields.Reasoning }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        880,
+        560
+      ],
+      "id": "f3049895-e8b9-4bb2-99b4-e8bd454e1393",
+      "name": "Set Content from Category Fields"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Please categorize the following keywords according to the rules. Ensure every keyword is processed and included in the output.\n\nKeyword to Categorize and Data for Categorization:\n {{ $json.keyword }}\n{{ $json.msv }}\n{{ $json.search_intent }}\n{{ $json.kw_difficulty }}\n{{ $json.competition }}\n{{ $json.cpc }}\n",
+        "options": {
+          "systemMessage": "You are an AI agent specialized in analyzing and categorizing SEO keywords and search intent signals.\n\nCategorization Rules:\n1. Quick Wins:\n   - MSV > 100 AND KW Difficulty < 30\n   - These are opportunities for relatively fast ranking\n\n2. Authority Builders:\n   - KW Difficulty > 50 AND MSV > 200\n   - High-value terms worth investing in for authority building\n\n3. Emerging Topics:\n   - MSV < 100 OR (doesn't fit Quick Wins AND shows future potential)\n   - Focus on search intent and growth potential\n- Represent trends or novel concepts that are likely to grow in popularity\n\n4. Intent Signals:\n   - People Also Ask questions\n   - Direct user questions that show search intent\n   - Good opportunities for featured snippets and AI results\n   - Categorize here even if metrics are missing\n\n5. Semantic Topics:\n   - Autocomplete suggestions and semantic subtopics\n   - Related concepts that build topic authority\n   - Categorize here even if metrics are missing\n\n6. Unknown:\n   - Keywords that don't fit other categories\n   - Or have insufficient data and aren't questions/semantic topics\n\nReturn only a JSON object for each keyword with these exact fields:\n{\n    \"keyword\": \"exact keyword text\",\n    \"category\": \"Quick Wins|Authority Builders|Emerging Topics|Intent Signals|Semantic Topics|Unknown\",\n    \"reasoning\": \"brief explanation of categorization\",\n    \"msv\": number or null,\n    \"kw_difficulty\": number or null,\n    \"search_intent\": \"original intent or null\",\n    \"competition\": \"original competition or null\",\n    \"cpc\": number or null\n}\n\n\nImportant: Return ONLY the JSON object with NO line breaks (\\n), NO extra spaces, and NO additional text.\n\nImportant:\n- Process EVERY keyword in the input\n- Preserve all original data\n- Ensure total_processed matches input count\n- Provide brief reasoning for each categorization"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        160,
+        400
+      ],
+      "id": "992111fc-faad-4a37-9ade-1e412823e242",
+      "name": "Category AI Agent"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=For each keyword, analyze its category and reasoning to create:\n\n1. A title that:\n   - Captures search intent\n   - Is engaging and clickable\n   - Includes the main keyword naturally\n   - Is optimized for both search and social sharing\n   - Is under 60 characters\n   - Aligns with the category context: {{ $json.category }}\n   \n2. A description that:\n   - Clearly outlines the main topics and key points the article should cover\n   - Indicates specific value readers will gain\n   - Provides enough context to guide content creation\n   - Naturally incorporates the keyword\n   - Is concise but comprehensive (aim for 2-3 sentences)\n   - Considers the categorization reasoning: {{ $json.reasoning }}\n\nInput:\n\n{{ $json.keyword }}\n\nReturn a single-line JSON object with this structure (no line breaks):\n{\"keyword\":\"input keyword\",\"title\":\"created title\",\"description\":\"article description\"}",
+        "options": {
+          "systemMessage": "You are an AI content strategist specialized in creating engaging, SEO-optimized titles and article descriptions."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1360,
+        640
+      ],
+      "id": "2511c08a-bf16-4ecf-9074-46feb64858fc",
+      "name": "Content Ideas from Category AI Agent"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "acee4494-86dc-4f48-b5d8-e18e7db9eaaa",
+              "name": "keyword",
+              "value": "={{ $json.Keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "575ec827-4dd3-4d4c-8aca-14c80f4a9015",
+              "name": "record_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b5d76b17-8473-4369-9c50-7c0194bce34e",
+              "name": "primary_keyword",
+              "value": "={{ $json['Primary Keyword'] }}",
+              "type": "string"
+            },
+            {
+              "id": "8e4e71d4-662f-4c59-9f01-5b0f14ffb54f",
+              "name": "competition",
+              "value": "={{ $json.Competition }}",
+              "type": "string"
+            },
+            {
+              "id": "5925b3bb-8581-4dfa-9aec-b3578cabef35",
+              "name": "msv",
+              "value": "={{ $json.MSV }}",
+              "type": "number"
+            },
+            {
+              "id": "4de58314-1701-4a95-9826-f28233c1a87d",
+              "name": "search_intent",
+              "value": "={{ $json['Search Intent'] }}",
+              "type": "string"
+            },
+            {
+              "id": "dfb906d8-3c2e-446e-bee3-d24ba4610927",
+              "name": "kw_difficulty",
+              "value": "={{ $json['KW Difficulty'] }}",
+              "type": "number"
+            },
+            {
+              "id": "2fdf1cd1-742b-418b-8966-33823c5aa90b",
+              "name": "type",
+              "value": "={{ $json.Type }}",
+              "type": "string"
+            },
+            {
+              "id": "89472023-1df7-4d64-b874-9106dee97866",
+              "name": "cpc",
+              "value": "={{ $json.CPC }}",
+              "type": "number"
+            },
+            {
+              "id": "9fdccded-22de-4daf-86bb-67ae1db5bfec",
+              "name": "Date Pulled from D4SEO",
+              "value": "={{ $json['Date Pulled from D4SEO'] }}",
+              "type": "string"
+            },
+            {
+              "id": "3f2d42c9-2a54-42ec-a1b9-34a544b2d6f2",
+              "name": "Analyzed?",
+              "value": "={{ $json['Analyzed?'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -280,
+        840
+      ],
+      "id": "7fc7bdfc-4df5-4e5b-99d9-d824d03d0167",
+      "name": "Set WF Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3b11eddb-dfa2-4e28-a4e5-8cf3996e3e56",
+              "name": "keyword",
+              "value": "={{ JSON.parse($json.output).keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "eaa730fd-678f-42fb-95d7-fb0210fefcd7",
+              "name": "title",
+              "value": "={{ JSON.parse($json.output).title }}",
+              "type": "string"
+            },
+            {
+              "id": "eb7f4d7d-c669-4f13-acfc-109e6af78f96",
+              "name": "description",
+              "value": "={{ JSON.parse($json.output).description }}",
+              "type": "string"
+            },
+            {
+              "id": "76254565-f080-41d6-b8ed-e71d22c315da",
+              "name": "primary_keyword",
+              "value": "={{ $('Set WF Fields').item.json.primary_keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "619a217e-8526-499d-826a-8874364f0b3b",
+              "name": "reasoning",
+              "value": "={{ $('Filter Out Unknown').item.json.fields.Reasoning }}",
+              "type": "string"
+            },
+            {
+              "id": "74a4cb6e-8ca6-4ebe-b821-1b26d018d1b8",
+              "name": "category",
+              "value": "={{ $('Filter Out Unknown').item.json.fields.Category }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1720,
+        640
+      ],
+      "id": "a2fa4195-5a03-4783-8eb0-1de4be0274ca",
+      "name": "Set Content Ideas Table Field"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblRDR7uE4b73ZpRt",
+          "mode": "list",
+          "cachedResultName": "Content Ideas from Keywords",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblRDR7uE4b73ZpRt"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Title": "={{ $json.title }}",
+            "Description": "={{ $json.description }}",
+            "Keyword": "={{ $json.keyword }}",
+            "Primary Keyword": "={{ $json.primary_keyword }}",
+            "Category": "={{ $json.category }}",
+            "Reasoning": "={{ $json.reasoning }}",
+            "Create Article": "Not Started"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Create Article",
+              "displayName": "Create Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Not Started",
+                  "value": "Not Started"
+                },
+                {
+                  "name": "Keep",
+                  "value": "Keep"
+                },
+                {
+                  "name": "Discard",
+                  "value": "Discard"
+                },
+                {
+                  "name": "Write Article",
+                  "value": "Write Article"
+                },
+                {
+                  "name": "Complete",
+                  "value": "Complete"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Keyword",
+              "displayName": "Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Category",
+              "displayName": "Category",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Reasoning",
+              "displayName": "Reasoning",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2080,
+        640
+      ],
+      "id": "9de5167f-a8f2-418f-a648-b060a4338728",
+      "name": "Categories Content Ideas Table",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        380,
+        1420
+      ],
+      "id": "bbcadabb-6085-4223-813b-f239c7c844ae",
+      "name": "Anthropic Chat Model1",
+      "credentials": {
+        "anthropicApi": {
+          "id": "6nbdViyBEluwTDha",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "99ad3918-128a-4617-a7b0-d4aac162316c",
+              "name": "items",
+              "value": "={{ $json.output.parseJson().clusters }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        980,
+        1160
+      ],
+      "id": "876c23d9-5878-49c8-8eec-558405945299",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        1160
+      ],
+      "id": "eda2e686-05e1-4d58-a649-7232a8dbe96e",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1cccc58b-8eb5-473e-bd57-10b512b64226",
+              "name": "cluster_name",
+              "value": "={{ $json.cluster_name }}",
+              "type": "string"
+            },
+            {
+              "id": "9e00d18c-e025-4125-99a9-c6c46ba9ddc4",
+              "name": "core_topic",
+              "value": "={{ $json.core_topic }}",
+              "type": "string"
+            },
+            {
+              "id": "eea33e0b-32c8-420c-ba7a-b0dd9cf45bcd",
+              "name": "intent_pattern",
+              "value": "={{ $json.intent_pattern }}",
+              "type": "string"
+            },
+            {
+              "id": "15a26f8f-73d4-4200-a22f-dfbe1f6a57ac",
+              "name": "keywords",
+              "value": "={{ $json.keywords }}",
+              "type": "array"
+            },
+            {
+              "id": "d164bda0-5f4f-4763-a5ca-5d418b505384",
+              "name": "reasoning",
+              "value": "={{ $json.reasoning }}",
+              "type": "string"
+            },
+            {
+              "id": "d9cdd3c1-ea3f-4f86-a7cc-2cb98560142e",
+              "name": "primary_keyword",
+              "value": "={{ $json.primary_keyword }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1420,
+        1160
+      ],
+      "id": "6a21c6c5-06ef-44ee-94dd-771c83b3b055",
+      "name": "Set Fields for Airtable"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "keywords",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1640,
+        1160
+      ],
+      "id": "ec8456ec-aa31-4639-a96e-7a94f44c953d",
+      "name": "Split Out1"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblDRGVjI1vPuJxvm",
+          "mode": "list",
+          "cachedResultName": "Clusters",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblDRGVjI1vPuJxvm"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Cluster Name": "={{ $('Set Fields for Airtable').item.json.cluster_name }}",
+            "Core Topic": "={{ $('Set Fields for Airtable').item.json.core_topic }}",
+            "Intent": "={{ $('Set Fields for Airtable').item.json.intent_pattern }}",
+            "Reasoning": "={{ $('Set Fields for Airtable').item.json.reasoning }}",
+            "Primary Keyword": "={{ $('Set Fields for Airtable').item.json.primary_keyword }}",
+            "Keywords": "={{ $json.keywords }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Cluster Name",
+              "displayName": "Cluster Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Core Topic",
+              "displayName": "Core Topic",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "In progress",
+                  "value": "In progress"
+                },
+                {
+                  "name": "Done",
+                  "value": "Done"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Intent",
+              "displayName": "Intent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Keywords",
+              "displayName": "Keywords",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Reasoning",
+              "displayName": "Reasoning",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1860,
+        1160
+      ],
+      "id": "886dbc3f-6da5-4638-8234-76a2d8ede903",
+      "name": "Airtable1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        1500
+      ],
+      "id": "e7674e34-12c3-4739-9817-c3cb1472b332",
+      "name": "Split Out2"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-2024-11-20",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1380,
+        1680
+      ],
+      "id": "a77aa5ab-e0ef-41de-854f-49af4d3b8613",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "9rvfVFUYnakq8yjE",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Analyze ALL keywords as a complete dataset and identify natural semantic clusters. Let the number and size of clusters emerge from the relationships in the data. Each keyword should be assigned to its most relevant cluster based on semantic meaning and user intent.\n\nGuidelines for clustering:\n- Identify genuine thematic relationships across keywords\n- Group keywords based on semantic similarity and shared user intents\n- Consider how different keyword types complement each other in revealing topic patterns\n- Let cluster count and size be determined by the natural groupings in the data\n- Each keyword should belong to exactly one cluster\n\nReturn a single-line JSON object with this structure (no line breaks):\n{\n  \"total_keywords_processed\": number,\n  \"number_of_clusters\": number,\n  \"clusters\": [\n    {\n      \"cluster_name\": \"descriptive name\",\n      \"core_topic\": \"main theme or focus\",\n      \"intent_pattern\": \"primary user intent pattern\",\n      \"keywords\": [\"array of all keywords in this cluster\"],\n      \"reasoning\": \"explanation of why these keywords form a coherent cluster\",\n      \"primary_keyword\": \"the primary keyword\"\n    }\n  ]\n}\n\n\nInput data:\n{{ $json.keyword_dataset }}\n\n",
+        "options": {
+          "systemMessage": "=You are an AI expert in semantic analysis and content clustering. Your task is to analyze a collection of keywords holistically and identify natural semantic clusters based on:\n- Thematic relationships\n- User intent patterns\n- Topic hierarchies\n- Search behavior signals across different keyword types (direct searches, questions, suggestions)\n\nConsider both keywords with metrics (search_intent) and those without (people also ask, subtopics, autocomplete) as they represent different aspects of user intent."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        480,
+        1200
+      ],
+      "id": "9cc3925c-5d5f-4fed-bf6b-6ca4e8baa04a",
+      "name": "AI Agent Analyze and Cluster KWs"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "99ad3918-128a-4617-a7b0-d4aac162316c",
+              "name": "items",
+              "value": "={{ $json.output.parseJson().clusters }}",
+              "type": "array"
+            },
+            {
+              "id": "478eb15a-a8bb-4fc5-b488-487dfdd1e3c7",
+              "name": "number_of_clusters",
+              "value": "={{ $json.output.parseJson().number_of_clusters }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1020,
+        1500
+      ],
+      "id": "4be27dda-3add-4f23-82e6-62ac6c58ab6e",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "99ad3918-128a-4617-a7b0-d4aac162316c",
+              "name": "items",
+              "value": "={{ $json.output.parseJson() }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1780,
+        1500
+      ],
+      "id": "4b72b506-cf96-4df4-832a-34a6bda66c29",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl7trYCu9sSGdRTJ",
+          "mode": "list",
+          "cachedResultName": "Content Ideas from Clusters",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tbl7trYCu9sSGdRTJ"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Cluster Name": "={{ $json.cluster_name }}",
+            "Title": "={{ $json.title }}",
+            "Description": "={{ $json.description }}",
+            "Type": "={{ $json.type }}",
+            "Reasoning": "={{ $json.reasoning }}",
+            "Create Article": "Not Started"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Cluster Name",
+              "displayName": "Cluster Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Reasoning",
+              "displayName": "Reasoning",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Create Article",
+              "displayName": "Create Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Not Started",
+                  "value": "Not Started"
+                },
+                {
+                  "name": "Write Article",
+                  "value": "Write Article"
+                },
+                {
+                  "name": "Complete",
+                  "value": "Complete"
+                },
+                {
+                  "name": "Delete",
+                  "value": "Delete"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2240,
+        1500
+      ],
+      "id": "70adce48-c133-42b3-adcb-c2d133329eb8",
+      "name": "Airtable2",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        1500
+      ],
+      "id": "e5e3a3dd-2568-4ab9-8380-af69a2518327",
+      "name": "Split Out3"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "include": "specifiedFields",
+        "fieldsToInclude": "keyword, primary_keyword, type, search_intent",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        60,
+        1200
+      ],
+      "id": "d7cde6ed-e41b-4f9f-a82d-cafb0c693500",
+      "name": "Aggregate Keywords for Agent"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "909557e4-1568-4f9b-8fab-96cc37faf290",
+              "name": "keyword_dataset",
+              "value": "={{ $json.data }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        260,
+        1200
+      ],
+      "id": "bcbcbdce-f956-48b8-903a-19217ef6132d",
+      "name": "Set Field for Agent"
+    },
+    {
+      "parameters": {
+        "content": "## Add Search intent to KW categorization"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        200
+      ],
+      "id": "f778608d-6cd9-4428-9bda-05621de3ec28",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        1300,
+        800
+      ],
+      "id": "6431b3c2-0dfd-46f6-9941-2392b55f98dd",
+      "name": "Anthropic Chat Model2",
+      "credentials": {
+        "anthropicApi": {
+          "id": "6nbdViyBEluwTDha",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1140,
+        560
+      ],
+      "id": "181f350b-c805-420e-b8bf-842bd7ce1754",
+      "name": "Loop Over Items"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-03-01T21:58:36.272Z",
+      "updatedAt": "2025-03-01T21:58:36.272Z",
+      "id": "pQFG9rW2tkge7v5C",
+      "name": "Content Creation"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-02T04:02:33.489Z",
+  "versionId": "30a7e8e0-493c-49fc-b2bb-205729991e4e"
+}
