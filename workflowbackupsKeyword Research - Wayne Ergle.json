@@ -1,0 +1,3049 @@
+{
+  "active": true,
+  "connections": {
+    "Airtable Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get Primary Keyword",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Related API Request": {
+      "main": [
+        [
+          {
+            "node": "Split Out Result Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Primary Keyword": {
+      "main": [
+        [
+          {
+            "node": "Set Fields for API Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Result Items": {
+      "main": [
+        [
+          {
+            "node": "Set KW Related Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "KW Suggestions API Request": {
+      "main": [
+        [
+          {
+            "node": "Split Out Suggested KWs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Suggested KWs": {
+      "main": [
+        [
+          {
+            "node": "Set KW Suggestion Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "KW Ideas API Request": {
+      "main": [
+        [
+          {
+            "node": "Split Out KW Ideas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Autocomplete": {
+      "main": [
+        [
+          {
+            "node": "Set Autocomplete Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Autocomplete API Request": {
+      "main": [
+        [
+          {
+            "node": "Split Out Autocomplete",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Serp API Request1": {
+      "main": [
+        [
+          {
+            "node": "Split Out SERP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out SERP": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Set SERP Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "Split Out People Also Ask",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out People Also Ask": {
+      "main": [
+        [
+          {
+            "node": "Set PAA Fileds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Subtopics API Request": {
+      "main": [
+        [
+          {
+            "node": "Split Out Subtopics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Subtopics": {
+      "main": [
+        [
+          {
+            "node": "Set Generate Subtopics Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Fields for API Request": {
+      "main": [
+        [
+          {
+            "node": "Related API Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "KW Suggestions API Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "KW Ideas API Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Autocomplete API Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Serp API Request1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Generate Subtopics API Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set KW Suggestion Fields": {
+      "main": [
+        [
+          {
+            "node": "Suggestions Variations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set KW Related Fields": {
+      "main": [
+        [
+          {
+            "node": "Related KW Variations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out KW Ideas": {
+      "main": [
+        [
+          {
+            "node": "Set Keyword Ideas Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Keyword Ideas Fields": {
+      "main": [
+        [
+          {
+            "node": "Ideas Variations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Autocomplete Fields": {
+      "main": [
+        [
+          {
+            "node": "Autocomplete Variations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set SERP Fields": {
+      "main": [
+        [
+          {
+            "node": "Create SERPS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set PAA Fileds": {
+      "main": [
+        [
+          {
+            "node": "PAA Variations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Generate Subtopics Fields": {
+      "main": [
+        [
+          {
+            "node": "Subtopics Variations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Related KW Variations": {
+      "main": [
+        [
+          {
+            "node": "Related Master KW Variations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Suggestions Variations": {
+      "main": [
+        [
+          {
+            "node": "Suggestions Master KW Variations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ideas Variations": {
+      "main": [
+        [
+          {
+            "node": "Ideas Master KW Variations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Autocomplete Variations": {
+      "main": [
+        [
+          {
+            "node": "Autocomplete Master KW Variations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PAA Variations": {
+      "main": [
+        [
+          {
+            "node": "PAA Master KW Variations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Subtopics Variations": {
+      "main": [
+        [
+          {
+            "node": "Subtopics Master KW Variations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-02T04:32:54.987Z",
+  "id": "af367daFcEUg0Ha0",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Keyword Research - Wayne Ergle",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "43e8495f-a4f1-4474-8da7-ef7a73fddab0",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1000,
+        580
+      ],
+      "id": "bab40d01-ed7e-4c19-ae26-e5fcb6991d7a",
+      "name": "Airtable Webhook",
+      "webhookId": "43e8495f-a4f1-4474-8da7-ef7a73fddab0"
+    },
+    {
+      "parameters": {
+        "content": "## Get Primary Keyword from Airtable\nAirtable triggers the workflow with send data automation to n8n. \n\nGet airtable record gets the fields for D4SEO api enpoints. Fields are set for use later in workflow.",
+        "height": 320,
+        "width": 640,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1060,
+        440
+      ],
+      "id": "ffaaf357-1df4-4692-b0d5-d72bfd2c6485",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/dataforseo_labs/google/related_keywords/live",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[{\n        \"keyword\": \"{{ $json['Primary Keyword'] }}\",\n        \"location_name\": \"{{ $json.Location }}\",\n        \"language_name\": \"{{ $json.Language }}\",\n        \"include_serp_info\": true,\n        \"include_seed_keyword\": true,\n        \"limit\": {{ $json.Limit }},\n  \"depth\":2\n    }]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        80,
+        140
+      ],
+      "id": "3c0e415b-4a12-4e8e-ad75-665a0e9e47b1",
+      "name": "Related API Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "smbda8tk5GxCFbME",
+          "name": "DataForSEO"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblewTSMwBdGQKUuZ",
+          "mode": "list",
+          "cachedResultName": "Primary Keywords",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblewTSMwBdGQKUuZ"
+        },
+        "id": "={{ $json.query.recordId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -780,
+        580
+      ],
+      "id": "f741eb32-ddfd-4daa-beae-11d31a15ba7e",
+      "name": "Get Primary Keyword",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "tasks[0].result[0].items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        300,
+        140
+      ],
+      "id": "c3277306-c810-4f13-b676-75fdb2cbd92d",
+      "name": "Split Out Result Items"
+    },
+    {
+      "parameters": {
+        "content": "## Get Related Keywords from DFSEO and Create Airtable Records in KW Related and Master Al KW Variations Tables.\n\n",
+        "height": 320,
+        "width": 940
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "278727a6-2637-476d-a86c-2e3c367cf448",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_suggestions/live",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[{\n        \"keyword\": \"{{ $json['Primary Keyword'] }}\",\n        \"location_name\": \"{{ $json.Location }}\",\n        \"language_name\": \"{{ $json.Language }}\",\n        \"include_serp_info\": true,\n        \"include_seed_keyword\": false,\n\"ignore_synonyms\": true,\n        \"limit\": {{ $json.Limit }}\n    }]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        80,
+        460
+      ],
+      "id": "e80e65b1-804d-413d-b437-e5af1f06c684",
+      "name": "KW Suggestions API Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "smbda8tk5GxCFbME",
+          "name": "DataForSEO"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "tasks[0].result[0].items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        300,
+        460
+      ],
+      "id": "e3a78ee7-50df-4391-9e0c-95079b902cf9",
+      "name": "Split Out Suggested KWs"
+    },
+    {
+      "parameters": {
+        "content": "## Get Keyword Suggestions from DFSEO and Create Airtable Record\n\nNote: Some API data is hardcoded for now.",
+        "height": 300,
+        "width": 940
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        360
+      ],
+      "id": "606a8cce-6ee0-43dd-9d64-6ee08ad0f7ba",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[{\n        \"keywords\": [ \n          \"{{ $json['Primary Keyword'] }}\"],\n        \"location_name\": \"{{ $json.Location }}\",\n        \"language_name\": \"{{ $json.Language }}\",\n        \"include_serp_info\": true,\n        \"include_seed_keyword\": false,\n        \"ignore_synonyms\": false,\n        \"closely_variants\": true,\n        \"limit\": {{ $json.Limit }}\n    }]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        80,
+        800
+      ],
+      "id": "a18f9aa3-533f-4b9a-b502-224aef47bd09",
+      "name": "KW Ideas API Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "smbda8tk5GxCFbME",
+          "name": "DataForSEO"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Get Keyword Ideas from DFSEO and Create Airtable Record\n\nNote: Some API data is hardcoded for now.",
+        "height": 300,
+        "width": 940
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        700
+      ],
+      "id": "da914a9d-c3cf-4460-8902-591f895da886",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "tasks[0].result[0].items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        300,
+        1160
+      ],
+      "id": "4c699ba9-c498-4321-ba01-5cc4090fef4c",
+      "name": "Split Out Autocomplete"
+    },
+    {
+      "parameters": {
+        "content": "## Get autocomplete from DFSEO\n\n",
+        "height": 300,
+        "width": 940
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        1040
+      ],
+      "id": "82eb9da5-054a-4894-9737-664a3f4a3724",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[{\n        \"keyword\": \"{{ $json['Primary Keyword'] }}\",\n        \"location_name\": \"{{ $json.Location }}\",\n        \"language_name\": \"{{ $json.Language }}\",\n        \"depth\": 25,\n        \"people_also_ask_click_depth\": 1\n    }]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        60,
+        1480
+      ],
+      "id": "197c8169-bfba-4260-b287-605476f64f5e",
+      "name": "Serp API Request1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "smbda8tk5GxCFbME",
+          "name": "DataForSEO"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/serp/google/autocomplete/live/advanced",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[{\n        \"keyword\": \"{{ $json['Primary Keyword'] }}\",\n        \"location_name\": \"{{ $json.Location }}\",\n        \"language_name\": \"{{ $json.Language }}\",\n        \"client\": \"gws-wiz-serp\"\n        \n    }]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        80,
+        1160
+      ],
+      "id": "de1b4d4e-c485-4f39-8ce5-084fb363699d",
+      "name": "Autocomplete API Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "smbda8tk5GxCFbME",
+          "name": "DataForSEO"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "tasks[0].result[0].items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        300,
+        1480
+      ],
+      "id": "dda65103-66bc-43f7-b9ed-4a3939ff6558",
+      "name": "Split Out SERP"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "79fc8440-e131-4d3f-858d-653e0f210cde",
+              "leftValue": "={{ $json.type }}",
+              "rightValue": "organic",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        520,
+        1480
+      ],
+      "id": "11bf625b-5c79-4d99-aa76-c5663dc201b4",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl3V1Zz2nGtlc5xI",
+          "mode": "list",
+          "cachedResultName": "SERP Results",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tbl3V1Zz2nGtlc5xI"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "SERP URL": "={{ $json.url }}",
+            "Primary Keyword": "={{ $('Set Fields for API Request').item.json['Primary Keyword'] }}",
+            "Domain": "={{ $json.domain }}",
+            "Title": "={{ $json.title }}",
+            "Description": "={{ $json.description }}",
+            "Type": "={{ $json.type }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "SERP URL",
+              "displayName": "SERP URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Domain",
+              "displayName": "Domain",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        920,
+        1480
+      ],
+      "id": "4e88b362-e71f-49fe-82c9-197697d2fd3d",
+      "name": "Create SERPS",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "79fc8440-e131-4d3f-858d-653e0f210cde",
+              "leftValue": "={{ $json.type }}",
+              "rightValue": "people_also_ask",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        520,
+        1660
+      ],
+      "id": "d0e620a0-f781-4f2b-b96e-8f6eebff2363",
+      "name": "Filter1"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        720,
+        1660
+      ],
+      "id": "91484cd3-0004-4286-a95b-17a675a32a8b",
+      "name": "Split Out People Also Ask"
+    },
+    {
+      "parameters": {
+        "content": "## Get SERP from DFSEO for SERP Results and People Also Ask\n\nNote: SERP depth hardcoded to 25 and people also ask depth set to 1.",
+        "height": 440,
+        "width": 1300
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        1380
+      ],
+      "id": "6efad3ba-930f-4da8-a007-7ed82b6e07d6",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/content_generation/generate_sub_topics/live",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[{\n        \"topic\": \"{{ $json['Primary Keyword'] }}\"\n        \n    }]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        60,
+        1960
+      ],
+      "id": "cd55ebd7-0868-4df6-ab0a-a9e1de7f0de6",
+      "name": "Generate Subtopics API Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "smbda8tk5GxCFbME",
+          "name": "DataForSEO"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "tasks[0].result[0].sub_topics",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        320,
+        1960
+      ],
+      "id": "603c164c-31a4-40de-bbdb-c375d35d1bb2",
+      "name": "Split Out Subtopics"
+    },
+    {
+      "parameters": {
+        "content": "## Get Subtopics from DataForSEO\n\nNote: Some API data is hardcoded for now.",
+        "height": 320,
+        "width": 940
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        1860
+      ],
+      "id": "d5a0dbbb-b52c-4e80-a833-dfaf88b151ca",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6b75ee21-f3f7-49c9-8483-8cf0652d9cae",
+              "name": "Primary Keyword",
+              "value": "={{ $json['Primary Keyword'] }}",
+              "type": "string"
+            },
+            {
+              "id": "786af268-6e97-4658-b25c-52e90ca3451e",
+              "name": "Location",
+              "value": "={{ $json.Location }}",
+              "type": "string"
+            },
+            {
+              "id": "63424bac-a8eb-4e2a-8d07-329690707b59",
+              "name": "Language",
+              "value": "={{ $json.Language }}",
+              "type": "string"
+            },
+            {
+              "id": "92c703b4-e45f-4976-b033-39e5104c6b42",
+              "name": "Limit",
+              "value": "={{ $json.Limit }}",
+              "type": "string"
+            },
+            {
+              "id": "cf2fb225-4616-4e45-a63e-e9b6237cdd18",
+              "name": "Depth",
+              "value": "={{ $json.Depth }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -540,
+        580
+      ],
+      "id": "eda9c938-0961-4908-95c5-8dd600d1de4e",
+      "name": "Set Fields for API Request"
+    },
+    {
+      "parameters": {
+        "content": "## Related API Depth hardcoded = 2. Lot's more results.\n"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        20
+      ],
+      "id": "42216bc8-01fe-4f02-a532-f30de8e2d876",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6157f47a-e94c-4376-abcd-007640a41169",
+              "name": "keyword suggestion",
+              "value": "={{ $json.keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "a32d363d-ab61-4b41-b493-59758bb3b63c",
+              "name": "msv",
+              "value": "={{ $json.keyword_info.search_volume }}",
+              "type": "number"
+            },
+            {
+              "id": "bdb9e1ef-3aab-47bd-8049-124598a99490",
+              "name": "search intent",
+              "value": "={{ $json.search_intent_info.main_intent }}",
+              "type": "string"
+            },
+            {
+              "id": "4182ed56-b8ec-4948-b5c5-ce46b37f1e55",
+              "name": "kw difficulty",
+              "value": "={{ $json.keyword_properties.keyword_difficulty }}",
+              "type": "number"
+            },
+            {
+              "id": "e22a02ec-3176-426e-9307-9e0d36e52f31",
+              "name": "competition",
+              "value": "={{ $json.keyword_info.competition_level }}",
+              "type": "string"
+            },
+            {
+              "id": "a1bd2420-7eeb-4565-bdab-dd8ecc770664",
+              "name": "type",
+              "value": "KW Suggestion",
+              "type": "string"
+            },
+            {
+              "id": "1b16babf-4939-4a34-94a9-80fd8d582664",
+              "name": "CPC",
+              "value": "={{ $json.keyword_info.cpc }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        500,
+        460
+      ],
+      "id": "b173871c-d241-42ee-85d4-bc6cd3b96f45",
+      "name": "Set KW Suggestion Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "69bd646b-3cdf-406a-bd27-02e76189ccc0",
+              "name": "related keyword",
+              "value": "={{ $json.keyword_data.keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "3c2ffca8-0088-4c96-a39b-e173456a8d39",
+              "name": "msv",
+              "value": "={{ $json.keyword_data.keyword_info.search_volume }}",
+              "type": "number"
+            },
+            {
+              "id": "f242821d-13ea-4cca-a65c-e7ce1dd70098",
+              "name": "search intent",
+              "value": "={{ $json.keyword_data.search_intent_info.main_intent }}",
+              "type": "string"
+            },
+            {
+              "id": "8f3f803e-2a0f-44a9-b200-e7228b0e384a",
+              "name": "KW Difficulty",
+              "value": "={{ $json.keyword_data.keyword_properties.keyword_difficulty }}",
+              "type": "number"
+            },
+            {
+              "id": "654c01f6-6cc4-463c-9ec8-fecb52e91649",
+              "name": "Competition",
+              "value": "={{ $json.keyword_data.keyword_info.competition_level }}",
+              "type": "string"
+            },
+            {
+              "id": "ae49e383-99de-4707-9577-bc02a4d7df6f",
+              "name": "type",
+              "value": "KW Related",
+              "type": "string"
+            },
+            {
+              "id": "3d6cf607-2a2a-40f6-90e3-ee1a64ed4ecf",
+              "name": "CPC",
+              "value": "={{ $json.keyword_data.keyword_info.cpc }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        500,
+        140
+      ],
+      "id": "1688cfd2-ee85-4bde-83fe-2221a84e27f5",
+      "name": "Set KW Related Fields"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "tasks[0].result[0].items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        300,
+        800
+      ],
+      "id": "7f0e84d9-2b5c-408f-9653-b14dad7ad903",
+      "name": "Split Out KW Ideas"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6157f47a-e94c-4376-abcd-007640a41169",
+              "name": "keyword ideas",
+              "value": "={{ $json.keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "a32d363d-ab61-4b41-b493-59758bb3b63c",
+              "name": "msv",
+              "value": "={{ $json.keyword_info.search_volume }}",
+              "type": "number"
+            },
+            {
+              "id": "bdb9e1ef-3aab-47bd-8049-124598a99490",
+              "name": "search intent",
+              "value": "={{ $json.search_intent_info.main_intent }}",
+              "type": "string"
+            },
+            {
+              "id": "4182ed56-b8ec-4948-b5c5-ce46b37f1e55",
+              "name": "kw difficulty",
+              "value": "={{ $json.keyword_properties.keyword_difficulty }}",
+              "type": "number"
+            },
+            {
+              "id": "e22a02ec-3176-426e-9307-9e0d36e52f31",
+              "name": "competition",
+              "value": "={{ $json.keyword_info.competition_level }}",
+              "type": "string"
+            },
+            {
+              "id": "f60d01f8-43c2-4ad3-834b-9be2a7753714",
+              "name": "type",
+              "value": "KW Idea",
+              "type": "string"
+            },
+            {
+              "id": "7aa0d762-6e43-4033-a4df-8d669cf99e3a",
+              "name": "CPC",
+              "value": "={{ $json.keyword_info.cpc }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        500,
+        800
+      ],
+      "id": "b1ef2c7a-f7e9-4e5d-9c42-52cd150b94d6",
+      "name": "Set Keyword Ideas Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6157f47a-e94c-4376-abcd-007640a41169",
+              "name": "autocomplete",
+              "value": "={{ $json.suggestion }}",
+              "type": "string"
+            },
+            {
+              "id": "f4368147-ae57-4d1e-b1e0-ff7a27f9f2c3",
+              "name": "primary keyword",
+              "value": "={{ $('Set Fields for API Request').item.json['Primary Keyword'] }}",
+              "type": "string"
+            },
+            {
+              "id": "50ff7db5-6b18-447d-bd31-7869afce6e38",
+              "name": "type",
+              "value": "={{ $json.type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        500,
+        1160
+      ],
+      "id": "7fcd9243-b766-4252-b9ae-4337f5dc7ca2",
+      "name": "Set Autocomplete Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "67f7b4e0-2628-4b15-a0d7-b64a46d88271",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "55b8c458-7260-49dc-b788-06f1c4c72de8",
+              "name": "title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "8ce734f9-91b4-47ab-ad97-292922167bb1",
+              "name": "description",
+              "value": "={{ $json.description }}",
+              "type": "string"
+            },
+            {
+              "id": "0f00585b-dbb9-4907-8856-b39c05d14935",
+              "name": "domain",
+              "value": "={{ $json.domain }}",
+              "type": "string"
+            },
+            {
+              "id": "2928795b-ce40-471c-888d-21c1474300ce",
+              "name": "type",
+              "value": "SERP",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        700,
+        1480
+      ],
+      "id": "54da36e2-ad41-46bf-90d6-338554681582",
+      "name": "Set SERP Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bd7308fb-28af-4482-b8aa-9fbd8cfe0496",
+              "name": "People Also Ask",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "28e516f8-b4b9-45e4-85a8-98239dcaa652",
+              "name": "type ",
+              "value": "=People Also Ask",
+              "type": "string"
+            },
+            {
+              "id": "ceb1c8db-bb27-4b95-bea3-f529fe927a7e",
+              "name": "Description",
+              "value": "={{ $json.expanded_element[0].description }}",
+              "type": "string"
+            },
+            {
+              "id": "bed2fe8e-6934-4a46-8b65-e8bb39b87a93",
+              "name": "primary keyword",
+              "value": "={{ $('Set Fields for API Request').item.json['Primary Keyword'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        920,
+        1660
+      ],
+      "id": "940aecb8-c95b-46ea-918f-e874d8c445a0",
+      "name": "Set PAA Fileds"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "31bbeb23-007a-449d-8d91-214c28c64c40",
+              "name": "Subtopic",
+              "value": "={{ $json['tasks[0].result[0].sub_topics'] }}",
+              "type": "string"
+            },
+            {
+              "id": "99727ce6-c531-40d1-bf96-3b63cd2c50fd",
+              "name": "Type",
+              "value": "Subtopic",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        540,
+        1960
+      ],
+      "id": "4d78e4c9-a9cc-4378-bf6f-e0527fa013de",
+      "name": "Set Generate Subtopics Fields"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblewTSMwBdGQKUuZ",
+          "mode": "list",
+          "cachedResultName": "Primary Keywords",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblewTSMwBdGQKUuZ"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Get Primary Keyword').item.json.id }}",
+            "Trigger": "KW Research Complete"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Trigger",
+              "displayName": "Trigger",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Waiting",
+                  "value": "Waiting"
+                },
+                {
+                  "name": "Get Keyword Research",
+                  "value": "Get Keyword Research"
+                },
+                {
+                  "name": "KW Research Complete",
+                  "value": "KW Research Complete"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Location",
+              "displayName": "Location",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Language",
+              "displayName": "Language",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Limit",
+              "displayName": "Limit",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Depth",
+              "displayName": "Depth",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        2240
+      ],
+      "id": "a5e5dc16-1486-456a-ba51-4fadb0cf3e6f",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Add to Master KW Variations Sheet",
+        "height": 320,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        980,
+        0
+      ],
+      "id": "db91507c-277c-459e-b438-e61066f05c8b",
+      "name": "Sticky Note8"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblnofRS1aBnkyzlr",
+          "mode": "list",
+          "cachedResultName": "KW Related",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblnofRS1aBnkyzlr"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Keyword": "={{ $json['related keyword'] }}",
+            "Primary Keyword": "={{ $('Set Fields for API Request').item.json['Primary Keyword'] }}",
+            "MSV": "={{ $json.msv }}",
+            "Search Intent": "={{ $json['search intent'] }}",
+            "KW Difficulty": "={{ $json['KW Difficulty'] }}",
+            "Competition": "={{ $json.Competition }}",
+            "CPC": "={{ $json.CPC }}",
+            "Type": "={{ $json.type }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Keyword",
+              "displayName": "Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "MSV",
+              "displayName": "MSV",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Search Intent",
+              "displayName": "Search Intent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "KW Difficulty",
+              "displayName": "KW Difficulty",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Competition",
+              "displayName": "Competition",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CPC",
+              "displayName": "CPC",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        740,
+        140
+      ],
+      "id": "3f400fa7-b2ac-4cf9-9b49-c469d788bd99",
+      "name": "Related KW Variations",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl3kPr7Th8k7zpke",
+          "mode": "list",
+          "cachedResultName": "KW Suggestions",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tbl3kPr7Th8k7zpke"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "MSV": "={{ $json.msv }}",
+            "KW Difficulty": "={{ $json['kw difficulty'] }}",
+            "CPC": "={{ $json.CPC }}",
+            "Keyword": "={{ $json['keyword suggestion'] }}",
+            "Search Intent": "={{ $json['search intent'] }}",
+            "Competition": "={{ $json.competition }}",
+            "Primary Keyword": "={{ $('Set Fields for API Request').item.json['Primary Keyword'] }}",
+            "Date Pulled from D4SEO": "= {{ $now.format('MM-dd-yyyy') }}",
+            "Analyzed?": "No",
+            "Type": "={{ $json.type }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Keyword",
+              "displayName": "Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "MSV",
+              "displayName": "MSV",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Search Intent",
+              "displayName": "Search Intent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "KW Difficulty",
+              "displayName": "KW Difficulty",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Competition",
+              "displayName": "Competition",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CPC",
+              "displayName": "CPC",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Pulled from D4SEO",
+              "displayName": "Date Pulled from D4SEO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Analyzed?",
+              "displayName": "Analyzed?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        740,
+        460
+      ],
+      "id": "84256dcd-2d37-41d8-8bf1-77889e464fea",
+      "name": "Suggestions Variations",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl6dn2Tu6SrJF4vj",
+          "mode": "list",
+          "cachedResultName": "KW Ideas",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tbl6dn2Tu6SrJF4vj"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "KW Idea": "={{ $json['keyword ideas'] }}",
+            "MSV": "={{ $json.msv }}",
+            "Search Intent": "={{ $json['search intent'] }}",
+            "KW Difficulty": "={{ $json['kw difficulty'] }}",
+            "Competition": "={{ $json.competition }}",
+            "CPC": "={{ $json.CPC }}",
+            "Type": "={{ $json.type }}",
+            "Primary Keyword": "={{ $('KW Ideas API Request').item.json.tasks[0].data.keywords[0] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "KW Idea",
+              "displayName": "KW Idea",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "MSV",
+              "displayName": "MSV",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Search Intent",
+              "displayName": "Search Intent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "KW Difficulty",
+              "displayName": "KW Difficulty",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Competition",
+              "displayName": "Competition",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CPC",
+              "displayName": "CPC",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        740,
+        800
+      ],
+      "id": "2886dbfb-c5a5-4c91-8ab5-0b732c86b1c7",
+      "name": "Ideas Variations",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Add to Master KW Variations Sheet",
+        "height": 300,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        980,
+        360
+      ],
+      "id": "d81e5698-beed-4c86-8ece-c67a2edf6090",
+      "name": "Sticky Note9"
+    },
+    {
+      "parameters": {
+        "content": "## Add to Master KW Variations Sheet",
+        "height": 300,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        980,
+        700
+      ],
+      "id": "50755458-b012-48fb-9fc6-297678a146c7",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "content": "## Add to Master KW Variations Sheet",
+        "height": 300,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        980,
+        1040
+      ],
+      "id": "98d10b5e-3021-493c-9ed5-8283eabacc39",
+      "name": "Sticky Note11"
+    },
+    {
+      "parameters": {
+        "content": "## Add to Master KW Variations Sheet",
+        "height": 440,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        1380
+      ],
+      "id": "7de88478-4784-400f-bb2e-e38cece47f66",
+      "name": "Sticky Note12"
+    },
+    {
+      "parameters": {
+        "content": "## Add to Master KW Variations Sheet",
+        "height": 320,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        980,
+        1860
+      ],
+      "id": "90a79486-59b7-4155-8272-b52af55537a5",
+      "name": "Sticky Note13"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblHz4bwclrB24afu",
+          "mode": "list",
+          "cachedResultName": "Master All KW Variations",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblHz4bwclrB24afu"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "MSV": "={{ $json.fields.MSV }}",
+            "Search Intent": "={{ $json.fields['Search Intent'] }}",
+            "KW Difficulty": "={{ $json.fields['KW Difficulty'] }}",
+            "Competition": "={{ $json.fields.Competition }}",
+            "CPC": "={{ $json.fields.CPC }}",
+            "Type": "={{ $json.fields.Type }}",
+            "Keyword": "={{ $json.fields.Keyword }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Keyword",
+              "displayName": "Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "MSV",
+              "displayName": "MSV",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Search Intent",
+              "displayName": "Search Intent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "KW Difficulty",
+              "displayName": "KW Difficulty",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Competition",
+              "displayName": "Competition",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CPC",
+              "displayName": "CPC",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1040,
+        140
+      ],
+      "id": "76d928ce-b3e3-44e6-bb00-c596a2c3c7f3",
+      "name": "Related Master KW Variations",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblHz4bwclrB24afu",
+          "mode": "list",
+          "cachedResultName": "Master All KW Variations",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblHz4bwclrB24afu"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "MSV": "={{ $json.fields.MSV }}",
+            "KW Difficulty": "={{ $json.fields['KW Difficulty'] }}",
+            "CPC": "={{ $json.fields.CPC }}",
+            "Keyword": "={{ $json.fields.Keyword }}",
+            "Search Intent": "={{ $json.fields['Search Intent'] }}",
+            "Competition": "={{ $json.fields.Competition }}",
+            "Primary Keyword": "={{ $('Set Fields for API Request').item.json['Primary Keyword'] }}",
+            "Date Pulled from D4SEO": "= {{ $now.format('MM-dd-yyyy') }}",
+            "Analyzed?": "No",
+            "Type": "={{ $json.fields.Type }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Keyword",
+              "displayName": "Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "MSV",
+              "displayName": "MSV",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Search Intent",
+              "displayName": "Search Intent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "KW Difficulty",
+              "displayName": "KW Difficulty",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Competition",
+              "displayName": "Competition",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CPC",
+              "displayName": "CPC",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Pulled from D4SEO",
+              "displayName": "Date Pulled from D4SEO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Analyzed?",
+              "displayName": "Analyzed?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1040,
+        460
+      ],
+      "id": "ce0dea4c-d118-4ed9-9253-51c4a937e6d6",
+      "name": "Suggestions Master KW Variations",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblHz4bwclrB24afu",
+          "mode": "list",
+          "cachedResultName": "Master All KW Variations",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblHz4bwclrB24afu"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "KW Idea": "={{ $json.fields['KW Idea'] }}",
+            "MSV": "={{ $json.fields.MSV }}",
+            "Search Intent": "={{ $json.fields['Search Intent'] }}",
+            "KW Difficulty": "={{ $json.fields['KW Difficulty'] }}",
+            "Competition": "={{ $json.fields.Competition }}",
+            "CPC": "={{ $json.fields.CPC }}",
+            "Type": "={{ $json.fields.Type }}",
+            "Primary Keyword": "={{ $('KW Ideas API Request').item.json.tasks[0].data.keywords[0] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "KW Idea",
+              "displayName": "KW Idea",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "MSV",
+              "displayName": "MSV",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Search Intent",
+              "displayName": "Search Intent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "KW Difficulty",
+              "displayName": "KW Difficulty",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Competition",
+              "displayName": "Competition",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CPC",
+              "displayName": "CPC",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1040,
+        800
+      ],
+      "id": "dde7e1e9-d9d3-41ba-af7c-f90ae217f739",
+      "name": "Ideas Master KW Variations",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblSo2lNnODTad29K",
+          "mode": "list",
+          "cachedResultName": "Autocomplete",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblSo2lNnODTad29K"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Autocomplete": "={{ $json.autocomplete }}",
+            "Primary Keyword": "={{ $('Set Fields for API Request').item.json['Primary Keyword'] }}",
+            "Relevance": "={{ $('Split Out Autocomplete').item.json.relevance }}",
+            "Suggestion Type": "={{ $('Split Out Autocomplete').item.json.suggestion_type }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Autocomplete",
+              "displayName": "Autocomplete",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Relevance",
+              "displayName": "Relevance",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Suggestion Type",
+              "displayName": "Suggestion Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        740,
+        1160
+      ],
+      "id": "d6bc3ce5-db17-4c80-b14a-162614c55df6",
+      "name": "Autocomplete Variations",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblHz4bwclrB24afu",
+          "mode": "list",
+          "cachedResultName": "Master All KW Variations",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblHz4bwclrB24afu"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Autocomplete": "={{ $json.fields.Autocomplete }}",
+            "Primary Keyword": "={{ $('Set Fields for API Request').item.json['Primary Keyword'] }}",
+            "Relevance": "={{ $('Split Out Autocomplete').item.json.relevance }}",
+            "Suggestion Type": "={{ $('Split Out Autocomplete').item.json.suggestion_type }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Autocomplete",
+              "displayName": "Autocomplete",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Relevance",
+              "displayName": "Relevance",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Suggestion Type",
+              "displayName": "Suggestion Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1040,
+        1160
+      ],
+      "id": "05dfca73-7263-438e-821b-35d38965da48",
+      "name": "Autocomplete Master KW Variations",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblK6EOnqrfp1z1G0",
+          "mode": "list",
+          "cachedResultName": "People Also Ask",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblK6EOnqrfp1z1G0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "People Also Ask": "={{ $json['People Also Ask'] }}",
+            "Type": "={{ $json['type '] }}",
+            "Description": "={{ $json.Description }}",
+            "Primary Keyword": "={{ $json['primary keyword'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "People Also Ask",
+              "displayName": "People Also Ask",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1100,
+        1660
+      ],
+      "id": "238da800-189d-42ff-b7e1-bd668f0d9d66",
+      "name": "PAA Variations",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblHz4bwclrB24afu",
+          "mode": "list",
+          "cachedResultName": "Master All KW Variations",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblHz4bwclrB24afu"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "People Also Ask": "={{ $json.fields['People Also Ask'] }}",
+            "Type": "={{ $json.fields.Type }}",
+            "Description": "={{ $json.fields.Description }}",
+            "Primary Keyword": "={{ $json.fields['Primary Keyword'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "People Also Ask",
+              "displayName": "People Also Ask",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1400,
+        1660
+      ],
+      "id": "2a4eec8a-21da-4411-909a-78e7b675a29b",
+      "name": "PAA Master KW Variations",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbllif7HkYvjoRqpB",
+          "mode": "list",
+          "cachedResultName": "Generate Subtopics",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tbllif7HkYvjoRqpB"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subtopic": "={{ $json.Subtopic }}",
+            "Type": "={{ $json.Type }}",
+            "Primary Keyword": "={{ $('Set Fields for API Request').item.json['Primary Keyword'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Subtopic",
+              "displayName": "Subtopic",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        740,
+        1960
+      ],
+      "id": "7e0e553d-0e94-4498-92cb-b6cf3d3549b7",
+      "name": "Subtopics Variations",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblHz4bwclrB24afu",
+          "mode": "list",
+          "cachedResultName": "Master All KW Variations",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblHz4bwclrB24afu"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subtopic": "={{ $json.fields.Subtopic }}",
+            "Type": "={{ $json.fields.Type }}",
+            "Primary Keyword": "={{ $json.fields['Primary Keyword'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Subtopic",
+              "displayName": "Subtopic",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1040,
+        1960
+      ],
+      "id": "66e73072-2c7a-4bf4-9e7c-27124581df73",
+      "name": "Subtopics Master KW Variations",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-03-01T21:58:36.272Z",
+      "updatedAt": "2025-03-01T21:58:36.272Z",
+      "id": "pQFG9rW2tkge7v5C",
+      "name": "Content Creation"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-03-03T05:56:14.812Z",
+  "versionId": "f6674ddd-d018-40ba-872d-12139d2abf99"
+}
