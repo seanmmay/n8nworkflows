@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "On clicking 'execute'": {
       "main": [
@@ -423,8 +423,8 @@
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "6a7hHcYCU33Eiv3s",
-          "name": "Self Hosted n8n account"
+          "id": "eNiy8OpK852rmabH",
+          "name": "n8n account"
         }
       }
     },
@@ -490,7 +490,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-02-27T18:53:13.467Z",
-  "versionId": "cb5bd027-108e-4cf8-995d-40fa0b595ba3"
+  "triggerCount": 1,
+  "updatedAt": "2025-02-27T19:01:21.637Z",
+  "versionId": "a61721da-e3cc-4dac-926b-e6a597aa6964"
 }
