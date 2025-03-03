@@ -1,0 +1,443 @@
+{
+  "active": false,
+  "connections": {
+    "WebhookAdd": {
+      "main": [
+        [
+          {
+            "node": "SupabaseInsertAdd",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SupabaseInsertAdd": {
+      "main": [
+        [
+          {
+            "node": "RespondAddWebhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WebhookCheck": {
+      "main": [
+        [
+          {
+            "node": "SupabaseGetCheck",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SupabaseGetCheck": {
+      "main": [
+        [
+          {
+            "node": "OpenAICheck",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAICheck": {
+      "main": [
+        [
+          {
+            "node": "RespondCheckWebhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WebhookConfirm": {
+      "main": [
+        [
+          {
+            "node": "SupabaseUpdateConfirm",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SupabaseUpdateConfirm": {
+      "main": [
+        [
+          {
+            "node": "RespondConfirmWebhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Supabase Insert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Insert": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Supabase Fetch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Fetch": {
+      "main": [
+        [
+          {
+            "node": "OpenAI Review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Review": {
+      "main": [
+        [
+          {
+            "node": "IF Outdated?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF Outdated?": {
+      "main": [
+        [
+          {
+            "node": "Supabase Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-27T19:25:19.286Z",
+  "id": "pcWeZEAOVsBejUls",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Knowledge Base Update Test",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "addData",
+        "options": {}
+      },
+      "id": "aa883dbb-0f09-4a87-8bfe-7f0e6ca40d3d",
+      "name": "WebhookAdd",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "e1df2bbc-a3c4-4c66-8ca6-WebhookAdd"
+    },
+    {
+      "parameters": {
+        "tableId": "documents"
+      },
+      "id": "50d8e06f-f5dc-4bd6-a4e4-b61cd804ccec",
+      "name": "SupabaseInsertAdd",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        200,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"status\": \"success\", \"message\": \"New document added to knowledge base.\" }",
+        "options": {}
+      },
+      "id": "8023aa87-22bf-480e-8c8c-1ffdeaff4d02",
+      "name": "RespondAddWebhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        400,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "path": "checkData",
+        "options": {}
+      },
+      "id": "c0c6ba83-46a6-47b4-b8d4-f672c45bcf28",
+      "name": "WebhookCheck",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        200
+      ],
+      "webhookId": "78f81e3f-4942-43db-a6f9-WebhookCheck"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "documents",
+        "returnAll": true
+      },
+      "id": "39efbae5-e675-469f-94ce-52cb188295f9",
+      "name": "SupabaseGetCheck",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        200,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "model": "text-davinci-003",
+        "prompt": "={{\"The following text is from our knowledge base: \\n\" + $json[\"content\"] + \"\\n\\nDetermine if it is out of date. If it is outdated, please provide an updated version. If it is current, return it unchanged.\"}}",
+        "options": {},
+        "requestOptions": {}
+      },
+      "id": "23bab168-54df-4855-a0ad-811f8ff8dc09",
+      "name": "OpenAICheck",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        400,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ {\n  \"originalContent\": $json[\"content\"],\n  \"updatedContent\": $node[\"OpenAICheck\"].json[\"text\"],\n  \"message\": \"Here is the original content and a potentially updated version if changes are needed. You can confirm any changes by calling the confirmUpdate webhook with the 'id' and 'updatedContent'.\"\n} }}",
+        "options": {}
+      },
+      "id": "b1cb9994-1b95-4a89-90e2-2bf5b04e6fd7",
+      "name": "RespondCheckWebhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        600,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "path": "confirmUpdate",
+        "options": {}
+      },
+      "id": "74b1af31-d14f-472c-8355-fac141829973",
+      "name": "WebhookConfirm",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        400
+      ],
+      "webhookId": "5be2ff9a-8179-4a45-b710-WebhookConfirm"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "documents"
+      },
+      "id": "8bf38001-b5d0-4122-be90-78ce50fd90a1",
+      "name": "SupabaseUpdateConfirm",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        200,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"status\": \"success\", \"message\": \"Document updated successfully.\" }",
+        "options": {}
+      },
+      "id": "01f18a63-25ba-4c09-8dba-0b8843b9ab1c",
+      "name": "RespondConfirmWebhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        400,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "path": "rag_webhook",
+        "options": {}
+      },
+      "id": "6ac507a4-8a55-4f3e-84aa-3f1b1f7bd6df",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        300,
+        1020
+      ],
+      "webhookId": "e59ad858-9871-4e0e-b01f-eaa6efffae57"
+    },
+    {
+      "parameters": {
+        "tableId": "documents"
+      },
+      "id": "1d4a4854-8d55-4b09-b031-3386a513d194",
+      "name": "Supabase Insert",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        600,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"status\": \"success\", \"message\": \"Data stored in knowledge base.\"}",
+        "options": {}
+      },
+      "id": "02913d43-5ac3-4df8-a9cb-65604cb65a4f",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        820,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 0 * * *"
+            }
+          ]
+        }
+      },
+      "id": "7c6fc532-b931-4c67-9c7b-f4e37bd6aafc",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        220,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "documents",
+        "returnAll": true
+      },
+      "id": "c0989526-03d4-48ca-9fc2-362964f5dcb2",
+      "name": "Supabase Fetch",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        520,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "model": "text-davinci-003",
+        "prompt": "={{ \"Analyze the following knowledge base entry and determine if it contains outdated or incorrect information. If it is up-to-date, return it exactly as-is. If it is outdated, provide an updated version of the content:\\n\\n\" + $json[\"content\"] + \"\\n\" }}",
+        "options": {},
+        "requestOptions": {}
+      },
+      "id": "de9a3d25-079e-4f4d-8333-48d849dad9e0",
+      "name": "OpenAI Review",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        820,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json[\"content\"] }}",
+              "operation": "notEqual",
+              "value2": "={{ $node[\"OpenAI Review\"].json[\"text\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "02fbad4e-762e-4cb8-afde-6b7decd330e8",
+      "name": "IF Outdated?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "documents"
+      },
+      "id": "94aa9ac6-24ce-41ef-922f-3e5429c06b07",
+      "name": "Supabase Update",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        640
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-02-27T19:25:47.277Z",
+  "versionId": "bd4dfe8f-4412-43f2-b329-6439aea455b3"
+}
