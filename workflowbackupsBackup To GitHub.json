@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "n8n": {
       "main": [
@@ -907,6 +907,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-02-26T18:04:17.877Z",
+  "updatedAt": "2025-02-27T19:01:28.112Z",
   "versionId": "2c6699b9-a5f5-4876-94d5-af3dfc14ef0c"
 }
