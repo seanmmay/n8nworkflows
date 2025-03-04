@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Airtable Webhook": {
       "main": [
@@ -886,7 +886,7 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        720,
+        700,
         1660
       ],
       "id": "91484cd3-0004-4286-a95b-17a675a32a8b",
@@ -2057,145 +2057,6 @@
           "mappingMode": "defineBelow",
           "value": {
             "MSV": "={{ $json.fields.MSV }}",
-            "Search Intent": "={{ $json.fields['Search Intent'] }}",
-            "KW Difficulty": "={{ $json.fields['KW Difficulty'] }}",
-            "Competition": "={{ $json.fields.Competition }}",
-            "CPC": "={{ $json.fields.CPC }}",
-            "Type": "={{ $json.fields.Type }}",
-            "Keyword": "={{ $json.fields.Keyword }}"
-          },
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "Keyword",
-              "displayName": "Keyword",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Primary Keyword",
-              "displayName": "Primary Keyword",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Type",
-              "displayName": "Type",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "MSV",
-              "displayName": "MSV",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "number",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Search Intent",
-              "displayName": "Search Intent",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "KW Difficulty",
-              "displayName": "KW Difficulty",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "number",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Competition",
-              "displayName": "Competition",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "CPC",
-              "displayName": "CPC",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "number",
-              "readOnly": false,
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.1,
-      "position": [
-        1040,
-        140
-      ],
-      "id": "76d928ce-b3e3-44e6-bb00-c596a2c3c7f3",
-      "name": "Related Master KW Variations",
-      "credentials": {
-        "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "create",
-        "base": {
-          "__rl": true,
-          "value": "app0wcBbwLaAlPsnJ",
-          "mode": "list",
-          "cachedResultName": "WebXco D4SEO KW Research New 021725",
-          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
-        },
-        "table": {
-          "__rl": true,
-          "value": "tblHz4bwclrB24afu",
-          "mode": "list",
-          "cachedResultName": "Master All KW Variations",
-          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblHz4bwclrB24afu"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "MSV": "={{ $json.fields.MSV }}",
             "KW Difficulty": "={{ $json.fields['KW Difficulty'] }}",
             "CPC": "={{ $json.fields.CPC }}",
             "Keyword": "={{ $json.fields.Keyword }}",
@@ -2359,20 +2220,20 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "KW Idea": "={{ $json.fields['KW Idea'] }}",
             "MSV": "={{ $json.fields.MSV }}",
             "Search Intent": "={{ $json.fields['Search Intent'] }}",
             "KW Difficulty": "={{ $json.fields['KW Difficulty'] }}",
             "Competition": "={{ $json.fields.Competition }}",
             "CPC": "={{ $json.fields.CPC }}",
             "Type": "={{ $json.fields.Type }}",
-            "Primary Keyword": "={{ $('KW Ideas API Request').item.json.tasks[0].data.keywords[0] }}"
+            "Primary Keyword": "={{ $('KW Ideas API Request').item.json.tasks[0].data.keywords[0] }}",
+            "Keyword": "={{ $json.fields['KW Idea'] }}"
           },
           "matchingColumns": [],
           "schema": [
             {
-              "id": "KW Idea",
-              "displayName": "KW Idea",
+              "id": "Keyword",
+              "displayName": "Keyword",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -2455,6 +2316,28 @@
               "canBeUsedToMatch": true,
               "display": true,
               "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Analyzed?",
+              "displayName": "Analyzed?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Pulled from D4SEO",
+              "displayName": "Date Pulled from D4SEO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
               "readOnly": false,
               "removed": false
             }
@@ -2591,16 +2474,15 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Autocomplete": "={{ $json.fields.Autocomplete }}",
-            "Primary Keyword": "={{ $('Set Fields for API Request').item.json['Primary Keyword'] }}",
-            "Relevance": "={{ $('Split Out Autocomplete').item.json.relevance }}",
-            "Suggestion Type": "={{ $('Split Out Autocomplete').item.json.suggestion_type }}"
+            "Type": "={{ $('Set Autocomplete Fields').item.json.type }}",
+            "Primary Keyword": "={{ $json.fields['Primary Keyword'] }}",
+            "Keyword": "={{ $json.fields.Autocomplete }}"
           },
           "matchingColumns": [],
           "schema": [
             {
-              "id": "Autocomplete",
-              "displayName": "Autocomplete",
+              "id": "Keyword",
+              "displayName": "Keyword",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -2621,8 +2503,8 @@
               "removed": false
             },
             {
-              "id": "Relevance",
-              "displayName": "Relevance",
+              "id": "Type",
+              "displayName": "Type",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -2632,13 +2514,79 @@
               "removed": false
             },
             {
-              "id": "Suggestion Type",
-              "displayName": "Suggestion Type",
+              "id": "MSV",
+              "displayName": "MSV",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Search Intent",
+              "displayName": "Search Intent",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "KW Difficulty",
+              "displayName": "KW Difficulty",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Competition",
+              "displayName": "Competition",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CPC",
+              "displayName": "CPC",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Analyzed?",
+              "displayName": "Analyzed?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Pulled from D4SEO",
+              "displayName": "Date Pulled from D4SEO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
               "readOnly": false,
               "removed": false
             }
@@ -2786,16 +2734,15 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "People Also Ask": "={{ $json.fields['People Also Ask'] }}",
             "Type": "={{ $json.fields.Type }}",
-            "Description": "={{ $json.fields.Description }}",
-            "Primary Keyword": "={{ $json.fields['Primary Keyword'] }}"
+            "Primary Keyword": "={{ $json.fields['Primary Keyword'] }}",
+            "Keyword": "={{ $json.fields['People Also Ask'] }}"
           },
           "matchingColumns": [],
           "schema": [
             {
-              "id": "People Also Ask",
-              "displayName": "People Also Ask",
+              "id": "Keyword",
+              "displayName": "Keyword",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -2827,24 +2774,79 @@
               "removed": false
             },
             {
-              "id": "Title",
-              "displayName": "Title",
+              "id": "MSV",
+              "displayName": "MSV",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Search Intent",
+              "displayName": "Search Intent",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
-              "id": "Description",
-              "displayName": "Description",
+              "id": "KW Difficulty",
+              "displayName": "KW Difficulty",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Competition",
+              "displayName": "Competition",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CPC",
+              "displayName": "CPC",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Analyzed?",
+              "displayName": "Analyzed?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Pulled from D4SEO",
+              "displayName": "Date Pulled from D4SEO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
               "readOnly": false,
               "removed": false
             }
@@ -2969,15 +2971,15 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Subtopic": "={{ $json.fields.Subtopic }}",
             "Type": "={{ $json.fields.Type }}",
-            "Primary Keyword": "={{ $json.fields['Primary Keyword'] }}"
+            "Primary Keyword": "={{ $json.fields['Primary Keyword'] }}",
+            "Keyword": "={{ $json.fields.Subtopic }}"
           },
           "matchingColumns": [],
           "schema": [
             {
-              "id": "Subtopic",
-              "displayName": "Subtopic",
+              "id": "Keyword",
+              "displayName": "Keyword",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -3007,6 +3009,83 @@
               "type": "string",
               "readOnly": false,
               "removed": false
+            },
+            {
+              "id": "MSV",
+              "displayName": "MSV",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Search Intent",
+              "displayName": "Search Intent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "KW Difficulty",
+              "displayName": "KW Difficulty",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Competition",
+              "displayName": "Competition",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CPC",
+              "displayName": "CPC",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Analyzed?",
+              "displayName": "Analyzed?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Pulled from D4SEO",
+              "displayName": "Date Pulled from D4SEO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -3022,6 +3101,168 @@
       ],
       "id": "66e73072-2c7a-4bf4-9e7c-27124581df73",
       "name": "Subtopics Master KW Variations",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fb4kUffY0o7IT00v",
+          "name": "Convert411 Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app0wcBbwLaAlPsnJ",
+          "mode": "list",
+          "cachedResultName": "WebXco D4SEO KW Research New 021725",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblHz4bwclrB24afu",
+          "mode": "list",
+          "cachedResultName": "Master All KW Variations",
+          "cachedResultUrl": "https://airtable.com/app0wcBbwLaAlPsnJ/tblHz4bwclrB24afu"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Keyword": "={{ $json.fields.Keyword }}",
+            "Primary Keyword": "={{ $json.fields['Primary Keyword'] }}",
+            "Type": "={{ $json.fields.Type }}",
+            "MSV": "={{ $json.fields.MSV }}",
+            "Search Intent": "={{ $json.fields['Search Intent'] }}",
+            "KW Difficulty": "={{ $json.fields['KW Difficulty'] }}",
+            "Competition": "={{ $json.fields.Competition }}",
+            "CPC": "={{ $json.fields.CPC }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Keyword",
+              "displayName": "Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Primary Keyword",
+              "displayName": "Primary Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "MSV",
+              "displayName": "MSV",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Search Intent",
+              "displayName": "Search Intent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "KW Difficulty",
+              "displayName": "KW Difficulty",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Competition",
+              "displayName": "Competition",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CPC",
+              "displayName": "CPC",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Analyzed?",
+              "displayName": "Analyzed?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Pulled from D4SEO",
+              "displayName": "Date Pulled from D4SEO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1040,
+        140
+      ],
+      "id": "85c526b6-9072-4aec-9ac6-2fd0238917fa",
+      "name": "Related Master KW Variations",
       "credentials": {
         "airtableTokenApi": {
           "id": "fb4kUffY0o7IT00v",
@@ -3044,6 +3285,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-03-03T05:56:14.812Z",
-  "versionId": "f6674ddd-d018-40ba-872d-12139d2abf99"
+  "updatedAt": "2025-03-03T23:02:15.991Z",
+  "versionId": "7589e8cf-087b-4f6a-8c74-f5268c59f4b8"
 }
