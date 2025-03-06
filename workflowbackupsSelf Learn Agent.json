@@ -1,0 +1,471 @@
+{
+  "active": false,
+  "connections": {
+    "deleteMemory": {
+      "ai_tool": [
+        [
+          {
+            "node": "Super Learning Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Super Learning Agent": {
+      "main": [
+        []
+      ]
+    },
+    "createMemory": {
+      "ai_tool": [
+        [
+          {
+            "node": "Super Learning Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Super Learning Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "searchMemory": {
+      "ai_tool": [
+        [
+          {
+            "node": "Super Learning Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memory": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Memory",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Super Learning Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Super Learning Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-06T19:56:14.874Z",
+  "id": "NOqK2eL6HvczLYPm",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Self Learn Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "=Use the deleteMemory tool to delete old and outdated entries about the user. \n\n# Instructions\n1. When to delete Memory:\n  - Updating Outdated Information: If the agent provided incorrect or outdated information about a specific topic and the user supplies updated details, delete the old memory entry.\n  - Procedure: Identify the old memory by locating the corresponding {{ $json['Record ID'] }} and remove that entry after creating a new memory entry using the createMemory tool.\n\n# Examples \n## Example 1: Incorrect Food Preference\n- The user asks about their favorite food.\n- The agent incorrectly responds with \"sushi.\"\n- The user corrects by stating that their favorite food is \"chocolate.\"\n- The agent locates the old memory for \"sushi\" using the {{ $json['Record ID'] }}, deletes it, and then uses the createMemory tool to add the new memory for \"chocolate.\"\n\n## Example 2: Incorrect Professional Information\n- The user inquires about their job title.\n- The agent responds with \"Marketing Manager.\"\n- The user clarifies that their actual title is \"Sales Manager.\"\n- The agent finds the outdated memory for \"Marketing Manager\" via the {{ $json['Record ID'] }}, deletes it, and then creates a new memory entry for \"Sales Manager.\"\n\n## Example 3: Outdated Travel Experience\n- The user asks about their last travel destination.\n- The agent mentions \"Paris.\"\n- The user updates that they have since visited \"Tokyo.\"\n- The agent identifies the outdated memory entry for \"Paris\" using the {{ $json['Record ID'] }}, deletes it, and then creates a new memory entry for \"Tokyo.\"\n\n# Notes\n- By following these steps, you ensure that the agent always retains the most accurate and up-to-date information about the user.",
+        "operation": "deleteRecord",
+        "base": {
+          "__rl": true,
+          "value": "app7ewtRr6vgyB92v",
+          "mode": "list",
+          "cachedResultName": "Content",
+          "cachedResultUrl": "https://airtable.com/app7ewtRr6vgyB92v"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl8riXYMem0mtn7D",
+          "mode": "list",
+          "cachedResultName": "Content",
+          "cachedResultUrl": "https://airtable.com/app7ewtRr6vgyB92v/tbl8riXYMem0mtn7D"
+        },
+        "id": "={{ $fromAI(\"outdatedrecordID\", \"recordID of the memory that needs to be updated\") }}"
+      },
+      "type": "n8n-nodes-base.airtableTool",
+      "typeVersion": 2.1,
+      "position": [
+        1260,
+        440
+      ],
+      "id": "3397ab71-a846-4034-8e1b-604f58b20d49",
+      "name": "deleteMemory",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.chatInput }}",
+        "options": {
+          "systemMessage": "=# Role \nYou are a personal assistant with advanced memory capabilities. Your role is to learn from each user interaction by creating, storing, retrieving, and updating memories. This enables you to offer context-aware, personalized support over time.\n\n# Instruction \nFollow these guidelines to interact with the user and maintain accurate memory: \nWhen interacting with the user, follow these guidelines to manage memory:\n1. New Information: When you receive new details about the user that are not in the database, use the createMemory tool to add this information.\n2. Outdated or Incorrect Information: If you encounter outdated or incorrect details and the user provides updated information, first use the deleteMemory tool to remove the old entry (using its {{ $json['Record ID'] }}), then use the createMemory tool to add the updated memory.\n3. Retrieving Information: When you need to reference stored information for context-aware responses, use the searchMemory tool to retrieve specific memory entries.\n\n# Rules  \n1. Accuracy: Always ensure the information you recall or provide is up-to-date.\n2. Responsiveness: Prioritize user corrections by updating or deleting outdated memories as soon as possible.\n3. Conciseness: When creating memory entries, follow the guidelines (less than 70 words, relevant category tag).\n4. Consistency: Use the tools (createMemory, deleteMemory, searchMemory) as described to manage user memory effectively.\n\n# Examples\n## Example 1: New Memory Creation \nScenario: A user tells you they like to drink tea over coffee. \nAction: \n- Check if there's an existing memory about their beverage preference.\n- If not, use createMemory to add this new preference, tagging it appropriately (e.g., Food Preference or Personal Details).\n\n## Example 2: Updating Incorrect Information \nScenario: The user previously mentioned their favorite food as \"sushi,\" but now corrects it to \"chocolate.\"\nAction:\n- Use deleteMemory to remove the outdated \"sushi\" entry using its {{ $json['Record ID'] }}.\n- Then, use createMemory to add the new memory entry for \"chocolate\" under the Food Preference category.\n\n## Example 3: Retrieving Professional Information\nScenario: The user asks, \"What is my current job title?\"\nAction:\n- Use searchMemory with the keyword \"Professional Information\" to retrieve the correct job title.\n- Respond using the information found in the memory.\n\n## Example 4: Updating Travel Experience\nScenario: The user inquires about their last travel destination. The agent previously mentioned \"Paris,\" but the user informs that they have since visited \"Tokyo.\"\nAction:\n- Use deleteMemory to remove the outdated \"Paris\" entry using its {{ $json['Record ID'] }}.\n- Then, use createMemory to create a new memory entry for \"Tokyo\" under the Travel Experience category.\n\n\n# Notes \n- Memory Repository: All memory entries can be found here: {{ $json.Memory }} \n- Record ID: All record id are available here: {{ $json['Record ID'] }}\n- The time and date now is {{ $now }}\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        760,
+        200
+      ],
+      "id": "158b0c52-e48a-42cf-a4fd-03593fafd32d",
+      "name": "Super Learning Agent"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "=Use this createMemory tool to create new memory entries about the user. \n\n# Instruction \n1. When to Add Memory\n  - New Information: If new information about the user is received that does not already exist in the database. \n  - Updating Outdated Information: If existing memory entries are outdated and need refreshing. \n\n# Guidelines\n1. Length: Keep each memory entry concise and direct, using less than 70 words. \n2. Categorization: \n  - Assign a relevant Category tag to each memory entry. \n  - Categories: Food Preference, Travel Experience, Personal Details, Personal Interests, Health and Wellness, Professional Information, Relationships, Financial Goal\n\n# Notes\nBy following these steps, you can accurately update and store new memory about the user to have the latest information about user. \n\n",
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app7ewtRr6vgyB92v",
+          "mode": "list",
+          "cachedResultName": "Content",
+          "cachedResultUrl": "https://airtable.com/app7ewtRr6vgyB92v"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl8riXYMem0mtn7D",
+          "mode": "list",
+          "cachedResultName": "Content",
+          "cachedResultUrl": "https://airtable.com/app7ewtRr6vgyB92v/tbl8riXYMem0mtn7D"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Memory": "={{ $fromAI(\"addmemory\", \"write a memory for future reference about the user in less than 140 words\") }}",
+            "Category": "={{ $fromAI(\"categories\", \"choose from only these categories: Food Preference, Travel Experiences, Personal Details, Personal Interests, Health and Wellness, Professional Information, Relationships, Financial Goals, General Preferences. Do not create categories for anything else.\") }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Memory",
+              "displayName": "Memory",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Category",
+              "displayName": "Category",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Record ID",
+              "displayName": "Record ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Created Time",
+              "displayName": "Created Time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Last Modified Time",
+              "displayName": "Last Modified Time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtableTool",
+      "typeVersion": 2.1,
+      "position": [
+        1080,
+        440
+      ],
+      "id": "5833a404-15fb-4286-9707-20f51c450b20",
+      "name": "createMemory",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Memory"
+            },
+            {
+              "fieldToAggregate": "Record ID"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        380,
+        400
+      ],
+      "id": "fbef7426-8793-4161-a464-00b85b4cdc96",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        540,
+        200
+      ],
+      "id": "4006d8c6-722b-4804-ab9f-427f90db1dda",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "=Use the searchMemory tool to retrieve specific memory entries about the user.\n\n# Instructions:\n1. When to Search Memory:\n- Context-Aware Responses: When you need to reference stored information to provide personalized, context-aware responses, use the searchMemory tool.\n- Querying: Formulate a search query using relevant keywords or category tags (e.g., Food Preference, Professional Information) to locate the appropriate memory entries.\n- Usage: Utilize the retrieved memory information to ensure your response is based on the most up-to-date and accurate user details.\n\n# Examples\n\n## Example 1: Retrieving Food Preference\nScenario: The user asks, \"What was my favorite food again?\"\nAction:\n- Use the searchMemory tool with a query like \"Food Preference\" to find the stored entry, and then provide the accurate information.\n\n## Example 2: Retrieving Professional Information\nScenario: The user asks for confirmation of their current job title.\nAction:\n- Use the searchMemory tool with the keyword \"Professional Information\" to retrieve the correct job title and use that in your response.\n\n## Example 3: Retrieving Travel Experience\nScenario: The user wants to know details about their last travel destination.\nAction:\n- Search using \"Travel Experience\" to find and reference the memory entry related to their travel history.\n\n# Notes\nThis prompt outlines the purpose, detailed instructions, and practical examples, ensuring the searchMemory tool is used effectively to support personalized and context-aware interactions.",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "app7ewtRr6vgyB92v",
+          "mode": "list",
+          "cachedResultName": "Content",
+          "cachedResultUrl": "https://airtable.com/app7ewtRr6vgyB92v"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl8riXYMem0mtn7D",
+          "mode": "list",
+          "cachedResultName": "Content",
+          "cachedResultUrl": "https://airtable.com/app7ewtRr6vgyB92v/tbl8riXYMem0mtn7D"
+        },
+        "returnAll": false,
+        "limit": 50,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtableTool",
+      "typeVersion": 2.1,
+      "position": [
+        920,
+        440
+      ],
+      "id": "ff4fee71-36d5-408d-b7d8-a481595ef2fa",
+      "name": "searchMemory",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "app7ewtRr6vgyB92v",
+          "mode": "list",
+          "cachedResultName": "Content",
+          "cachedResultUrl": "https://airtable.com/app7ewtRr6vgyB92v"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl8riXYMem0mtn7D",
+          "mode": "list",
+          "cachedResultName": "Content",
+          "cachedResultUrl": "https://airtable.com/app7ewtRr6vgyB92v/tbl8riXYMem0mtn7D"
+        },
+        "returnAll": false,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        220,
+        400
+      ],
+      "id": "b8436373-eaf0-453a-8943-e05c1e96a82c",
+      "name": "Memory",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Super Learning AI Agent\n\nThis AI Agent is design to learn and update its memory about the user in real time. \n\n**TIPS:** For it to work, make sure to change update and change the credentials to your own.\n- Connect your API keys for telegram, openrouter and airtable. \n- For airtable, link it to the base and table of your own Airtable record. \n- Follow the Youtube Video Guide below to help you do so!\n\n[Youtube Guide](https://docs.n8n.io/workflows/sticky-notes/)",
+        "height": 220,
+        "width": 620
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        80,
+        -80
+      ],
+      "id": "1ff5b1a9-bdc7-470a-a57e-05450b28a382",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        60,
+        180
+      ],
+      "id": "92cfab88-ddbc-479f-8d3f-b8945da9aa09",
+      "name": "When chat message received",
+      "webhookId": "77749c1c-8605-4f01-b3e5-2289b0e51293"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        760,
+        420
+      ],
+      "id": "7251f735-183f-4a88-af2b-2bfd3583b7cc",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {
+          "maxTokens": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        620,
+        400
+      ],
+      "id": "a2b54690-2cff-4424-a899-c05bc6219c7d",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-03-06T19:52:37.081Z",
+      "updatedAt": "2025-03-06T19:52:37.081Z",
+      "id": "owsOyj6iWTKiFWBo",
+      "name": "07 Self Learning Agent"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-06T20:36:11.566Z",
+  "versionId": "01c1a757-8522-4b24-9d28-5c9a6598338c"
+}
