@@ -340,15 +340,15 @@
           "string": [
             {
               "name": "repo.owner",
-              "value": "customaistudio"
+              "value": "seanmmay"
             },
             {
               "name": "repo.name",
-              "value": "internal"
+              "value": "n8nworkflows"
             },
             {
               "name": "repo.path",
-              "value": "client-workflows"
+              "value": "workflowbackups"
             }
           ]
         },
@@ -457,7 +457,7 @@
         "triggerTimes": {
           "item": [
             {
-              "hour": 23
+              "mode": "everyMinute"
             }
           ]
         }
@@ -490,6 +490,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-03-06T20:43:27.570Z",
-  "versionId": "86b5c8ed-576f-40b1-9949-87c3d1529a2b"
+  "updatedAt": "2025-03-06T20:46:15.399Z",
+  "versionId": "3302159e-7f82-47c3-98e7-686ae5d16f41"
 }
