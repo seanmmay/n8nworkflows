@@ -457,7 +457,7 @@
         "triggerTimes": {
           "item": [
             {
-              "mode": "everyMinute"
+              "hour": 23
             }
           ]
         }
@@ -490,6 +490,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-03-06T20:46:15.399Z",
-  "versionId": "3302159e-7f82-47c3-98e7-686ae5d16f41"
+  "updatedAt": "2025-03-06T20:46:37.910Z",
+  "versionId": "aad2bce0-19b7-4b50-bc3d-caeff66b175c"
 }
