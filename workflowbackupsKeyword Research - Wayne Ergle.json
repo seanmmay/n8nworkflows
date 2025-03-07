@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Airtable Webhook": {
       "main": [
@@ -378,8 +378,8 @@
       ]
     }
   },
-  "createdAt": "2025-03-02T04:32:54.987Z",
-  "id": "af367daFcEUg0Ha0",
+  "createdAt": "2025-03-06T20:58:53.978Z",
+  "id": "ODkksTsyLBpf17Wq",
   "meta": {
     "templateCredsSetupCompleted": true
   },
@@ -396,7 +396,7 @@
         -1000,
         580
       ],
-      "id": "bab40d01-ed7e-4c19-ae26-e5fcb6991d7a",
+      "id": "8824719d-7dec-474e-b081-8b48626099c5",
       "name": "Airtable Webhook",
       "webhookId": "43e8495f-a4f1-4474-8da7-ef7a73fddab0"
     },
@@ -413,7 +413,7 @@
         -1060,
         440
       ],
-      "id": "ffaaf357-1df4-4692-b0d5-d72bfd2c6485",
+      "id": "b2fed5c6-a510-4a29-8bff-72a781122096",
       "name": "Sticky Note"
     },
     {
@@ -433,11 +433,11 @@
         80,
         140
       ],
-      "id": "3c0e415b-4a12-4e8e-ad75-665a0e9e47b1",
+      "id": "ba110bc0-db66-4e5f-8656-90cd66a79c88",
       "name": "Related API Request",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "smbda8tk5GxCFbME",
+          "id": "rKzVsWGHxBXlVOVv",
           "name": "DataForSEO"
         }
       }
@@ -467,12 +467,12 @@
         -780,
         580
       ],
-      "id": "f741eb32-ddfd-4daa-beae-11d31a15ba7e",
+      "id": "94e1b93b-7d3c-4c0d-b6c9-103e0b828031",
       "name": "Get Primary Keyword",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -487,7 +487,7 @@
         300,
         140
       ],
-      "id": "c3277306-c810-4f13-b676-75fdb2cbd92d",
+      "id": "baeb4529-de50-455b-af18-00f9512e5ecb",
       "name": "Split Out Result Items"
     },
     {
@@ -502,7 +502,7 @@
         0,
         0
       ],
-      "id": "278727a6-2637-476d-a86c-2e3c367cf448",
+      "id": "ec79c300-ecf4-461e-983b-2b5e2dfe51cc",
       "name": "Sticky Note1"
     },
     {
@@ -522,11 +522,11 @@
         80,
         460
       ],
-      "id": "e80e65b1-804d-413d-b437-e5af1f06c684",
+      "id": "6e427bdd-3f6f-4fbe-8972-5703366b4a4c",
       "name": "KW Suggestions API Request",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "smbda8tk5GxCFbME",
+          "id": "rKzVsWGHxBXlVOVv",
           "name": "DataForSEO"
         }
       }
@@ -542,7 +542,7 @@
         300,
         460
       ],
-      "id": "e3a78ee7-50df-4391-9e0c-95079b902cf9",
+      "id": "e77aa92d-620c-4681-892d-136a4f5e2a4b",
       "name": "Split Out Suggested KWs"
     },
     {
@@ -557,7 +557,7 @@
         0,
         360
       ],
-      "id": "606a8cce-6ee0-43dd-9d64-6ee08ad0f7ba",
+      "id": "dd2aeff3-31ff-4f3f-b360-32453ef6859a",
       "name": "Sticky Note2"
     },
     {
@@ -577,11 +577,11 @@
         80,
         800
       ],
-      "id": "a18f9aa3-533f-4b9a-b502-224aef47bd09",
+      "id": "a8abfc08-6bde-4d0a-b295-a0d21681b28c",
       "name": "KW Ideas API Request",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "smbda8tk5GxCFbME",
+          "id": "rKzVsWGHxBXlVOVv",
           "name": "DataForSEO"
         }
       }
@@ -598,7 +598,7 @@
         0,
         700
       ],
-      "id": "da914a9d-c3cf-4460-8902-591f895da886",
+      "id": "51481965-9152-41bd-9868-c0418bebbb9c",
       "name": "Sticky Note3"
     },
     {
@@ -612,7 +612,7 @@
         300,
         1160
       ],
-      "id": "4c699ba9-c498-4321-ba01-5cc4090fef4c",
+      "id": "7d857242-1175-411e-8bd7-8c9640717ab0",
       "name": "Split Out Autocomplete"
     },
     {
@@ -627,7 +627,7 @@
         0,
         1040
       ],
-      "id": "82eb9da5-054a-4894-9737-664a3f4a3724",
+      "id": "f2249e5c-d6c1-4e2a-9751-eef478349f1b",
       "name": "Sticky Note4"
     },
     {
@@ -647,11 +647,11 @@
         60,
         1480
       ],
-      "id": "197c8169-bfba-4260-b287-605476f64f5e",
+      "id": "80598413-b1c4-4d22-966c-86b3ec7512f7",
       "name": "Serp API Request1",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "smbda8tk5GxCFbME",
+          "id": "rKzVsWGHxBXlVOVv",
           "name": "DataForSEO"
         }
       }
@@ -673,11 +673,11 @@
         80,
         1160
       ],
-      "id": "de1b4d4e-c485-4f39-8ce5-084fb363699d",
+      "id": "d88d94f6-a119-4e81-a57a-9f402c605df8",
       "name": "Autocomplete API Request",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "smbda8tk5GxCFbME",
+          "id": "rKzVsWGHxBXlVOVv",
           "name": "DataForSEO"
         }
       }
@@ -693,7 +693,7 @@
         300,
         1480
       ],
-      "id": "dda65103-66bc-43f7-b9ed-4a3939ff6558",
+      "id": "1bbcff8c-adf6-47a2-82b7-115fec71c114",
       "name": "Split Out SERP"
     },
     {
@@ -727,7 +727,7 @@
         520,
         1480
       ],
-      "id": "11bf625b-5c79-4d99-aa76-c5663dc201b4",
+      "id": "55856e72-06d5-4a2f-b796-caa334ff1b72",
       "name": "Filter"
     },
     {
@@ -835,12 +835,12 @@
         920,
         1480
       ],
-      "id": "4e88b362-e71f-49fe-82c9-197697d2fd3d",
+      "id": "90a9c134-9d9b-49b8-ad8b-c8fbc0737052",
       "name": "Create SERPS",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -875,7 +875,7 @@
         520,
         1660
       ],
-      "id": "d0e620a0-f781-4f2b-b96e-8f6eebff2363",
+      "id": "62402bdc-5975-4b23-8278-29113434c19a",
       "name": "Filter1"
     },
     {
@@ -889,7 +889,7 @@
         700,
         1660
       ],
-      "id": "91484cd3-0004-4286-a95b-17a675a32a8b",
+      "id": "a263e1d3-4aa3-4ed6-9642-e0e03c4a93e1",
       "name": "Split Out People Also Ask"
     },
     {
@@ -904,7 +904,7 @@
         0,
         1380
       ],
-      "id": "6efad3ba-930f-4da8-a007-7ed82b6e07d6",
+      "id": "df3511e2-9932-4102-bb5f-bc42a4ae64fc",
       "name": "Sticky Note5"
     },
     {
@@ -924,11 +924,11 @@
         60,
         1960
       ],
-      "id": "cd55ebd7-0868-4df6-ab0a-a9e1de7f0de6",
+      "id": "732db5be-1197-439b-a6d6-72c8fe10abae",
       "name": "Generate Subtopics API Request",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "smbda8tk5GxCFbME",
+          "id": "rKzVsWGHxBXlVOVv",
           "name": "DataForSEO"
         }
       }
@@ -944,7 +944,7 @@
         320,
         1960
       ],
-      "id": "603c164c-31a4-40de-bbdb-c375d35d1bb2",
+      "id": "2add4ced-0213-4700-888c-1ddd943f1806",
       "name": "Split Out Subtopics"
     },
     {
@@ -959,7 +959,7 @@
         0,
         1860
       ],
-      "id": "d5a0dbbb-b52c-4e80-a833-dfaf88b151ca",
+      "id": "972bb0d5-c874-4943-a6d1-c15f3b3110aa",
       "name": "Sticky Note6"
     },
     {
@@ -1006,7 +1006,7 @@
         -540,
         580
       ],
-      "id": "eda9c938-0961-4908-95c5-8dd600d1de4e",
+      "id": "ef3c6135-ab41-4610-b3f1-94bbd8d24095",
       "name": "Set Fields for API Request"
     },
     {
@@ -1019,7 +1019,7 @@
         -600,
         20
       ],
-      "id": "42216bc8-01fe-4f02-a532-f30de8e2d876",
+      "id": "0e5ac63b-726d-42d8-a551-45af47fef7e4",
       "name": "Sticky Note7"
     },
     {
@@ -1078,7 +1078,7 @@
         500,
         460
       ],
-      "id": "b173871c-d241-42ee-85d4-bc6cd3b96f45",
+      "id": "5b959fb3-6542-46de-a8b1-2d387a81243c",
       "name": "Set KW Suggestion Fields"
     },
     {
@@ -1137,7 +1137,7 @@
         500,
         140
       ],
-      "id": "1688cfd2-ee85-4bde-83fe-2221a84e27f5",
+      "id": "4afda03e-1830-4124-bc0c-fa4c3cf819c6",
       "name": "Set KW Related Fields"
     },
     {
@@ -1151,7 +1151,7 @@
         300,
         800
       ],
-      "id": "7f0e84d9-2b5c-408f-9653-b14dad7ad903",
+      "id": "fc2eee8d-ae3f-4467-ac95-07a78251f991",
       "name": "Split Out KW Ideas"
     },
     {
@@ -1210,7 +1210,7 @@
         500,
         800
       ],
-      "id": "b1ef2c7a-f7e9-4e5d-9c42-52cd150b94d6",
+      "id": "4e1b6abc-5fe1-475a-875a-af91e84e1628",
       "name": "Set Keyword Ideas Fields"
     },
     {
@@ -1245,7 +1245,7 @@
         500,
         1160
       ],
-      "id": "7fcd9243-b766-4252-b9ae-4337f5dc7ca2",
+      "id": "185d835a-e899-4103-82c5-41b641633044",
       "name": "Set Autocomplete Fields"
     },
     {
@@ -1292,7 +1292,7 @@
         700,
         1480
       ],
-      "id": "54da36e2-ad41-46bf-90d6-338554681582",
+      "id": "55dac79b-75b1-4b29-86ce-9797a49e7dfa",
       "name": "Set SERP Fields"
     },
     {
@@ -1333,7 +1333,7 @@
         920,
         1660
       ],
-      "id": "940aecb8-c95b-46ea-918f-e874d8c445a0",
+      "id": "1819fdb7-9a49-4f5e-b7b2-4d70bf81a0b9",
       "name": "Set PAA Fileds"
     },
     {
@@ -1362,7 +1362,7 @@
         540,
         1960
       ],
-      "id": "4d78e4c9-a9cc-4378-bf6f-e0527fa013de",
+      "id": "52c0a4b7-2e2a-4a55-af07-a07bbe92cd42",
       "name": "Set Generate Subtopics Fields"
     },
     {
@@ -1493,12 +1493,12 @@
         0,
         2240
       ],
-      "id": "a5e5dc16-1486-456a-ba51-4fadb0cf3e6f",
+      "id": "90c218e3-db45-40ee-bc26-f5cf0ef1f74c",
       "name": "Airtable",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -1514,7 +1514,7 @@
         980,
         0
       ],
-      "id": "db91507c-277c-459e-b438-e61066f05c8b",
+      "id": "92107c3d-fcbe-4faf-b543-e22a78217783",
       "name": "Sticky Note8"
     },
     {
@@ -1648,12 +1648,12 @@
         740,
         140
       ],
-      "id": "3f400fa7-b2ac-4cf9-9b49-c469d788bd99",
+      "id": "f973c80f-9e7d-4486-9352-11a5943983e8",
       "name": "Related KW Variations",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -1812,12 +1812,12 @@
         740,
         460
       ],
-      "id": "84256dcd-2d37-41d8-8bf1-77889e464fea",
+      "id": "1591f99b-a0df-4d58-9a8b-dce1841caa48",
       "name": "Suggestions Variations",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -1952,12 +1952,12 @@
         740,
         800
       ],
-      "id": "2886dbfb-c5a5-4c91-8ab5-0b732c86b1c7",
+      "id": "d1303817-1e0f-434a-8131-645ec23481cf",
       "name": "Ideas Variations",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -1973,7 +1973,7 @@
         980,
         360
       ],
-      "id": "d81e5698-beed-4c86-8ece-c67a2edf6090",
+      "id": "2029cfb2-55f1-4bfe-8ccb-54f7397d37e3",
       "name": "Sticky Note9"
     },
     {
@@ -1988,7 +1988,7 @@
         980,
         700
       ],
-      "id": "50755458-b012-48fb-9fc6-297678a146c7",
+      "id": "e11de8b0-50ff-4fc8-a4c0-2410c6a4df2b",
       "name": "Sticky Note10"
     },
     {
@@ -2003,7 +2003,7 @@
         980,
         1040
       ],
-      "id": "98d10b5e-3021-493c-9ed5-8283eabacc39",
+      "id": "5a9b33cf-dc77-40d2-a1d1-54ab3520386a",
       "name": "Sticky Note11"
     },
     {
@@ -2018,7 +2018,7 @@
         1340,
         1380
       ],
-      "id": "7de88478-4784-400f-bb2e-e38cece47f66",
+      "id": "9701591d-d9d8-4b8b-9eb6-a34f9145cd4f",
       "name": "Sticky Note12"
     },
     {
@@ -2033,7 +2033,7 @@
         980,
         1860
       ],
-      "id": "90a79486-59b7-4155-8272-b52af55537a5",
+      "id": "90708564-fd25-473b-8197-55e646dbdbab",
       "name": "Sticky Note13"
     },
     {
@@ -2191,12 +2191,12 @@
         1040,
         460
       ],
-      "id": "ce0dea4c-d118-4ed9-9253-51c4a937e6d6",
+      "id": "1ce88961-5515-4544-b055-565e7a0c8173",
       "name": "Suggestions Master KW Variations",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -2353,12 +2353,12 @@
         1040,
         800
       ],
-      "id": "dde7e1e9-d9d3-41ba-af7c-f90ae217f739",
+      "id": "7742e7c4-3d39-4672-9e1e-437da0e0ff50",
       "name": "Ideas Master KW Variations",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -2445,12 +2445,12 @@
         740,
         1160
       ],
-      "id": "d6bc3ce5-db17-4c80-b14a-162614c55df6",
+      "id": "8e315f64-4b5e-4bf5-a17f-9dd1e1575d9c",
       "name": "Autocomplete Variations",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -2476,7 +2476,10 @@
           "value": {
             "Type": "={{ $('Set Autocomplete Fields').item.json.type }}",
             "Primary Keyword": "={{ $json.fields['Primary Keyword'] }}",
-            "Keyword": "={{ $json.fields.Autocomplete }}"
+            "Keyword": "={{ $json.fields.Autocomplete }}",
+            "MSV": 0,
+            "KW Difficulty": 0,
+            "CPC": 0
           },
           "matchingColumns": [],
           "schema": [
@@ -2602,12 +2605,12 @@
         1040,
         1160
       ],
-      "id": "05dfca73-7263-438e-821b-35d38965da48",
+      "id": "0d92e759-51a4-4c8d-a25b-ce277af2a999",
       "name": "Autocomplete Master KW Variations",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -2705,12 +2708,12 @@
         1100,
         1660
       ],
-      "id": "238da800-189d-42ff-b7e1-bd668f0d9d66",
+      "id": "de2c2101-42b0-4950-9132-63a1c17b3f76",
       "name": "PAA Variations",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -2736,7 +2739,10 @@
           "value": {
             "Type": "={{ $json.fields.Type }}",
             "Primary Keyword": "={{ $json.fields['Primary Keyword'] }}",
-            "Keyword": "={{ $json.fields['People Also Ask'] }}"
+            "Keyword": "={{ $json.fields['People Also Ask'] }}",
+            "MSV": 0,
+            "KW Difficulty": 0,
+            "CPC": 0
           },
           "matchingColumns": [],
           "schema": [
@@ -2862,12 +2868,12 @@
         1400,
         1660
       ],
-      "id": "2a4eec8a-21da-4411-909a-78e7b675a29b",
+      "id": "ea40e272-939c-4983-9d40-0fe0cdd03cf9",
       "name": "PAA Master KW Variations",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -2942,12 +2948,12 @@
         740,
         1960
       ],
-      "id": "7e0e553d-0e94-4498-92cb-b6cf3d3549b7",
+      "id": "921e059f-e887-4843-a779-97620de4a61b",
       "name": "Subtopics Variations",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -2973,7 +2979,10 @@
           "value": {
             "Type": "={{ $json.fields.Type }}",
             "Primary Keyword": "={{ $json.fields['Primary Keyword'] }}",
-            "Keyword": "={{ $json.fields.Subtopic }}"
+            "Keyword": "={{ $json.fields.Subtopic }}",
+            "MSV": 0,
+            "KW Difficulty": 0,
+            "CPC": 0
           },
           "matchingColumns": [],
           "schema": [
@@ -3099,12 +3108,12 @@
         1040,
         1960
       ],
-      "id": "66e73072-2c7a-4bf4-9e7c-27124581df73",
+      "id": "2b9ff285-676e-4e1c-a016-d647c9198c38",
       "name": "Subtopics Master KW Variations",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     },
@@ -3261,12 +3270,12 @@
         1040,
         140
       ],
-      "id": "85c526b6-9072-4aec-9ac6-2fd0238917fa",
+      "id": "735ea44d-55f0-4afe-8d6c-6089e607c8ae",
       "name": "Related Master KW Variations",
       "credentials": {
         "airtableTokenApi": {
-          "id": "fb4kUffY0o7IT00v",
-          "name": "Convert411 Airtable"
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
         }
       }
     }
@@ -3278,13 +3287,13 @@
   "staticData": null,
   "tags": [
     {
-      "createdAt": "2025-03-01T21:58:36.272Z",
-      "updatedAt": "2025-03-01T21:58:36.272Z",
-      "id": "pQFG9rW2tkge7v5C",
+      "createdAt": "2025-03-06T20:55:58.659Z",
+      "updatedAt": "2025-03-06T20:55:58.659Z",
+      "id": "XTyjmgkpw9TuLvdj",
       "name": "Content Creation"
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-03-03T23:02:15.991Z",
-  "versionId": "7589e8cf-087b-4f6a-8c74-f5268c59f4b8"
+  "updatedAt": "2025-03-06T21:04:08.385Z",
+  "versionId": "34ecf6d5-dedd-4a64-9f7b-2933616c1294"
 }
