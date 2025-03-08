@@ -1,0 +1,394 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Information Extractor": {
+      "main": [
+        [
+          {
+            "node": "Set Params",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Params": {
+      "main": [
+        [
+          {
+            "node": "Zillow Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Zillow Search": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RentZestimate": {
+      "main": [
+        [
+          {
+            "node": "Investment Calculator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "RentZestimate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-07T23:27:51.981Z",
+  "id": "lUccoW38Y7S3CvCx",
+  "meta": null,
+  "name": "Property Search Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e694ffe7-a937-4407-9ecd-8aefa28389ec",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.query }}",
+        "attributes": {
+          "attributes": [
+            {
+              "name": "location",
+              "description": "this will be a city, address, neighborhood or zip code(only include one preferably the city or address) ",
+              "required": true
+            },
+            {
+              "name": "price_min",
+              "description": "minimum price given (dont include dollar signs)"
+            },
+            {
+              "name": "price_max",
+              "description": "maximum price given(dont include dollar signs)"
+            },
+            {
+              "name": "beds_min",
+              "description": "minimum number of bedrooms"
+            },
+            {
+              "name": "baths_min",
+              "description": "minimum number of bathrooms"
+            }
+          ]
+        },
+        "options": {
+          "systemPromptTemplate": "You are an expert extraction algorithm.\nOnly extract relevant information from the text.\nIf you do not know the value of an attribute asked to extract, you may omit the attribute's value. This is a property search and I will give specific on properties to search extract the valuable data"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "typeVersion": 1,
+      "position": [
+        240,
+        0
+      ],
+      "id": "b29dfa99-799d-4861-a5a1-14337b3390af",
+      "name": "Information Extractor"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "22411e0f-2ca9-4a62-9516-5262df4c819d",
+              "name": "isSingleFamily",
+              "value": "=true",
+              "type": "boolean"
+            },
+            {
+              "id": "c7767cba-ebf9-4ce2-a5c7-9fbe5750f5d2",
+              "name": "isMultiFamily",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "1150b119-d8bc-4c5f-9b31-68e42b6ffdd4",
+              "name": "isCondo",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "25615d09-399e-41eb-a26b-096c84ccc48b",
+              "name": "loaction",
+              "value": "={{ $json.output.location }}",
+              "type": "string"
+            },
+            {
+              "id": "6c331d6b-50bd-41da-8ad0-3fcef81f8df3",
+              "name": "status",
+              "value": "forSale",
+              "type": "string"
+            },
+            {
+              "id": "1fce7f74-ae41-4ee5-84c3-8103d41e95fc",
+              "name": "price_min",
+              "value": "={{ $json.output.price_min }}",
+              "type": "string"
+            },
+            {
+              "id": "1f9d2cc3-ce72-470c-b75f-96929310f704",
+              "name": "price_max",
+              "value": "={{ $json.output.price_max }}",
+              "type": "string"
+            },
+            {
+              "id": "bc66969f-dc49-4cab-b779-e8c7df1c4b08",
+              "name": "baths_min",
+              "value": "={{ $json.output.baths_min }}",
+              "type": "string"
+            },
+            {
+              "id": "12084eee-4510-48e7-bae5-2cd6bdeab8aa",
+              "name": "beds_min",
+              "value": "={{ $json.output.beds_min }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        580,
+        0
+      ],
+      "id": "1a711b7f-071e-42bf-ba53-ca3bf045c74e",
+      "name": "Set Params"
+    },
+    {
+      "parameters": {
+        "url": "https://zillow56.p.rapidapi.com/search?",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "location",
+              "value": "={{ $json.loaction }}"
+            },
+            {
+              "name": "price_min",
+              "value": "={{ $json.price_min }}"
+            },
+            {
+              "name": "price_max",
+              "value": "={{ $json.price_max }}"
+            },
+            {
+              "name": "beds_min",
+              "value": "={{ $json.beds_min }}"
+            },
+            {
+              "name": "baths_min",
+              "value": "={{ $json.baths_min }}"
+            },
+            {
+              "name": "isSingleFaimly",
+              "value": "={{ $json.isSingleFamily }}"
+            },
+            {
+              "name": "isMultiFamily",
+              "value": "={{ $json.isMultiFamily }}"
+            },
+            {
+              "name": "isCondo",
+              "value": "={{ $json.isCondo }}"
+            },
+            {
+              "name": "status",
+              "value": "={{ $json.status }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "=X-Rapidapi_host",
+              "value": "zillow56.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        760,
+        0
+      ],
+      "id": "e0ffc229-3f52-4d69-8437-c06e7ce97965",
+      "name": "Zillow Search",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "H6PNMTsDsJyaTxxO",
+          "name": "RapidAPI Zillow56"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://zillow56.p.rapidapi.com/rent_estimate?",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "address",
+              "value": "={{  $json.streetAddress }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Rapidapi-Host",
+              "value": "zillow56.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 2000
+            }
+          },
+          "allowUnauthorizedCerts": false
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        0
+      ],
+      "id": "6ebe72cf-81d1-44ab-9159-2114df9c0b8c",
+      "name": "RentZestimate",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "H6PNMTsDsJyaTxxO",
+          "name": "RapidAPI Zillow56"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "results",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        920,
+        0
+      ],
+      "id": "f3368d42-2555-4ac7-a6d0-2b479f30b4a8",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize items array\nconst items = [];\n\n// Get all properties from Zillow Search\nconst properties = $('Zillow Search').first().json.results;\n\n// Get all RentZestimates (getting all items this time)\nconst rentZestimates = $('RentZestimate').all();\n\n// Process each property\nproperties.forEach((property, index) => {\n    try {\n        // Get matching RentZestimate for current property\n        const rentZestimate = rentZestimates[index]?.json?.data?.floorplans[0]?.zestimate?.rentZestimate;\n\n        // Log for debugging\n        console.log(`Processing property ${index}:`, {\n            address: property.streetAddress,\n            rentZestimate: rentZestimate\n        });\n\n        // Purchase costs\n        const purchasePrice = property.price;\n        const downPayment = purchasePrice * 0.20; // 20% down\n        const closingCosts = purchasePrice * 0.03; // 3% closing costs\n        const totalInvestment = downPayment + closingCosts;\n\n        // Monthly costs\n        const loanAmount = purchasePrice - downPayment;\n        const interestRate = 0.06; // 6% interest rate\n        const monthlyRate = interestRate / 12;\n        const numberOfPayments = 30 * 12; // 30-year mortgage\n\n        // Calculate monthly mortgage\n        const monthlyMortgage = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / \n            (Math.pow(1 + monthlyRate, numberOfPayments) - 1);\n\n        // Other monthly expenses\n        const propertyTax = (purchasePrice * 0.02) / 12; // 2% annual property tax\n        const insurance = (purchasePrice * 0.005) / 12; // 0.5% annual insurance\n        const maintenance = (purchasePrice * 0.01) / 12; // 1% annual maintenance\n\n        // Use actual Zestimate for rent estimate\n        const estimatedRent = rentZestimate || (purchasePrice * 0.01); // Fallback to 1% rule if no zestimate\n        const vacancy = estimatedRent * 0.08; // 8% vacancy rate\n        const totalMonthlyExpenses = monthlyMortgage + propertyTax + insurance + maintenance + vacancy;\n        const monthlyCashFlow = estimatedRent - totalMonthlyExpenses;\n        const annualCashFlow = monthlyCashFlow * 12;\n        const cashOnCashROI = (annualCashFlow / totalInvestment) * 100;\n\n        // Calculate break-even in months\n        let breakEvenMonths = null;\n        if (monthlyCashFlow > 0) {\n            breakEvenMonths = Math.round(totalInvestment / monthlyCashFlow);\n        } else {\n            breakEvenMonths = \"Never (negative cash flow)\";\n        }\n\n        // Push each property into an array\n        items.push({\n            address: property.streetAddress,\n            details: {\n                price: property.price,\n                beds: property.bedrooms,\n                baths: property.bathrooms,\n                sqft: property.livingArea,\n                type: property.homeType,\n                rentZestimate: rentZestimate || 'Not available'\n            },\n            investment: {\n                downPayment: Math.round(downPayment),\n                closingCosts: Math.round(closingCosts),\n                totalInvestment: Math.round(totalInvestment),\n                monthlyMortgage: Math.round(monthlyMortgage),\n                estimatedRent: Math.round(estimatedRent),\n                monthlyCashFlow: Math.round(monthlyCashFlow),\n                totalMonthlyExpenses: Math.round(totalMonthlyExpenses),\n                cashOnCashROI: Math.round(cashOnCashROI * 100) / 100,\n                breakEvenMonths: breakEvenMonths\n            }\n        });\n\n    } catch (error) {\n        console.log(`Error processing property at ${property.streetAddress}:`, error);\n    }\n});\n\n// Filter to only return positive cash flow properties\nconst positiveFlowProperties = items.filter(item => item.investment.monthlyCashFlow > 0);\n\n// **Modify Output Format to Wrap the Array in an Object**\nreturn {\n    listings: positiveFlowProperties\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        0
+      ],
+      "id": "98ef9759-272b-4e40-8297-6fcdfb7bdee1",
+      "name": "Investment Calculator"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-3.5-turbo",
+          "mode": "list",
+          "cachedResultName": "gpt-3.5-turbo"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        160
+      ],
+      "id": "5ac0790c-2e18-48dc-a46c-e28e74e60357",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-07T23:27:51.981Z",
+  "versionId": "d238d301-e03c-47a1-99af-1bf3a2f358ad"
+}
