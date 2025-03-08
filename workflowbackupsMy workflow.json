@@ -1,0 +1,483 @@
+{
+  "active": false,
+  "connections": {
+    "9am Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Parameters",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Parameters": {
+      "main": [
+        [
+          {
+            "node": "Zillow Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Zillow Search": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "RentZestimate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RentZestimate": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-07T23:51:09.321Z",
+  "id": "DVh3YxcyGWl149ml",
+  "meta": null,
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        1100,
+        740
+      ],
+      "id": "f9f72e06-e82d-4839-9d1f-9ac23c26a834",
+      "name": "9am Trigger"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "03b861c9-6666-4e0e-b30a-715f0f561014",
+              "name": "location",
+              "value": "Seattle, WA",
+              "type": "string"
+            },
+            {
+              "id": "fe55fe3d-52f0-4698-888f-dd27fa6a09a6",
+              "name": "status",
+              "value": "forSale",
+              "type": "string"
+            },
+            {
+              "id": "e88eb680-5288-43a8-8832-5ab956a2d620",
+              "name": "price_min",
+              "value": "200000",
+              "type": "string"
+            },
+            {
+              "id": "ca359237-2756-4b88-8f51-fa522a896350",
+              "name": "price_max",
+              "value": "400000",
+              "type": "string"
+            },
+            {
+              "id": "2d7f112e-c31d-4901-8970-0e0a778c34e7",
+              "name": "beds_mins",
+              "value": "2",
+              "type": "string"
+            },
+            {
+              "id": "a1576c4f-544e-4819-846d-c6ffe5cc99e9",
+              "name": "baths_min",
+              "value": "2",
+              "type": "string"
+            },
+            {
+              "id": "44e65204-2617-4c5f-8fe4-6e7b518b0f2c",
+              "name": "isSingleFamily",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1280,
+        740
+      ],
+      "id": "f930c81b-8bfd-4567-8632-d2096b65c110",
+      "name": "Set Parameters"
+    },
+    {
+      "parameters": {
+        "url": "https://zillow56.p.rapidapi.com/search?",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "location",
+              "value": "={{ $json.location }}"
+            },
+            {
+              "name": "status",
+              "value": "={{ $json.status }}"
+            },
+            {
+              "name": "price_min",
+              "value": "={{ $json.price_min }}"
+            },
+            {
+              "name": "price_max",
+              "value": "={{ $json.price_max }}"
+            },
+            {
+              "name": "beds_min",
+              "value": "={{ $json.beds_mins }}"
+            },
+            {
+              "name": "baths_min",
+              "value": "={{ $json.baths_min }}"
+            },
+            {
+              "name": "isSingleFamily",
+              "value": "={{ $json.isSingleFamily }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1440,
+        740
+      ],
+      "id": "829b16f4-9b9d-4e63-8516-cf3d77392681",
+      "name": "Zillow Search",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "H6PNMTsDsJyaTxxO",
+          "name": "RapidAPI Zillow56"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "results",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        740
+      ],
+      "id": "e6974ec8-6e5d-45ef-b3c8-10371487f37d",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "url": "https://zillow56.p.rapidapi.com/rent_estimate?",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "address",
+              "value": "={{ $json.streetAddress }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Rapidapi-Host",
+              "value": "zillow56.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 2000
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1760,
+        740
+      ],
+      "id": "04d7fc73-f4ae-4dd7-860e-cb5c1d59016b",
+      "name": "RentZestimate",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "H6PNMTsDsJyaTxxO",
+          "name": "RapidAPI Zillow56"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize items array\nconst items = [];\n\n// Get all properties from Zillow Search\nconst properties = $('Zillow Search').first().json.results;\n\n// Get all RentZestimates (getting all items this time)\nconst rentZestimates = $('RentZestimate').all();\n\n// Process each property\nproperties.forEach((property, index) => {\n    try {\n        // Get matching RentZestimate for current property\n        const rentZestimate = rentZestimates[index]?.json?.data?.floorplans[0]?.zestimate?.rentZestimate;\n\n        // Log for debugging\n        console.log(`Processing property ${index}:`, {\n            address: property.streetAddress,\n            rentZestimate: rentZestimate\n        });\n\n        // Purchase costs\n        const purchasePrice = property.price;\n        const downPayment = purchasePrice * 0.20; // 20% down\n        const closingCosts = purchasePrice * 0.03; // 3% closing costs\n        const totalInvestment = downPayment + closingCosts;\n        \n        // Monthly costs\n        const loanAmount = purchasePrice - downPayment;\n        const interestRate = 0.06; // 6% interest rate\n        const monthlyRate = interestRate / 12;\n        const numberOfPayments = 30 * 12; // 30-year mortgage\n        \n        // Calculate monthly mortgage\n        const monthlyMortgage = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / \n            (Math.pow(1 + monthlyRate, numberOfPayments) - 1);\n        \n        // Other monthly expenses\n        const propertyTax = (purchasePrice * 0.02) / 12; // 2% annual property tax\n        const insurance = (purchasePrice * 0.005) / 12; // 0.5% annual insurance\n        const maintenance = (purchasePrice * 0.01) / 12; // 1% annual maintenance\n        \n        // Use actual Zestimate for rent estimate\n        const estimatedRent = rentZestimate || (purchasePrice * 0.01); // Fallback to 1% rule if no zestimate\n        const vacancy = estimatedRent * 0.08; // 8% vacancy rate\n        const totalMonthlyExpenses = monthlyMortgage + propertyTax + insurance + maintenance + vacancy;\n        const monthlyCashFlow = estimatedRent - totalMonthlyExpenses;\n        const annualCashFlow = monthlyCashFlow * 12;\n        const cashOnCashROI = (annualCashFlow / totalInvestment) * 100;\n        \n        items.push({\n            json: {\n                address: property.streetAddress,\n                details: {\n                    price: property.price,\n                    beds: property.bedrooms,\n                    baths: property.bathrooms,\n                    sqft: property.livingArea,\n                    type: property.homeType,\n                    rentZestimate: rentZestimate || 'Not available'\n                },\n                investment: {\n                    downPayment: Math.round(downPayment),\n                    closingCosts: Math.round(closingCosts),\n                    totalInvestment: Math.round(totalInvestment),\n                    monthlyMortgage: Math.round(monthlyMortgage),\n                    estimatedRent: Math.round(estimatedRent),\n                    monthlyCashFlow: Math.round(monthlyCashFlow),\n                    totalMonthlyExpenses: Math.round(totalMonthlyExpenses),\n                    cashOnCashROI: Math.round(cashOnCashROI * 100) / 100\n                }\n            }\n        });\n    } catch (error) {\n        console.log(`Error processing property at ${property.streetAddress}:`, error);\n    }\n});\n\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1940,
+        740
+      ],
+      "id": "e1185883-5908-4c04-8d54-2a8659e71a22",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1hVs4lpyO3jqkmvIfgrtTcy7SjNswaROx5--V32HmZDM",
+          "mode": "list",
+          "cachedResultName": "Real Estate Assistant",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1hVs4lpyO3jqkmvIfgrtTcy7SjNswaROx5--V32HmZDM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "NewDeals",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1hVs4lpyO3jqkmvIfgrtTcy7SjNswaROx5--V32HmZDM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Address": "={{ $json.address }}",
+            "Price": "={{ $json.details.price }}",
+            "Rent Zestimate": "={{ $json.details.rentZestimate }}",
+            "Cash onCash ROI": "={{ $json.investment.cashOnCashROI }}",
+            "Monthly CashFlow": "={{ $json.investment.monthlyCashFlow }}",
+            "Down Pmt": "={{ $json.investment.downPayment }}"
+          },
+          "matchingColumns": [
+            "Address"
+          ],
+          "schema": [
+            {
+              "id": "Address",
+              "displayName": "Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Price",
+              "displayName": "Price",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Rent Zestimate",
+              "displayName": "Rent Zestimate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Cash onCash ROI",
+              "displayName": "Cash onCash ROI",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Monthly CashFlow",
+              "displayName": "Monthly CashFlow",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Down Pmt",
+              "displayName": "Down Pmt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2120,
+        740
+      ],
+      "id": "2b295734-4749-4ac2-be19-86979c07c24e",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EfWTDOyZBNSeoRkx",
+          "name": "sean@alphafv.co Google Sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "sendTo": "(your email)",
+        "subject": "=Daily Real Estate Investment Report : {{ new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }} ",
+        "message": "Hello, here are your deal for today: https://docs.google.com/spreadsheets/d/1hVs4lpyO3jqkmvIfgrtTcy7SjNswaROx5--V32HmZDM/edit?gid=0#gid=0",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2300,
+        740
+      ],
+      "id": "02c5b2b5-78fb-4c37-addc-8dc4fa74bdc4",
+      "name": "Gmail",
+      "webhookId": "87e24ad1-8d88-4f4d-b7af-dd19c7b5f759",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "content": " ## Daily Investor Emails for Real Estate Deals\nHere is the entire step by step tutorial to set this up: https://www.youtube.com/watch?v=OSeLeKc375Y&t=6s\n\n - This automation will calculate down payment, monthly mortgage payments, monthly maintenance and vacancy loss. \n - Through those calculations it will give you Cash on Cash ROI and Monthly Cashflow. \nIt will present you these new deals every morning via email. \nSetup: \n - Input credentials into the following nodes: ZillowAPI, Google Sheets and Gmail. Lastly, make sure the email you want to receive the data is in the last node\n - Create a blank google sheets with the following columns Address, Price, Rent Zestimate, Cash onCash ROI, Monthly CashFlow, Down PMT and make sure your google sheets node is mapped to the correct columns you've made\n - Update parameters in the set node for location, price min/max, beds min and baths min. \n - Schedule to run when is most desirable to you. Default it will be set to run at 9am everyday\n",
+        "height": 640,
+        "width": 1500,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1020,
+        360
+      ],
+      "id": "868778dc-41ed-4790-a874-13f2684dc0a7",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Daily Real Estate Deal Finder Automation\n\nHere is the entire step by step tutorial to set this up: https://www.youtube.com/watch?v=OSeLeKc375Y&t=6s\n\nThis automation is aimed to send you daily deals via email every morning at 9AM in real estate markets you are interested in with strict search criteria you provide. It uses ZillowAPI to get up to date listings and RentZestimates. From there it calculates a host of investing metrics such as your Down PMT, Cash on Cash ROI, Monthly Cash Flow, Monthly Maintenance and Vacancy Loss.\n\n## Prerequisites\n- N8N account\n- Google account with OAuth setup here's a video for help: https://youtu.be/LTuy83t_Rt4?si=0XdpxM7G48gtFDe6\n- Google Sheets API enabled\n- RapidAPI account with Zillow API credentials (refer to the step by step video for help here)\n- Blank Google Sheet created with specific columns\n\n## Step 1: Create a New Workflow\n- Create a new workflow in N8N\n- Name it something meaningful like \"Daily Real Estate Deal Finder\"\n-  Credentials you will need: Google OAuth credentials (here's a video for help: https://www.youtube.com/watch?v=LTuy83t_Rt4&t=22s) Google sheets API enabled, RapidAPI Zillow credentials\n\n\n## Step 2: Configure Search Parameters\n- Define your real estate search criteria as key-value pairs: Example location: \"Austin, TX\" min_bed: 2 min_bath: 2, min_price: 250000, max_price: 400000, propertyType: \"Single Family= True\"\n\n## Step 3: Update Google Sheet\n- Create a new Google Sheets\n- Create the following columns Address, Price, Rent Zestimate, Cash onCash RoI, Monthly CashFlow and Down Pmt\n- Make sure your google sheets node in N8N is mapping to the correct columns\n\n## Troubleshooting Tips\n- If Zillow API fails, check your API credentials and request limits\n- For calculation errors, verify your formulas in the Code node\n- If Google Sheets node fails, ensure proper column mapping\n- Always test with a small data set before running in production\n- Happy Investing please let me know if you have any questions or trouble\n\nThis workflow will now automatically search for real estate deals matching your criteria, calculate investment metrics, update your tracking spreadsheet, and email you a summary each morning.",
+        "height": 1000,
+        "width": 1000,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "3c5287d1-92a6-49a8-9ad6-6d21d2cd48eb",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Node Breakdown\n\n- **9am Trigger**: Schedules this automation to run every morning at 9am when published\n- **Set Parameters**: Is where you adjust your search criteria such as location price and bed/bath\n- **Zillow Search**: Grabs those parameters and searches Zillow for your desired results\n- **Split Out**: Splits out each individual property\n- **RentZestimate**: Takes those individual properties and searches their rentZestimate for the future calculation\n- **Code Node**: Takes all valuable inputs from Zillow Search and rentZestimate to get investor insights like maintenance cost, down payment, monthly mortgage payment, cash on cash ROI and monthly cash flow\n- **Google Sheets**: Connects to display all of the relevant data in a presentable way\n- **Gmail**: Takes that google sheets and notifies you in the morning",
+        "height": 640,
+        "width": 680,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2540,
+        360
+      ],
+      "id": "11061e5c-377d-4c32-8485-54551103c229",
+      "name": "Sticky Note2"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-07T23:51:09.321Z",
+  "versionId": "8e6638a2-e3cf-434a-8da0-b65137f0ca59"
+}
