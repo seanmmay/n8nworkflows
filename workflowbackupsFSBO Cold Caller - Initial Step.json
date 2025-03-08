@@ -1,0 +1,922 @@
+{
+  "active": false,
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Zillow Search": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RentZestimate": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "RentZestimate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "market_overview": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Market Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Market Results": {
+      "main": [
+        [
+          {
+            "node": "Summarization Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FSBO": {
+      "main": [
+        [
+          {
+            "node": "market_overview",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Airtable1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Summarization Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Zillow Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-07T22:02:29.673Z",
+  "id": "U1FB6MYrdQX8fzJ6",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "FSBO Cold Caller - Initial Step",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Form",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "location",
+              "placeholder": "location"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        1040,
+        500
+      ],
+      "id": "0edbe2fa-8577-409c-8405-b5e890cc052b",
+      "name": "On form submission",
+      "webhookId": "e7395354-db56-41d4-b11f-e8148d3f9d18"
+    },
+    {
+      "parameters": {
+        "url": "https://zillow56.p.rapidapi.com/search?",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "location",
+              "value": "={{ $json.location }}"
+            },
+            {
+              "name": "price_min",
+              "value": "=100000"
+            },
+            {
+              "name": "price_max",
+              "value": "=250000"
+            },
+            {
+              "name": "beds_min",
+              "value": "=2"
+            },
+            {
+              "name": "baths_min",
+              "value": "=2"
+            },
+            {
+              "name": "listing_type",
+              "value": "={{ $json.listing_type }}"
+            },
+            {
+              "name": "isSingleFamily",
+              "value": "={{ $json.isSingleFamily }}"
+            },
+            {
+              "name": "isAuction",
+              "value": "={{ $json.isAuction }}"
+            },
+            {
+              "name": "onlyPriceReduction",
+              "value": "={{ $json.onlyPriceReduction }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "=X-Rapidapi_host",
+              "value": "zillow56.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1660,
+        500
+      ],
+      "id": "e2929afe-41a1-4d10-a3c2-fdb299c08b4e",
+      "name": "Zillow Search",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "H6PNMTsDsJyaTxxO",
+          "name": "RapidAPI Zillow56"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://zillow56.p.rapidapi.com/rent_estimate?",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "address",
+              "value": "={{  $json.streetAddress }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Rapidapi-Host",
+              "value": "zillow56.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 2000
+            }
+          },
+          "allowUnauthorizedCerts": false
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        500
+      ],
+      "id": "57340fbd-7f36-4ec9-a083-10b19d3c460c",
+      "name": "RentZestimate",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "H6PNMTsDsJyaTxxO",
+          "name": "RapidAPI Zillow56"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "results",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        500
+      ],
+      "id": "eee33709-99ad-449f-8728-52b8476f9b9e",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "url": "https://zillow56.p.rapidapi.com/market_sale_overview?",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "location",
+              "value": "={{ $json.location }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "zillow56.p.rapidapi.com",
+              "value": "x-rapidapi-key: 9802f0de5bmsh2d4b2fa9c758bc0p154944jsn144d97f4e5e9"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 3,
+              "batchInterval": 2000
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1520,
+        760
+      ],
+      "id": "76eca2ff-86ac-472d-9c32-bc54efa7487c",
+      "name": "market_overview",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "H6PNMTsDsJyaTxxO",
+          "name": "RapidAPI Zillow56"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse the JSON string in the marketData property\nconst marketData = JSON.parse(items[0].json.marketData);\n\n// Initialize market analysis object\nconst market = {};\n\n// Extract latest market stats\nmarket.currentStats = {\n  forSaleInventory: marketData.mrktListingLatest.forSaleInventory,\n  medianListPrice: marketData.mrktListingLatest.medianListPrice,\n  newListings: Math.round(marketData.mrktListingLatest.newListings),\n  medianSalePrice: marketData.mrktSaleLatest.medianSalePrice,\n  medianDaysToPending: marketData.mrktListingRange[0].medianDaysToPending,\n  medianSaleToList: (marketData.mrktSaleRange[0].medianSaleToList * 100).toFixed(1) + \"%\",\n  pctSoldAboveList: (marketData.mrktSaleRange[0].pctSoldAboveList * 100).toFixed(1) + \"%\",\n  pctSoldBelowList: (marketData.mrktSaleRange[0].pctSoldBelowList * 100).toFixed(1) + \"%\"\n};\n\n// Compare current vs 6 months ago\nconst sixMonthsAgo = 6;\nmarket.sixMonthComparison = {\n  daysToPendingChange: Math.round(marketData.mrktListingRange[0].medianDaysToPending - marketData.mrktListingRange[sixMonthsAgo].medianDaysToPending),\n  saleToListChange: ((marketData.mrktSaleRange[0].medianSaleToList - marketData.mrktSaleRange[sixMonthsAgo].medianSaleToList) * 100).toFixed(2) + \"%\",\n  soldAboveListChange: ((marketData.mrktSaleRange[0].pctSoldAboveList - marketData.mrktSaleRange[sixMonthsAgo].pctSoldAboveList) * 100).toFixed(2) + \"%\"\n};\n\n// Compare current vs 1 year ago\nconst oneYearAgo = 12;\nmarket.yearlyComparison = {\n  daysToPendingChange: Math.round(marketData.mrktListingRange[0].medianDaysToPending - marketData.mrktListingRange[oneYearAgo].medianDaysToPending),\n  saleToListChange: ((marketData.mrktSaleRange[0].medianSaleToList - marketData.mrktSaleRange[oneYearAgo].medianSaleToList) * 100).toFixed(2) + \"%\",\n  soldAboveListChange: ((marketData.mrktSaleRange[0].pctSoldAboveList - marketData.mrktSaleRange[oneYearAgo].pctSoldAboveList) * 100).toFixed(2) + \"%\"\n};\n\n// Calculate market trend score (-10 to 10 scale)\n// -10 = extreme buyer's market, 10 = extreme seller's market\nlet marketTrendScore = 0;\n\n// Factor 1: Change in days to pending\nconst daysToPendingChange = market.yearlyComparison.daysToPendingChange;\nmarketTrendScore -= Math.min(Math.max(daysToPendingChange / 3, -3), 3);\n\n// Factor 2: % sold above list\nconst pctAboveList = marketData.mrktSaleRange[0].pctSoldAboveList;\nmarketTrendScore += Math.min(Math.max((pctAboveList - 0.15) * 10, -3), 3);\n\n// Factor 3: Sale to list ratio trend\nconst saleToListRatio = marketData.mrktSaleRange[0].medianSaleToList;\nmarketTrendScore += Math.min(Math.max((saleToListRatio - 0.97) * 25, -2), 2);\n\n// Factor 4: Inventory levels\nconst normalInventory = 5000; // Adjust based on your market\nconst inventoryFactor = Math.min(Math.max((normalInventory - marketData.mrktListingLatest.forSaleInventory) / normalInventory * 2, -2), 2);\nmarketTrendScore += inventoryFactor;\n\n// Round to 1 decimal place\nmarketTrendScore = Math.round(marketTrendScore * 10) / 10;\n\n// Investment opportunity analysis\nmarket.investmentAdvice = {};\n\n// Identify if it's a buyer's or seller's market\nmarket.investmentAdvice.marketType = marketTrendScore >= 2 ? \"Seller's Market\" : \n                                    marketTrendScore <= -2 ? \"Buyer's Market\" : \"Balanced Market\";\n\n// Determine negotiation power\nif (marketTrendScore <= -5) {\n  market.investmentAdvice.negotiationPower = \"Strong buyer negotiation position - consider aggressive offers below list price\";\n} else if (marketTrendScore <= -2) {\n  market.investmentAdvice.negotiationPower = \"Moderate buyer advantage - room to negotiate below list price\";\n} else if (marketTrendScore <= 2) {\n  market.investmentAdvice.negotiationPower = \"Balanced market - fair negotiation expected\";\n} else if (marketTrendScore <= 5) {\n  market.investmentAdvice.negotiationPower = \"Seller advantage - expect to pay close to or at list price\";\n} else {\n  market.investmentAdvice.negotiationPower = \"Strong seller's market - may need to offer above list price for desirable properties\";\n}\n\n// Market timing advice\nconst marketTimingScore = marketTrendScore * -1; // Invert for buying perspective\nif (marketTimingScore >= 5) {\n  market.investmentAdvice.marketTiming = \"Excellent time to buy - strongly favorable conditions\";\n} else if (marketTimingScore >= 2) {\n  market.investmentAdvice.marketTiming = \"Good time to buy - favorable conditions\";\n} else if (marketTimingScore >= -2) {\n  market.investmentAdvice.marketTiming = \"Neutral market timing - neither strongly favorable nor unfavorable\";\n} else if (marketTimingScore >= -5) {\n  market.investmentAdvice.marketTiming = \"Consider waiting - conditions currently favor sellers\";\n} else {\n  market.investmentAdvice.marketTiming = \"Recommend waiting if possible - strongly seller-favored market\";\n}\n\n// Action items\nmarket.actionItems = [];\n\n// Check for significant pricing trends\nconst priceDirection = marketData.mrktSaleRange[0].medianSaleToList < marketData.mrktSaleRange[6].medianSaleToList ? \"falling\" : \"rising\";\nif (priceDirection === \"falling\" && market.sixMonthComparison.saleToListChange.startsWith(\"-\")) {\n  market.actionItems.push(\"Prices are trending downward - consider more aggressive offers\");\n}\n\n// Inventory-based recommendations\nif (marketData.mrktListingLatest.forSaleInventory > 8000) {\n  market.actionItems.push(\"High inventory levels provide more options - take time to find the best value\");\n} else if (marketData.mrktListingLatest.forSaleInventory < 3000) {\n  market.actionItems.push(\"Low inventory suggests acting quickly on good properties\");\n}\n\n// Days on market advice\nif (marketData.mrktListingRange[0].medianDaysToPending > 30) {\n  market.actionItems.push(\"Properties are sitting longer - negotiate more aggressively\");\n} else if (marketData.mrktListingRange[0].medianDaysToPending < 15) {\n  market.actionItems.push(\"Fast-moving market - be prepared to make decisions quickly\");\n}\n\n// Seasonal trends observation\nconst currentMonth = new Date().getMonth();\nif (currentMonth >= 3 && currentMonth <= 5) { // Spring (April-June)\n  market.actionItems.push(\"Spring selling season typically brings more inventory and buyers - expect increased competition\");\n} else if (currentMonth >= 9 && currentMonth <= 11) { // Fall (Oct-Dec)\n  market.actionItems.push(\"Fall/winter season may present better buying opportunities with less competition\");\n}\n\n// Historical context\nconst yearOverYearDiff = marketData.mrktListingRange[0].medianDaysToPending - marketData.mrktListingRange[12].medianDaysToPending;\nif (Math.abs(yearOverYearDiff) > 10) {\n  market.actionItems.push(`Market has changed significantly in the past year (${yearOverYearDiff > 0 ? \"slowed\" : \"accelerated\"} by ${Math.abs(yearOverYearDiff)} days to pending)`);\n}\n\n// Risk assessment\nmarket.riskAssessment = {\n  overallRisk: marketTrendScore > 5 ? \"High (overheated market)\" : \n               marketTrendScore > 2 ? \"Moderate-High\" :\n               marketTrendScore < -5 ? \"High (potential further decline)\" :\n               marketTrendScore < -2 ? \"Moderate-Low\" : \"Moderate\",\n  priceStability: market.yearlyComparison.saleToListChange.startsWith(\"-\") ? \n                \"Declining prices indicate caution\" : \"Stable or increasing prices\"\n};\n\n// Market trend visualization (simple text representation for now)\nconst trendRanges = [-10, -6, -3, 0, 3, 6, 10];\nconst trendLabels = [\"Extreme Buyer's\", \"Strong Buyer's\", \"Buyer's\", \"Balanced\", \"Seller's\", \"Strong Seller's\", \"Extreme Seller's\"];\nlet trendPosition = trendRanges.findIndex(r => marketTrendScore <= r);\nif (trendPosition === -1) trendPosition = trendRanges.length - 1;\n\nmarket.marketScoreInfo = {\n  score: marketTrendScore,\n  interpretation: trendLabels[trendPosition] + \" Market\",\n  range: \"(-10 to +10 scale: negative favors buyers, positive favors sellers)\"\n};\n\n// Historical context\nconst currentYear = new Date().getFullYear();\nmarket.historicalContext = {\n  currentMarketConditions: `The current market has properties selling at ${market.currentStats.medianSaleToList} of list price with ${market.currentStats.medianDaysToPending} median days to pending.`,\n  comparison: `Compared to one year ago, days to pending has changed by ${market.yearlyComparison.daysToPendingChange} days, and sale-to-list ratio has changed by ${market.yearlyComparison.saleToListChange}.`\n};\n\n// Cycle position analysis - where are we in the real estate cycle?\n// Use 5-year trend to estimate cycle position\nconst fiveYearTrend = [];\nfor (let i = 0; i < Math.min(60, marketData.mrktListingRange.length); i++) {\n  if (marketData.mrktListingRange[i].medianDaysToPending) {\n    fiveYearTrend.push(marketData.mrktListingRange[i].medianDaysToPending);\n  }\n}\n\nlet cyclePosition = \"Unknown\";\nif (fiveYearTrend.length > 24) {\n  // Simple algorithm to detect cycle position \n  const recentTrend = fiveYearTrend.slice(0, 12); // Last year\n  const previousTrend = fiveYearTrend.slice(12, 24); // Year before\n  \n  const recentAvg = recentTrend.reduce((sum, val) => sum + val, 0) / recentTrend.length;\n  const previousAvg = previousTrend.reduce((sum, val) => sum + val, 0) / previousTrend.length;\n  const changeRate = (recentAvg - previousAvg) / previousAvg;\n  \n  if (changeRate > 0.2) {\n    cyclePosition = \"Market Cooldown (Late Cycle)\";\n  } else if (changeRate > 0.05) {\n    cyclePosition = \"Slowing Growth (Mid-Late Cycle)\";\n  } else if (changeRate > -0.05) {\n    cyclePosition = \"Stable (Mid Cycle)\";\n  } else if (changeRate > -0.2) {\n    cyclePosition = \"Heating Up (Early-Mid Cycle)\";\n  } else {\n    cyclePosition = \"Rapid Growth (Early Cycle)\";\n  }\n  \n  market.cycleAnalysis = {\n    position: cyclePosition,\n    recommendation: cyclePosition.includes(\"Late\") ? \n      \"Consider more conservative approach; focus on cash flow over appreciation\" : \n      \"Opportunity for appreciation; focus on growth areas\"\n  };\n}\n\n// Add a key investment opportunity insight\nconst bestBuyingStrategy = marketTrendScore < -2 ? \n  \"Focus on properties that need work - seller concessions likely available\" :\n  marketTrendScore > 2 ? \n  \"Look for off-market deals or be prepared to offer above list for desirable properties\" :\n  \"Target slightly under-valued properties with upside potential\";\n\nmarket.investmentHighlight = {\n  title: \"Key Investment Strategy\",\n  strategy: bestBuyingStrategy,\n  summary: `${market.investmentAdvice.marketType}: ${market.marketScoreInfo.score} on market score scale`\n};\n\nreturn [{ json: { marketAnalysis: market } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1880,
+        760
+      ],
+      "id": "aa3aa0cd-1294-4d04-946a-6f2168bda3e2",
+      "name": "Market Results"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d20248b8-6b30-4f26-833c-1364148ffbd6",
+              "name": "marketData",
+              "value": "={{ $json.data.odpMarketAnalytics }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1700,
+        760
+      ],
+      "id": "da3aba42-56a1-4658-aef0-a30ae822da05",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize items array\nconst items = [];\n// Get all properties from Zillow Search\nconst properties = $('Zillow Search').first().json.results;\n// Get all RentZestimates (getting all items this time)\nconst rentZestimates = $('RentZestimate').all();\n// Process each property\nproperties.forEach((property, index) => {\n    try {\n        // Get matching RentZestimate for current property\n        const rentZestimate = rentZestimates[index]?.json?.data?.floorplans[0]?.zestimate?.rentZestimate;\n        // Get the zpid for current property\n        const zpid = rentZestimates[index]?.json?.data?.floorplans[0]?.zpid;\n        \n        // Log for debugging\n        console.log(`Processing property ${index}:`, {\n            address: property.streetAddress,\n            rentZestimate: rentZestimate,\n            zpid: zpid\n        });\n        // Purchase costs\n        const purchasePrice = property.price;\n        const downPayment = purchasePrice * 0.20; // 20% down\n        const closingCosts = purchasePrice * 0.03; // 3% closing costs\n        const totalInvestment = downPayment + closingCosts;\n        // Monthly costs\n        const loanAmount = purchasePrice - downPayment;\n        const interestRate = 0.06; // 6% interest rate\n        const monthlyRate = interestRate / 12;\n        const numberOfPayments = 30 * 12; // 30-year mortgage\n        // Calculate monthly mortgage\n        const monthlyMortgage = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / \n            (Math.pow(1 + monthlyRate, numberOfPayments) - 1);\n        // Other monthly expenses\n        const propertyTax = (purchasePrice * 0.02) / 12; // 2% annual property tax\n        const insurance = (purchasePrice * 0.005) / 12; // 0.5% annual insurance\n        const maintenance = (purchasePrice * 0.01) / 12; // 1% annual maintenance\n        // Use actual Zestimate for rent estimate\n        const estimatedRent = rentZestimate || (purchasePrice * 0.01); // Fallback to 1% rule if no zestimate\n        const vacancy = estimatedRent * 0.08; // 8% vacancy rate\n        const totalMonthlyExpenses = monthlyMortgage + propertyTax + insurance + maintenance + vacancy;\n        const monthlyCashFlow = estimatedRent - totalMonthlyExpenses;\n        const annualCashFlow = monthlyCashFlow * 12;\n        const cashOnCashROI = (annualCashFlow / totalInvestment) * 100;\n        // Calculate break-even in months\n        let breakEvenMonths = null;\n        if (monthlyCashFlow > 0) {\n            breakEvenMonths = Math.round(totalInvestment / monthlyCashFlow);\n        } else {\n            breakEvenMonths = \"Never (negative cash flow)\";\n        }\n        // Push each property into an array\n        items.push({\n            address: property.streetAddress,\n            zpid: zpid, // Add zpid to the output\n            details: {\n                price: property.price,\n                beds: property.bedrooms,\n                baths: property.bathrooms,\n                sqft: property.livingArea,\n                type: property.homeType,\n                rentZestimate: rentZestimate || 'Not available'\n            },\n            investment: {\n                downPayment: Math.round(downPayment),\n                closingCosts: Math.round(closingCosts),\n                totalInvestment: Math.round(totalInvestment),\n                monthlyMortgage: Math.round(monthlyMortgage),\n                estimatedRent: Math.round(estimatedRent),\n                monthlyCashFlow: Math.round(monthlyCashFlow),\n                totalMonthlyExpenses: Math.round(totalMonthlyExpenses),\n                cashOnCashROI: Math.round(cashOnCashROI * 100) / 100,\n                breakEvenMonths: breakEvenMonths\n            }\n        });\n    } catch (error) {\n        console.log(`Error processing property at ${property.streetAddress}:`, error);\n    }\n});\n// Filter to only return positive cash flow properties\nconst positiveFlowProperties = items.filter(item => item.investment.monthlyCashFlow > 0);\n// Return the array directly without wrapping it in an object\nreturn positiveFlowProperties;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2160,
+        500
+      ],
+      "id": "c1d6faa8-ca4c-4312-8177-a79ea8657048",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-3.5-turbo",
+          "mode": "list",
+          "cachedResultName": "GPT-3.5-TURBO"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Please craft an script to offer to buy the property at {{ $json.address }} . \n\nProperty Details: \n-{{ $json.details }}\nProperty Investment Metrics: \n- {{ $json.investment }}\n\nCraft an inteligent offer for each property backed by data with the housing market knowledge {{ $('Set').last().json.fields['Market Summary'] }} for City = {{ $('Set').first().json.location }}.\n\noffer_price = should be market summary selling price % * {{ $json.details.price }}\nExample script: \n\n\"Hey, this is John at Negative Cashflow Capital I just noticed you listed your property for sale at {{ $json.address }}\nI would love to give you an all cash offer of ( use market summary selling price % from  {{ $('Set').last().json.fields['Market Summary'] }} * {{ $json.details.price }}) to determine a suitable offer\" Give one sentence punch line why this is a good offer base on the market summary. \n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        2340,
+        500
+      ],
+      "id": "308d7caf-2ac1-4b30-9559-ee1421b112ac",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        1320,
+        760
+      ],
+      "id": "3c33f5bc-43df-48ca-b9c2-896475f03c8c",
+      "name": "FSBO"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "typeVersion": 2,
+      "position": [
+        2100,
+        760
+      ],
+      "id": "b506e6b1-08ed-4c11-95f7-82206fa9d005",
+      "name": "Summarization Chain"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2080,
+        940
+      ],
+      "id": "39efe281-63a7-4e09-b8a5-c0b79de103fa",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PFTYvjXNHro8JN5o",
+          "mode": "list",
+          "cachedResultName": "Grab Properties - FSBO Main"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1260,
+        500
+      ],
+      "id": "3ef7bbdc-2d5e-4548-a15b-ac7ba288a0ba",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6fbeb9cf-29cd-460b-92fd-4f49c99fbbc1",
+              "name": "location",
+              "value": "={{ $('On form submission').item.json.location }}",
+              "type": "string"
+            },
+            {
+              "id": "a9b35aa3-9cdc-47ce-b3dd-838071301274",
+              "name": "listing_type",
+              "value": "by_owner_other",
+              "type": "string"
+            },
+            {
+              "id": "5d49b9f5-c761-4242-bb2a-b829dda81c3b",
+              "name": "isSingleFamily",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "6fd90be8-c028-4091-af08-8811961c995b",
+              "name": "type",
+              "value": "single_family",
+              "type": "string"
+            },
+            {
+              "id": "9023b6ec-9686-4465-a700-148ab64726eb",
+              "name": "onlyPriceReduction",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "b7d61302-8d1d-4926-beb2-9f8c6b05b9ee",
+              "name": "isAuction",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "55e50c8d-0b84-405e-9018-54b89155778e",
+              "name": "fields[\"Market Summary\"]",
+              "value": "={{ $json.response.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1460,
+        500
+      ],
+      "id": "1d887939-766c-46b1-8060-c4df2a7db46f",
+      "name": "Set"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "apph08fvb7LthVHWU",
+          "mode": "list",
+          "cachedResultName": "FSBO Reach Out ",
+          "cachedResultUrl": "https://airtable.com/apph08fvb7LthVHWU"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblwaxsJAFJ3SG925",
+          "mode": "list",
+          "cachedResultName": "Property Details",
+          "cachedResultUrl": "https://airtable.com/apph08fvb7LthVHWU/tblwaxsJAFJ3SG925"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "zpid": 0,
+            "price": 0,
+            "Bed": 0,
+            "Bath": 0,
+            "sqft": 0,
+            "rentZestimate": 0,
+            "downPayment": 0,
+            "Address": "={{ $('Code').item.json.address }}",
+            "Phone Number": "XXXXXXXX",
+            "Status": "Un-Called",
+            "Cash On Cash ROI ": "={{ $('Code').item.json.investment.cashOnCashROI }}",
+            "Call Script": "={{ $json.message.content }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Address",
+              "displayName": "Address",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Call Script",
+              "displayName": "Call Script",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Called",
+                  "value": "Called"
+                },
+                {
+                  "name": "Un-Called",
+                  "value": "Un-Called"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Cash On Cash ROI ",
+              "displayName": "Cash On Cash ROI ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "zpid",
+              "displayName": "zpid",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "price",
+              "displayName": "price",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Bed",
+              "displayName": "Bed",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Bath",
+              "displayName": "Bath",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sqft",
+              "displayName": "sqft",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "rentZestimate",
+              "displayName": "rentZestimate",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "downPayment",
+              "displayName": "downPayment",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ClosingCosts",
+              "displayName": "ClosingCosts",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Total Investment",
+              "displayName": "Total Investment",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Monthly Mortgage",
+              "displayName": "Monthly Mortgage",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Monthly Cash Flow",
+              "displayName": "Monthly Cash Flow",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Monthly Expenses",
+              "displayName": "Monthly Expenses",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Break Even Time(In Months)",
+              "displayName": "Break Even Time(In Months)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2740,
+        500
+      ],
+      "id": "fc8c7620-abde-4712-9c9d-39406b9d3eef",
+      "name": "Airtable1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "gLhlnbTB7GfO5P5B",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Quick Start\n\n1. **Import/Build** the workflow in n8n.\n2. **Add Credentials**:\n   - **OpenAI**, **RapidAPI Zillow**, **Airtable**, **Retell AI** (optional).\n3. **Configure Each Node**:\n   - Market overview nodes (OpenAI/Retell), Zillow Search, RentZestimate, Airtable.\n4. **Edit Set Node** criteria (price range, beds/baths).\n5. **Set Up Airtable**:\n   - Create columns for property data and script.\n6. **Run** the workflow:\n   - Submit a location in the **Form Trigger**.\n   - Check results in Airtable.\n## Required Credentials\n- **OpenAI API Key**  \n- **RapidAPI Zillow API Key**  \n- **Airtable API Key**  \n- **Retell AI Key** (optional)\n",
+        "height": 1080,
+        "width": 1980,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        940,
+        0
+      ],
+      "id": "4ae007e7-0449-41d1-9c9b-80f09a235935",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# FSBO Cold Caller Setup\n\nThis **n8n workflow** automates:\n1. Collecting a target **city/zip** (via **Form Trigger**).\n2. Generating a **Market Overview** (sub-workflow).\n3. Searching **FSBO** properties (via **Zillow** API).\n4. Getting **RentZestimate**.\n5. Filtering **positive cash-flow** properties (Code Node).\n6. Creating a **call script** (OpenAI).\n7. Storing results in **Airtable**.\n\n---\n\n## Node Setup\n\n1. **Form Trigger**  \n   - Collects user-input `location`.\n\n2. **Sub-Workflow (Market Overview)**  \n   - Uses **OpenAI** to generate a detailed overview of the chosen market.\n\n3. **Set Node**  \n   - Hard-coded criteria: FSBO only, single-family, price/beds/baths, AuctionHomes=false. (Change if you like)\n\n4. **Zillow Search**  \n   - Uses **RapidAPI Zillow** credentials to find matching properties.\n\n5. **Split Out Node**  \n   - Splits the Zillow list into individual properties.\n\n6. **RentZestimate**  \n   - Calls **Zillow** again to get rent estimates.\n\n7. **Code Node**  \n   - Calculates cash flow: `(estimated rent) - (expenses)`.\n   - Only passes **positives** forward.\n\n8. **OpenAI (Message Model)**  \n   - Creates a **call script** with property + market data.\n\n9. **Airtable**  \n   - **Pushes** final data (address, rent, script, etc.) into your base.\n\nYou’re all set! This workflow fetches FSBO leads, estimates rent, calculates cash flow, and generates a call script—ready to dial up sellers.\n",
+        "height": 1080,
+        "width": 920,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a0b74f93-7c03-47a8-b55f-535b27efcc36",
+      "name": "Sticky Note1"
+    }
+  ],
+  "pinData": {
+    "On form submission": [
+      {
+        "json": {
+          "location": "Phoenix",
+          "submittedAt": "2025-03-07T19:02:35.818-05:00",
+          "formMode": "test"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-03-07T19:29:58.721Z",
+      "updatedAt": "2025-03-07T19:29:58.721Z",
+      "id": "T3LNxGR3QT4tlhu0",
+      "name": "real estate"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-08T00:22:41.660Z",
+  "versionId": "53c5702e-cdf4-49bf-9c48-0c1e86c68434"
+}
