@@ -1,0 +1,149 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-07T22:01:57.922Z",
+  "id": "aG83clDfLXKZbz7d",
+  "meta": null,
+  "name": "FSBO Cold Caller - Final Step",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        680,
+        580
+      ],
+      "id": "60626ceb-bcc9-45b8-9f58-cbf1d8629e2b",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apph08fvb7LthVHWU",
+          "mode": "list",
+          "cachedResultName": "FSBO Reach Out ",
+          "cachedResultUrl": "https://airtable.com/apph08fvb7LthVHWU"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblwaxsJAFJ3SG925",
+          "mode": "list",
+          "cachedResultName": "Property Details",
+          "cachedResultUrl": "https://airtable.com/apph08fvb7LthVHWU/tblwaxsJAFJ3SG925"
+        },
+        "filterByFormula": "=({Status}='Un-Called') ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        880,
+        580
+      ],
+      "id": "4409b18b-1ceb-4e07-8a7e-085013d4ddd8",
+      "name": "Airtable"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.retellai.com/v2/create-phone-call",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"override_agent_id\": \"YOUR AGENT KEY HERE \",\n  \"from_number\": \"Your Number Here\",\n  \"to_number\": \"Your number here \",\n  \"retell_llm_dynamic_variables\": {\n    \"script\": {{ $json['Call Script'] }}\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1240,
+        580
+      ],
+      "id": "384f1385-ad4e-4852-927e-67d654bbaadc",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "keep": "lastItems"
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        580
+      ],
+      "id": "f9d174c0-49b0-42a3-83a0-21f7b7abdffc",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "content": "# FSBO Cold Caller: Final Step (Voice AI Agent)\n\nThis part of the **FSBO Cold Caller** automation uses Retell AI to **read out** the call script generated in Airtable. It’s optional but adds a powerful **voice AI** layer to your workflow.\n\n## Overview\n\n1. **Click Trigger** (optional for testing).  \n2. **Airtable Search** → Finds properties marked as “Un Called” in your table.  \n3. **Limit Node** (optional for testing) → Restricts how many records to process.  \n4. **HTTP Request (Retell AI)** → Sends your call script to Retell AI, enabling a Voice AI agent to “deliver” or record the script.\n\n## Credentials Needed\n\n1. **Airtable**  \n   - Same key used previously (Settings → Credentials → Airtable).\n2. **Retell AI**  \n   - Retell AI **account** and **API key** required.\n3. **Twilio Number** (Optional)  \n   - If you plan to send or receive calls via Twilio, you can integrate those credentials/nodes as needed\n\n## Node-by-Node Setup\n\n### **Click Trigger (Optional)**\n- **Purpose:** Manual trigger for testing without running the full workflow automatically.\n- **Action:** On click, it initiates the final step.\n\n### **Airtable Search Node**\n- **Purpose:** Searches your Airtable base for records with `Status = \"Un Called\"` (or similar).\n- **Configuration:**\n  - **Airtable Credentials**: Use your existing Airtable key.\n  - **Table & View**: Specify the same table holding your FSBO leads.\n  - **Filter**: Only return rows that haven’t been called yet.\n\n### **Limit Node (Optional)**\n- **Purpose:** Restrict the number of records processed to avoid testing overhead.\n\n### **HTTP Request (Retell AI)**\n- **Purpose:** Connects to your **Retell AI** endpoint to pass the final call script for a voice AI agent to handle.\n- **Configuration:**\n  - **Method**: `POST`\n  - **Headers**: Include `Content-Type: application/json`, plus your `Authorization` header with the Retell AI **API key**.\n  - **Body**: Pass the property’s call script and any other parameters Retell AI requires (e.g., voice ID, language settings, etc.).\n\n\n## Quick Start\n\n1. **Add/Import** these nodes to your main workflow or create a separate one for the voice automation.\n2. **Connect** them in sequence:\n   1. **Click Trigger** → **Airtable Search** → **Limit** → **HTTP Request (Retell AI)**.\n3. **Update** the search conditions in the Airtable node (`Un Called` status).\n4. **Enter** your Retell AI **API key** in the HTTP Request node’s credentials.\n5. **Run** the workflow:\n   - Click the **Click Trigger** to test.\n   - The **Airtable Search** node will return the next set of “Un Called” records.\n   - The **HTTP Request** node sends the scripts to Retell AI.\n\nThat’s it! Your Voice AI agent can now handle FSBO calls by reading out each property’s script—adding a futuristic twist to your lead generation.\n",
+        "height": 1420,
+        "width": 1840,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "5190016e-f5dc-45f9-8a5f-a5b2f483c7f5",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-07T22:02:13.706Z",
+  "versionId": "ac3b96de-01e1-4d3a-a3e3-63adbba73683"
+}
