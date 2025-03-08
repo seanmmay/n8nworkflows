@@ -1,0 +1,208 @@
+{
+  "active": false,
+  "connections": {
+    "market_overview": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Market Results": {
+      "main": [
+        [
+          {
+            "node": "Summarization Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Market Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FSBO": {
+      "main": [
+        [
+          {
+            "node": "market_overview",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Summarization Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-08T00:05:43.356Z",
+  "id": "PFTYvjXNHro8JN5o",
+  "meta": null,
+  "name": "Grab Properties - FSBO Main",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://zillow56.p.rapidapi.com/market_sale_overview?",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "location",
+              "value": "={{ $json.location }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "zillow56.p.rapidapi.com",
+              "value": "x-rapidapi-key: 9802f0de5bmsh2d4b2fa9c758bc0p154944jsn144d97f4e5e9"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 3,
+              "batchInterval": 2000
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        200,
+        0
+      ],
+      "id": "fe5477f4-b7d8-479b-95d0-27af417a644f",
+      "name": "market_overview",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "H6PNMTsDsJyaTxxO",
+          "name": "RapidAPI Zillow56"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse the JSON string in the marketData property\nconst marketData = JSON.parse(items[0].json.marketData);\n\n// Initialize market analysis object\nconst market = {};\n\n// Extract latest market stats\nmarket.currentStats = {\n  forSaleInventory: marketData.mrktListingLatest.forSaleInventory,\n  medianListPrice: marketData.mrktListingLatest.medianListPrice,\n  newListings: Math.round(marketData.mrktListingLatest.newListings),\n  medianSalePrice: marketData.mrktSaleLatest.medianSalePrice,\n  medianDaysToPending: marketData.mrktListingRange[0].medianDaysToPending,\n  medianSaleToList: (marketData.mrktSaleRange[0].medianSaleToList * 100).toFixed(1) + \"%\",\n  pctSoldAboveList: (marketData.mrktSaleRange[0].pctSoldAboveList * 100).toFixed(1) + \"%\",\n  pctSoldBelowList: (marketData.mrktSaleRange[0].pctSoldBelowList * 100).toFixed(1) + \"%\"\n};\n\n// Compare current vs 6 months ago\nconst sixMonthsAgo = 6;\nmarket.sixMonthComparison = {\n  daysToPendingChange: Math.round(marketData.mrktListingRange[0].medianDaysToPending - marketData.mrktListingRange[sixMonthsAgo].medianDaysToPending),\n  saleToListChange: ((marketData.mrktSaleRange[0].medianSaleToList - marketData.mrktSaleRange[sixMonthsAgo].medianSaleToList) * 100).toFixed(2) + \"%\",\n  soldAboveListChange: ((marketData.mrktSaleRange[0].pctSoldAboveList - marketData.mrktSaleRange[sixMonthsAgo].pctSoldAboveList) * 100).toFixed(2) + \"%\"\n};\n\n// Compare current vs 1 year ago\nconst oneYearAgo = 12;\nmarket.yearlyComparison = {\n  daysToPendingChange: Math.round(marketData.mrktListingRange[0].medianDaysToPending - marketData.mrktListingRange[oneYearAgo].medianDaysToPending),\n  saleToListChange: ((marketData.mrktSaleRange[0].medianSaleToList - marketData.mrktSaleRange[oneYearAgo].medianSaleToList) * 100).toFixed(2) + \"%\",\n  soldAboveListChange: ((marketData.mrktSaleRange[0].pctSoldAboveList - marketData.mrktSaleRange[oneYearAgo].pctSoldAboveList) * 100).toFixed(2) + \"%\"\n};\n\n// Calculate market trend score (-10 to 10 scale)\n// -10 = extreme buyer's market, 10 = extreme seller's market\nlet marketTrendScore = 0;\n\n// Factor 1: Change in days to pending\nconst daysToPendingChange = market.yearlyComparison.daysToPendingChange;\nmarketTrendScore -= Math.min(Math.max(daysToPendingChange / 3, -3), 3);\n\n// Factor 2: % sold above list\nconst pctAboveList = marketData.mrktSaleRange[0].pctSoldAboveList;\nmarketTrendScore += Math.min(Math.max((pctAboveList - 0.15) * 10, -3), 3);\n\n// Factor 3: Sale to list ratio trend\nconst saleToListRatio = marketData.mrktSaleRange[0].medianSaleToList;\nmarketTrendScore += Math.min(Math.max((saleToListRatio - 0.97) * 25, -2), 2);\n\n// Factor 4: Inventory levels\nconst normalInventory = 5000; // Adjust based on your market\nconst inventoryFactor = Math.min(Math.max((normalInventory - marketData.mrktListingLatest.forSaleInventory) / normalInventory * 2, -2), 2);\nmarketTrendScore += inventoryFactor;\n\n// Round to 1 decimal place\nmarketTrendScore = Math.round(marketTrendScore * 10) / 10;\n\n// Investment opportunity analysis\nmarket.investmentAdvice = {};\n\n// Identify if it's a buyer's or seller's market\nmarket.investmentAdvice.marketType = marketTrendScore >= 2 ? \"Seller's Market\" : \n                                    marketTrendScore <= -2 ? \"Buyer's Market\" : \"Balanced Market\";\n\n// Determine negotiation power\nif (marketTrendScore <= -5) {\n  market.investmentAdvice.negotiationPower = \"Strong buyer negotiation position - consider aggressive offers below list price\";\n} else if (marketTrendScore <= -2) {\n  market.investmentAdvice.negotiationPower = \"Moderate buyer advantage - room to negotiate below list price\";\n} else if (marketTrendScore <= 2) {\n  market.investmentAdvice.negotiationPower = \"Balanced market - fair negotiation expected\";\n} else if (marketTrendScore <= 5) {\n  market.investmentAdvice.negotiationPower = \"Seller advantage - expect to pay close to or at list price\";\n} else {\n  market.investmentAdvice.negotiationPower = \"Strong seller's market - may need to offer above list price for desirable properties\";\n}\n\n// Market timing advice\nconst marketTimingScore = marketTrendScore * -1; // Invert for buying perspective\nif (marketTimingScore >= 5) {\n  market.investmentAdvice.marketTiming = \"Excellent time to buy - strongly favorable conditions\";\n} else if (marketTimingScore >= 2) {\n  market.investmentAdvice.marketTiming = \"Good time to buy - favorable conditions\";\n} else if (marketTimingScore >= -2) {\n  market.investmentAdvice.marketTiming = \"Neutral market timing - neither strongly favorable nor unfavorable\";\n} else if (marketTimingScore >= -5) {\n  market.investmentAdvice.marketTiming = \"Consider waiting - conditions currently favor sellers\";\n} else {\n  market.investmentAdvice.marketTiming = \"Recommend waiting if possible - strongly seller-favored market\";\n}\n\n// Action items\nmarket.actionItems = [];\n\n// Check for significant pricing trends\nconst priceDirection = marketData.mrktSaleRange[0].medianSaleToList < marketData.mrktSaleRange[6].medianSaleToList ? \"falling\" : \"rising\";\nif (priceDirection === \"falling\" && market.sixMonthComparison.saleToListChange.startsWith(\"-\")) {\n  market.actionItems.push(\"Prices are trending downward - consider more aggressive offers\");\n}\n\n// Inventory-based recommendations\nif (marketData.mrktListingLatest.forSaleInventory > 8000) {\n  market.actionItems.push(\"High inventory levels provide more options - take time to find the best value\");\n} else if (marketData.mrktListingLatest.forSaleInventory < 3000) {\n  market.actionItems.push(\"Low inventory suggests acting quickly on good properties\");\n}\n\n// Days on market advice\nif (marketData.mrktListingRange[0].medianDaysToPending > 30) {\n  market.actionItems.push(\"Properties are sitting longer - negotiate more aggressively\");\n} else if (marketData.mrktListingRange[0].medianDaysToPending < 15) {\n  market.actionItems.push(\"Fast-moving market - be prepared to make decisions quickly\");\n}\n\n// Seasonal trends observation\nconst currentMonth = new Date().getMonth();\nif (currentMonth >= 3 && currentMonth <= 5) { // Spring (April-June)\n  market.actionItems.push(\"Spring selling season typically brings more inventory and buyers - expect increased competition\");\n} else if (currentMonth >= 9 && currentMonth <= 11) { // Fall (Oct-Dec)\n  market.actionItems.push(\"Fall/winter season may present better buying opportunities with less competition\");\n}\n\n// Historical context\nconst yearOverYearDiff = marketData.mrktListingRange[0].medianDaysToPending - marketData.mrktListingRange[12].medianDaysToPending;\nif (Math.abs(yearOverYearDiff) > 10) {\n  market.actionItems.push(`Market has changed significantly in the past year (${yearOverYearDiff > 0 ? \"slowed\" : \"accelerated\"} by ${Math.abs(yearOverYearDiff)} days to pending)`);\n}\n\n// Risk assessment\nmarket.riskAssessment = {\n  overallRisk: marketTrendScore > 5 ? \"High (overheated market)\" : \n               marketTrendScore > 2 ? \"Moderate-High\" :\n               marketTrendScore < -5 ? \"High (potential further decline)\" :\n               marketTrendScore < -2 ? \"Moderate-Low\" : \"Moderate\",\n  priceStability: market.yearlyComparison.saleToListChange.startsWith(\"-\") ? \n                \"Declining prices indicate caution\" : \"Stable or increasing prices\"\n};\n\n// Market trend visualization (simple text representation for now)\nconst trendRanges = [-10, -6, -3, 0, 3, 6, 10];\nconst trendLabels = [\"Extreme Buyer's\", \"Strong Buyer's\", \"Buyer's\", \"Balanced\", \"Seller's\", \"Strong Seller's\", \"Extreme Seller's\"];\nlet trendPosition = trendRanges.findIndex(r => marketTrendScore <= r);\nif (trendPosition === -1) trendPosition = trendRanges.length - 1;\n\nmarket.marketScoreInfo = {\n  score: marketTrendScore,\n  interpretation: trendLabels[trendPosition] + \" Market\",\n  range: \"(-10 to +10 scale: negative favors buyers, positive favors sellers)\"\n};\n\n// Historical context\nconst currentYear = new Date().getFullYear();\nmarket.historicalContext = {\n  currentMarketConditions: `The current market has properties selling at ${market.currentStats.medianSaleToList} of list price with ${market.currentStats.medianDaysToPending} median days to pending.`,\n  comparison: `Compared to one year ago, days to pending has changed by ${market.yearlyComparison.daysToPendingChange} days, and sale-to-list ratio has changed by ${market.yearlyComparison.saleToListChange}.`\n};\n\n// Cycle position analysis - where are we in the real estate cycle?\n// Use 5-year trend to estimate cycle position\nconst fiveYearTrend = [];\nfor (let i = 0; i < Math.min(60, marketData.mrktListingRange.length); i++) {\n  if (marketData.mrktListingRange[i].medianDaysToPending) {\n    fiveYearTrend.push(marketData.mrktListingRange[i].medianDaysToPending);\n  }\n}\n\nlet cyclePosition = \"Unknown\";\nif (fiveYearTrend.length > 24) {\n  // Simple algorithm to detect cycle position \n  const recentTrend = fiveYearTrend.slice(0, 12); // Last year\n  const previousTrend = fiveYearTrend.slice(12, 24); // Year before\n  \n  const recentAvg = recentTrend.reduce((sum, val) => sum + val, 0) / recentTrend.length;\n  const previousAvg = previousTrend.reduce((sum, val) => sum + val, 0) / previousTrend.length;\n  const changeRate = (recentAvg - previousAvg) / previousAvg;\n  \n  if (changeRate > 0.2) {\n    cyclePosition = \"Market Cooldown (Late Cycle)\";\n  } else if (changeRate > 0.05) {\n    cyclePosition = \"Slowing Growth (Mid-Late Cycle)\";\n  } else if (changeRate > -0.05) {\n    cyclePosition = \"Stable (Mid Cycle)\";\n  } else if (changeRate > -0.2) {\n    cyclePosition = \"Heating Up (Early-Mid Cycle)\";\n  } else {\n    cyclePosition = \"Rapid Growth (Early Cycle)\";\n  }\n  \n  market.cycleAnalysis = {\n    position: cyclePosition,\n    recommendation: cyclePosition.includes(\"Late\") ? \n      \"Consider more conservative approach; focus on cash flow over appreciation\" : \n      \"Opportunity for appreciation; focus on growth areas\"\n  };\n}\n\n// Add a key investment opportunity insight\nconst bestBuyingStrategy = marketTrendScore < -2 ? \n  \"Focus on properties that need work - seller concessions likely available\" :\n  marketTrendScore > 2 ? \n  \"Look for off-market deals or be prepared to offer above list for desirable properties\" :\n  \"Target slightly under-valued properties with upside potential\";\n\nmarket.investmentHighlight = {\n  title: \"Key Investment Strategy\",\n  strategy: bestBuyingStrategy,\n  summary: `${market.investmentAdvice.marketType}: ${market.marketScoreInfo.score} on market score scale`\n};\n\nreturn [{ json: { marketAnalysis: market } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        0
+      ],
+      "id": "91508a63-1b9c-4b26-912f-d1382ba74192",
+      "name": "Market Results"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d20248b8-6b30-4f26-833c-1364148ffbd6",
+              "name": "marketData",
+              "value": "={{ $json.data.odpMarketAnalytics }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        380,
+        0
+      ],
+      "id": "8b3a5367-7292-4442-8ab1-2ee9eb60b3cf",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "309645da-f7de-4165-a33d-02edab9b79cd",
+      "name": "FSBO"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "typeVersion": 2,
+      "position": [
+        780,
+        0
+      ],
+      "id": "a71484e9-f1af-40b3-a5c0-6bb3e84aeef6",
+      "name": "Summarization Chain"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        760,
+        180
+      ],
+      "id": "46a144e8-47b3-466f-8aa1-b1ae3aa98211",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-08T00:05:43.356Z",
+  "versionId": "b7ead435-5d99-4ab8-bb6b-eb60912c1ae8"
+}
