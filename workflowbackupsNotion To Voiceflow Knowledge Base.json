@@ -1,0 +1,322 @@
+{
+  "active": false,
+  "connections": {
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Update the KB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion Update": {
+      "main": [
+        [
+          {
+            "node": "Notion Update Get All Blocks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion New": {
+      "main": [
+        [
+          {
+            "node": "Notion Get All Blocks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion Get All Blocks": {
+      "main": [
+        [
+          {
+            "node": "Build New Item JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build New Item JSON": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to KB": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Upload to KB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion Update Get All Blocks": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-07T04:37:59.864Z",
+  "id": "POnL0C0ggqF1mpAI",
+  "meta": null,
+  "name": "Notion To Voiceflow Knowledge Base",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.voiceflow.com/v1/knowledge-base/docs/upload/table",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "overwrite",
+              "value": "true"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "SET_YOUR_VOICEFLOW_API_KEY_HERE"
+            },
+            {
+              "name": "Content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"data\": {\n    \"name\": \"{{ $json.name }}\",\n    \"schema\": {\n      \"searchableFields\": [\"name\", \"content\"],\n      \"metadataFields\": [\"name\", \"id\"]\n    },\n    \"items\": [\n      {\n        \"name\": \"{{ $json.name }}\",\n        \"content\": \"{{ $json.content }}\",\n        \"id\": \"{{ $json.id }}\"\n      }\n    ]\n  }\n}",
+        "options": {}
+      },
+      "id": "4d0ada53-52b4-41a4-bcdf-c31639df4b80",
+      "name": "Upload to KB",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        920,
+        0
+      ],
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const paragraphString = $input.all()\n  .filter(item => item.json.type === \"paragraph\" && item.json.content.trim() !== \"\")\n  .map(item => item.json.content)\n  .join(\"\\n\\n\");\n\nreturn [{ json: { result: JSON.stringify(paragraphString) } }];"
+      },
+      "id": "f9c052b5-1534-4b88-b1e6-af9848dab27e",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "event": "pagedUpdatedInDatabase",
+        "databaseId": {
+          "__rl": true,
+          "value": "17568a1d-c5da-803f-8127-c946175e5236",
+          "mode": "list",
+          "cachedResultName": "Rachel’s Real Estate",
+          "cachedResultUrl": "https://www.notion.so/17568a1dc5da803f8127c946175e5236"
+        }
+      },
+      "id": "16e3ee82-08ae-46d4-99ea-2e6fb3ea844d",
+      "name": "Notion Update",
+      "type": "n8n-nodes-base.notionTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "databaseId": {
+          "__rl": true,
+          "value": "17568a1d-c5da-803f-8127-c946175e5236",
+          "mode": "list",
+          "cachedResultName": "Rachel’s Real Estate",
+          "cachedResultUrl": "https://www.notion.so/17568a1dc5da803f8127c946175e5236"
+        }
+      },
+      "id": "4569c3e7-17ef-4f51-a5e3-fa4dfec8ecce",
+      "name": "Notion New",
+      "type": "n8n-nodes-base.notionTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.voiceflow.com/v1/knowledge-base/docs/upload/table",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "overwrite",
+              "value": "true"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "SET_YOUR_VOICEFLOW_API_KEY_HERE"
+            },
+            {
+              "name": "Content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"data\": {\n        \"name\": \"{{ $('Notion Update').first().json.Name }}\",\n        \"schema\": {\n            \"searchableFields\": [\"name\", \"content\"],\n            \"metadataFields\": [\"name\", \"id\"]\n        },\n        \"items\": [\n            {\n                \"name\": \"{{ $('Notion Update').first().json.Name }}\",\n                \"content\": {{ $json.result }},\n                \"id\":\"{{ $('Notion Update').first().json.id }}\"\n            }\n        ]\n    }\n}",
+        "options": {}
+      },
+      "id": "417b0d55-3546-4e5e-ba5a-1f601aa0d76f",
+      "name": "Update the KB",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        220
+      ],
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "operation": "getAll",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        }
+      },
+      "id": "f79b291e-2a25-43c9-83d4-dd43f6e935f9",
+      "name": "Notion Get All Blocks",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        220,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let pages = $('Notion New').all();\nlet blocks = $('Notion Get All Blocks').all();\n\nlet kb_data = [];\n\nfor (let i = 0; i < pages.length; i++) {\n  const pageId = pages[i].json.id;\n\n  // Filter and map blocks that belong to the current page and are of type \"paragraph\"\n  const pageContent = blocks\n    .filter(block => \n      block.json.parent &&\n      block.json.parent.page_id === pageId &&\n      block.json.type === \"paragraph\"\n    )\n    .map(block => block.json.content)\n    .join(\" \"); // Concatenate all paragraph contents into a single string\n\n  kb_data.push({\n    \"name\": pages[i].json.Name,\n    \"content\": pageContent,\n    \"id\": pageId\n  });\n}\n\nreturn kb_data\n"
+      },
+      "id": "63f766e5-766f-4a97-a23b-c26ea21ddd39",
+      "name": "Build New Item JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": "=1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        660,
+        0
+      ],
+      "id": "00262dfb-abb6-4e0a-99ae-a9183b7c616b",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "operation": "getAll",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        }
+      },
+      "id": "2c277d22-1a6e-437c-9588-cb1871b52bcd",
+      "name": "Notion Update Get All Blocks",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        220,
+        220
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-07T04:37:59.864Z",
+  "versionId": "343fdab0-1ce6-4439-ae95-81d90b1591e6"
+}
