@@ -1,0 +1,241 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Information Extractor": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "zvhi_tool": {
+      "main": [
+        [
+          {
+            "node": "Historical Insights",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "zvhi_tool",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-07T22:19:05.339Z",
+  "id": "BR6S3XfNZonF1qVh",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "ZVHI Tool",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        380,
+        140
+      ],
+      "id": "53b067d4-5f45-4559-9aed-16da6c4f4911",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.query }} {{ $json.chatInput }}",
+        "attributes": {
+          "attributes": [
+            {
+              "name": "location",
+              "description": "this will be a city, neighborhood or zip code"
+            }
+          ]
+        },
+        "options": {
+          "systemPromptTemplate": "You are an expert extraction algorithm.\nOnly extract relevant information from the text.\nIf you do not know the value of an attribute asked to extract, you may omit the attribute's value."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "typeVersion": 1,
+      "position": [
+        620,
+        140
+      ],
+      "id": "c9002c52-71fe-4f73-8adb-75cc43a02111",
+      "name": "Information Extractor"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-3.5-turbo",
+          "mode": "list",
+          "cachedResultName": "gpt-3.5-turbo"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        580,
+        380
+      ],
+      "id": "3c5ca37b-2bd3-4dbc-9d96-44eb4dc6e473",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://zillow56.p.rapidapi.com/zhvi_range?",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "location",
+              "value": "={{ $json.location }}"
+            },
+            {
+              "name": "type",
+              "value": "={{ $json.type }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "zillow56.p.rapidapi.com",
+              "value": "x-rapidapi-key: 9802f0de5bmsh2d4b2fa9c758bc0p154944jsn144d97f4e5e9"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        140
+      ],
+      "id": "44330003-a67f-482d-a767-e00d06b125ba",
+      "name": "zvhi_tool",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "H6PNMTsDsJyaTxxO",
+          "name": "RapidAPI Zillow56"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2bac2796-5dc4-4658-acef-0acd94fb6a72",
+              "name": "location",
+              "value": "={{ $json.output.location }}",
+              "type": "string"
+            },
+            {
+              "id": "963ea4a6-05f6-4846-b928-0cabc5f5ea65",
+              "name": "type",
+              "value": "single_family",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        940,
+        140
+      ],
+      "id": "d38a0173-9e60-4711-8ff9-8ecbae973dfe",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get input data from the HTTP request node\nconst inputData = $input.first().json; // Access the JSON data from the first input item\n\n// Ensure the input data structure is valid\nif (!inputData || !inputData.data || !inputData.data.odpMarketAnalytics || !inputData.data.odpMarketAnalytics.zhviRange) {\n  return {\n    json: {\n      error: true,\n      message: \"Missing or invalid data structure.\",\n      receivedData: inputData\n    }\n  };\n}\n\n// Extract ZHVI data\nconst zhviData = inputData.data.odpMarketAnalytics.zhviRange;\n\n// Ensure ZHVI data exists and is an array with at least 2 data points\nif (!Array.isArray(zhviData) || zhviData.length < 2) {\n  return {\n    json: {\n      error: true,\n      message: \"Not enough ZHVI data points for analysis.\",\n      receivedData: zhviData\n    }\n  };\n}\n\n// Sort data from oldest to newest by timePeriodEnd\nconst sortedData = zhviData\n  .map(item => ({\n    dataValue: item.dataValue,\n    date: new Date(item.timePeriodEnd) // Parse date\n  }))\n  .sort((a, b) => a.date - b.date); // Sort by date\n\n// Extract key values\nconst currentValue = sortedData[sortedData.length - 1].dataValue;\nconst oldestValue = sortedData[0].dataValue;\n\n// Convert to readable dates\nconst oldestDate = sortedData[0].date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });\nconst newestDate = sortedData[sortedData.length - 1].date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });\n\n// Calculate total appreciation\nconst totalAppreciationPercent = ((currentValue - oldestValue) / oldestValue * 100).toFixed(2);\n\n// Calculate years of data\nconst yearsOfData = (sortedData[sortedData.length - 1].date - sortedData[0].date) / (365 * 24 * 60 * 60 * 1000);\nconst annualAppreciationPercent = (totalAppreciationPercent / yearsOfData).toFixed(2);\n\n// Find highest and lowest points\nlet highestPoint = sortedData.reduce((prev, curr) => (curr.dataValue > prev.dataValue ? curr : prev));\nlet lowestPoint = sortedData.reduce((prev, curr) => (curr.dataValue < prev.dataValue ? curr : prev));\n\n// Calculate recovery from lowest point\nconst recoveryFromLowest = ((currentValue - lowestPoint.dataValue) / lowestPoint.dataValue * 100).toFixed(2);\n\n// Calculate 5-year projected value\nconst annualAppreciationRate = parseFloat(annualAppreciationPercent) / 100; // Convert percentage to decimal\nconst projectedValue = currentValue * Math.pow(1 + annualAppreciationRate, 5); // Compound growth formula\nconst formattedProjectedValue = Math.round(projectedValue).toLocaleString(); // Format for readability\n\n// Format dates\nconst highestPointDate = highestPoint.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });\nconst lowestPointDate = lowestPoint.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });\n\n// Generate output\nreturn {\n  json: {\n    marketSnapshot: [\n      `Current home value: $${Math.round(currentValue).toLocaleString()} as of ${newestDate}`,\n      `Home values appreciated ${totalAppreciationPercent}% over ${yearsOfData.toFixed(1)} years (${annualAppreciationPercent}% annually)`,\n      `Peak value: $${Math.round(highestPoint.dataValue).toLocaleString()} (${highestPointDate})`,\n      `Lowest value: $${Math.round(lowestPoint.dataValue).toLocaleString()} (${lowestPointDate})`\n    ],\n    investmentPerspective: [\n      `Buying at the market low would have resulted in ${recoveryFromLowest}% appreciation`,\n      `Based on the current annual appreciation rate of ${annualAppreciationPercent}%, the projected home value in 5 years is $${formattedProjectedValue}.`\n    ]\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1420,
+        140
+      ],
+      "id": "cd917ec2-7604-4a4b-b309-fa61f2c36716",
+      "name": "Historical Insights"
+    },
+    {
+      "parameters": {
+        "content": "# zvhi tool workflow\n- Executed by workflow(call from real estate main)\n- Information extractor\n  - Openai 3.5 turbo(or model of your choosing)\n- Zvhi_tool- http request API call\n- Code Node \"Historical Insights\" returns\n  - Market snapshot\n  - Investment Perspective",
+        "height": 500,
+        "width": 1620,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "66c0c006-537f-4255-a524-97044b0b6512",
+      "name": "Sticky Note3"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-07T23:22:38.728Z",
+  "versionId": "ea530c40-cef1-4297-ae8a-2f6615369c1b"
+}
