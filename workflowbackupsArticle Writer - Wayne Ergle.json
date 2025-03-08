@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Webhook": {
       "main": [
@@ -1046,7 +1046,7 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "id": "={{ $('Airtable Get Article Data').item.json.id }}",
+            "id": "={{ $('Update Article Title').item.json.id }}",
             "Google Doc URL": "={{ $json.url }}"
           },
           "matchingColumns": [
@@ -2387,45 +2387,7 @@
       "name": "Sticky Note12"
     }
   ],
-  "pinData": {
-    "Webhook": [
-      {
-        "json": {
-          "headers": {
-            "host": "primary-production-c4f7.up.railway.app",
-            "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-            "accept-encoding": "gzip, deflate, br, zstd",
-            "accept-language": "en-US,en;q=0.9",
-            "cookie": "rl_page_init_referrer=RudderEncrypt%3AU2FsdGVkX1%2FQcYFDmxx7p7xzi3TMRWVq6lq%2FdVV0nXc%3D; rl_page_init_referring_domain=RudderEncrypt%3AU2FsdGVkX19BCLzdloNZMHNOQDqWnR4vU9%2FZKq%2FEHBs%3D; n8n-auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMTM2MjdhLTcxOWQtNDViYy1hMzE1LTRkN2U0YTgyZDc2NyIsImhhc2giOiJ5b0hQNUJDN1NyIiwiYnJvd3NlcklkIjoiRWdSYTBqMERLWjV2UDVseGllM0h0TlNVd1JIOWxKK2NqUkpkYldwVUpyST0iLCJpYXQiOjE3NDEyOTA0MjMsImV4cCI6MTc0MTg5NTIyM30.qDFErSOsYq04eXNzPEu8EWfx4Xp69sKlJP3Ye96bCNg; rl_anonymous_id=RudderEncrypt%3AU2FsdGVkX19vVyohvUJfwVhFogtwhLbMWHRbBvBjTwd56ZtKE%2BUDvmzYYwtUfcSf6%2FOjR2LH3zX%2BGyj6618pHA%3D%3D; rl_user_id=RudderEncrypt%3AU2FsdGVkX1%2BpkocVuLeQzZxEstqKmDBnQeVcxjhzgRxAnGG%2FN8b8IntlkwIoOl%2BM3o%2BaHx784UlpqMBYm4130a30PdY%2FTJH6WIxDSO3x0r99E9xRA6FkMg6f8NlSLDzdIf3XN2xvWqegYkrJTWaa13%2BBE5kocml5RFsfP3q68dM%3D; rl_trait=RudderEncrypt%3AU2FsdGVkX19pk59%2Bni6utwjI1JqAajYIk0ZB88WEX7wOm19wZ%2F4jSSbMF0P6fICHlf%2BiAbQdtDKgloBXIhhM34FGtdaUPMK7Vq551vOfG63caOoVMzDZPw7Zdn4VWcUgugvx0YgsL%2FefA19MScML1A%3D%3D; ph_phc_4URIAm1uYfJO7j8kWSe0J8lc8IqnstRLS7Jx8NcakHo_posthog=%7B%22distinct_id%22%3A%22f93b99a58e93facfc2467e690f466ecd7ae2afaa4fb581dd451f7a01c26b979b%230ff8bf2c-150d-4126-810b-8a0c14c69d93%22%2C%22%24sesid%22%3A%5B1741302924371%2C%2201956dbe-0454-7eb9-8379-da7068ec2e56%22%2C1741302924371%5D%2C%22%24epp%22%3Atrue%2C%22%24initial_person_info%22%3A%7B%22r%22%3A%22%24direct%22%2C%22u%22%3A%22https%3A%2F%2Fprimary-production-052d.up.railway.app%2Fsetup%22%7D%7D; rl_session=RudderEncrypt%3AU2FsdGVkX19vAtlxqhYFAPm7uuVlxT6kzdT%2BgKph7NNZd2ucUWIvfBvl8t6whSlFYI9xqORJrYqp5O22aB226Uwoybab1TXq8%2BCh3Hz8lUwEKSHUC%2B3X26BSeXLlZkCgXliscoCnaWxMYRGQlPq24Q%3D%3D",
-            "priority": "u=0, i",
-            "sec-ch-ua": "\"Not(A:Brand\";v=\"99\", \"Google Chrome\";v=\"133\", \"Chromium\";v=\"133\"",
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": "\"macOS\"",
-            "sec-fetch-dest": "document",
-            "sec-fetch-mode": "navigate",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-user": "?1",
-            "upgrade-insecure-requests": "1",
-            "x-forwarded-for": "24.255.10.172",
-            "x-forwarded-host": "primary-production-c4f7.up.railway.app",
-            "x-forwarded-proto": "https",
-            "x-railway-edge": "railway/us-west1",
-            "x-railway-request-id": "MsXuIxncQdC1iLVYCEzLeQ_1850849526",
-            "x-real-ip": "24.255.10.172",
-            "x-request-start": "1741305227999"
-          },
-          "params": {},
-          "query": {
-            "recordId": "rec9nvuXOeANoKVq9"
-          },
-          "body": {},
-          "webhookUrl": "https://webhook-processor-production-a030.up.railway.app/webhook-test/4b83bc6d-c8ca-421e-8f4e-ae4ed055745c",
-          "executionMode": "test"
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
@@ -2438,7 +2400,7 @@
       "name": "Content Creation"
     }
   ],
-  "triggerCount": 0,
-  "updatedAt": "2025-03-07T03:25:20.711Z",
-  "versionId": "c32febe7-69c5-426e-9c47-1b1284b9bcf0"
+  "triggerCount": 1,
+  "updatedAt": "2025-03-07T04:48:09.307Z",
+  "versionId": "7170e5e8-a277-4fa6-a030-c24aaf01bdfa"
 }
