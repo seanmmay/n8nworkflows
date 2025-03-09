@@ -225,7 +225,9 @@
   },
   "createdAt": "2025-03-08T01:34:37.742Z",
   "id": "W3nXUriYZQto8POa",
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "SEO :: Publish Articles To Wordpress.com",
   "nodes": [
     {
@@ -357,7 +359,13 @@
         220
       ],
       "notesInFlow": true,
-      "typeVersion": 4.5
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EfWTDOyZBNSeoRkx",
+          "name": "sean@alphafv.co Google Sheets"
+        }
+      }
     },
     {
       "parameters": {
@@ -1371,7 +1379,13 @@
         720,
         1080
       ],
-      "typeVersion": 4.5
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EfWTDOyZBNSeoRkx",
+          "name": "sean@alphafv.co Google Sheets"
+        }
+      }
     },
     {
       "parameters": {
@@ -1591,6 +1605,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-03-08T01:34:37.742Z",
-  "versionId": "851cb07e-0e0a-490d-a3d2-ffbf86396737"
+  "updatedAt": "2025-03-09T02:41:51.540Z",
+  "versionId": "aa4f0029-36e6-46c0-956f-22e2e0f006ad"
 }
