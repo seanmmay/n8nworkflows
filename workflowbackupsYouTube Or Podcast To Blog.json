@@ -1,0 +1,2212 @@
+{
+  "active": false,
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Title",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Intro",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Intro",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Outro",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser2": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Outro",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Title": {
+      "main": [
+        [
+          {
+            "node": "Intro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Intro": {
+      "main": [
+        [
+          {
+            "node": "Main Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Main Article",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow": {
+      "main": [
+        [
+          {
+            "node": "Format Missing 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcript": {
+      "main": [
+        [
+          {
+            "node": "If Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Workflow": {
+      "main": [
+        [
+          {
+            "node": "Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Format Missing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Final Data": {
+      "main": [
+        [
+          {
+            "node": "Title",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main Article": {
+      "main": [
+        [
+          {
+            "node": "Outro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Outro": {
+      "main": [
+        [
+          {
+            "node": "If Workflow1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Create Twitter Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Workflow1": {
+      "main": [
+        [
+          {
+            "node": "Workflow Generator",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Format Article No Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Article Constructer": {
+      "main": [
+        [
+          {
+            "node": "Format Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Article Constructer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser3": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Article Constructer",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Article": {
+      "main": [
+        [
+          {
+            "node": "Format Intro & Outro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser4": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Tags & Categories",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model6": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Tags & Categories",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tags & Categories": {
+      "main": [
+        [
+          {
+            "node": "Post To WP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser5": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Format Intro & Outro",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Intro & Outro": {
+      "main": [
+        [
+          {
+            "node": "Tags & Categories",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model7": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Format Intro & Outro",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Workflow Generator",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Generator": {
+      "main": [
+        [
+          {
+            "node": "Article Constructer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Article No Code": {
+      "main": [
+        [
+          {
+            "node": "Format Intro & Outro1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model9": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Format Intro & Outro1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser7": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Format Intro & Outro1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Intro & Outro1": {
+      "main": [
+        [
+          {
+            "node": "Tags & Categories1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model8": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Tags & Categories1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser6": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Tags & Categories1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tags & Categories1": {
+      "main": [
+        [
+          {
+            "node": "Post To WP1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcript1": {
+      "main": [
+        [
+          {
+            "node": "Final Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model10": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Title1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser8": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Title1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model11": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Intro1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser9": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Intro1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model12": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Outro1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser10": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Outro1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Title1": {
+      "main": [
+        [
+          {
+            "node": "Intro1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Intro1": {
+      "main": [
+        [
+          {
+            "node": "Main Article1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model13": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Main Article1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main Article1": {
+      "main": [
+        [
+          {
+            "node": "Outro1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Final Data1": {
+      "main": [
+        [
+          {
+            "node": "Title1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser11": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Main Article1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Article No Code1": {
+      "main": [
+        [
+          {
+            "node": "Format Intro & Outro2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model14": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Format Intro & Outro2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Intro & Outro2": {
+      "main": [
+        [
+          {
+            "node": "Tags & Categories2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser12": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Format Intro & Outro2",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model15": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Tags & Categories2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser13": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Tags & Categories2",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tags & Categories2": {
+      "main": [
+        [
+          {
+            "node": "Post To WP2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Outro1": {
+      "main": [
+        [
+          {
+            "node": "Format Article No Code1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Create Twitter Posts 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission1": {
+      "main": [
+        [
+          {
+            "node": "Transcript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Title",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Final Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-10T16:41:53.512Z",
+  "id": "EJsV98MZ5V5ThGh4",
+  "meta": null,
+  "name": "YouTube Or Podcast To Blog",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "basicAuth",
+        "formTitle": "Blog Importer",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Transcript",
+              "fieldType": "file",
+              "multipleFiles": false,
+              "acceptFileTypes": ".txt",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "YouTube URL",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Links",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "N8N Workflow",
+              "fieldType": "file",
+              "multipleFiles": false,
+              "acceptFileTypes": ".json"
+            }
+          ]
+        },
+        "options": {
+          "path": "blog-poster"
+        }
+      },
+      "id": "4a91b6bb-2f76-48eb-85a8-efdd640ce7e4",
+      "name": "On form submission",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -2760,
+        380
+      ],
+      "webhookId": "932d8f81-457b-46f8-bfb8-df36485521e3"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"title\": \"string\",\n    \"slug\": \"string\"\n}"
+      },
+      "id": "dc3b4386-3ef2-4718-9348-669286a4ecb4",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1500,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "9f34e1a7-e356-4d51-88c9-020dbba29ade",
+      "name": "Anthropic Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        -1340,
+        500
+      ],
+      "credentials": {
+        "anthropicApi": {
+          "id": "SrQWYEVjGq2xqUy2",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"intro\": \"string\"\n}"
+      },
+      "id": "37150e88-89ce-4120-8975-f44a46ba168e",
+      "name": "Structured Output Parser1",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1160,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "6543a6ae-eb3e-4687-a7f9-bf536e1d12d9",
+      "name": "Anthropic Chat Model3",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        -660,
+        500
+      ],
+      "credentials": {
+        "anthropicApi": {
+          "id": "SrQWYEVjGq2xqUy2",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"outro\": \"string\"\n}"
+      },
+      "id": "05d76b1b-7b9b-496b-9c68-a80ec62f3baa",
+      "name": "Structured Output Parser2",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -460,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your job is to make a compelling title and a slug based on the script provided below. The title should draw curiousity for the user to click on the article. The title should be representitive of what the article is about. If it is a tutorial try to be clear what the tutorial is about.  The title is for a blog. The slug should be relatively short. Dont mention a video.\n\n{{ $json.transcript }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "9cd56715-b314-4a64-b162-9e69db8b07ea",
+      "name": "Title",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -1680,
+        340
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=This GPT specializes in generating compelling blog outro paragraphs. You will give a nice conclusion to the article previously provided, and then do a CTA Offering a free community whatsapp group of which here is the link https://chat.whatsapp.com/D0ziYlB9A8k4pULCqNSmHJ . This community is made to for people looking to get better and master automation.\n\n--- Here is the title ---\n{{ $('Title').item.json.output.title }}\n\n--- Here is the intro paragraph ---\n{{ $('Intro').item.json.output.intro }}\n\n--- Here is the main blog content ---\n{{ $json.output }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "b66ae270-7b9d-40de-87d5-fcbae4d90e87",
+      "name": "Outro",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -640,
+        340
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=This GPT specializes in generating compelling blog intro paragraphs by leveraging psychology and NLP techniques. It applies a structured 3-step hook formula to captivate viewers: starting with a Context Lean-In to establish relevance, followed by a Scroll-Stop Interjection to create surprise, and concluding with a Contrarian Snapback to deepen curiosity. Here is more information and an example on how to create a good hook. \n\n\nThe Psychology and Tactics Behind Effective Hooks: A Condensed Guide\n1. The 3-Step Hook Formula\nA proven method to grab attention:\n\nContext Lean-In: Clearly state the topic and establish relevance by addressing pain points, benefits, or shared interests. Example: \"The tech in the Vegas Sphere is insane—biggest screen ever built.\"\nScroll-Stop Interjection: Use contrasting words (e.g., \"but,\" \"however\") to surprise the viewer. Example: \"But the screen is actually the least impressive part.\"\nContrarian Snapback: Deliver a shocking twist that pulls viewers in deeper. Example: \"Because the most impressive part is the audio.\"\nThis formula builds a \"curiosity loop,\" compelling viewers to stay and find out more.\n\nExample of a Hook Using the 3-Step Formula\nContext Lean-In:\n\"The tech in the Vegas Sphere is insane—biggest screen ever built, 20 times bigger than an IMAX.\"\n\nScroll-Stop Interjection:\n\"But get this—the screen is actually the least impressive part of the whole thing.\"\n\nContrarian Snapback:\n\"Because the most impressive part is the audio. This will blow your mind.\"\n\nThis example effectively grabs attention by introducing an intriguing topic, surprising the viewer with an unexpected twist, and snapping their curiosity in a new direction, compelling them to keep watching.\n\n2. Appeal to Interests with New Perspectives\nViewers are drawn to topics they care about, but they'll stay for new insights that promise benefits or solve pain points. Lead with the benefit. Example: Instead of \"Magnesium is essential,\" say, \"If you want better sleep, you need magnesium.\"\n\n\n3. Staccato Sentences\nStart with short, concise sentences to maximize clarity and value per word. Expand sentence length as the blog progresses to maintain rhythm and depth.\n\n\nGenerate the intro paragraph based on the video transcript below. \n{{ $('Final Data').item.json.transcript }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "9054adf5-fec5-4005-934f-96fcb7917bf0",
+      "name": "Intro",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -1340,
+        340
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "3263d897-8e17-43ed-9fad-9ea811ce255f",
+      "name": "Anthropic Chat Model4",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        -980,
+        500
+      ],
+      "credentials": {
+        "anthropicApi": {
+          "id": "SrQWYEVjGq2xqUy2",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "fromJson",
+        "binaryPropertyName": "=N8N_Workflow",
+        "destinationKey": "workflow",
+        "options": {}
+      },
+      "id": "aab552e5-fd99-44ce-b0af-c31c929c124f",
+      "name": "Workflow",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -2260,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0c8e355c-309c-482d-97ac-b19497c438cc",
+              "name": "=transcript",
+              "value": "={{ $('Transcript').item.json.Transcript }}",
+              "type": "string"
+            },
+            {
+              "id": "728a0d5d-cc85-4b9c-95a7-f0256544fb09",
+              "name": "=workflow",
+              "value": "={{ $json.workflow }}",
+              "type": "object"
+            },
+            {
+              "id": "3498d2ef-5c65-48e7-8fe5-052da4fbfac0",
+              "name": "links",
+              "value": "={{ $json.links }}",
+              "type": "string"
+            },
+            {
+              "id": "2002656e-1bbb-40e9-9359-c4a401d7238e",
+              "name": "youtube",
+              "value": "={{ $('On form submission').item.json['YouTube URL'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1860,
+        240
+      ],
+      "id": "e89b391d-adbc-4c25-96c8-7b33fb64ef50",
+      "name": "Final Data"
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "binaryPropertyName": "Transcript",
+        "destinationKey": "Transcript",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -2600,
+        380
+      ],
+      "id": "c6d9f6dc-f96e-4823-a296-ccb8e883fe42",
+      "name": "Transcript"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9c4a0326-1c49-4d14-84b0-248736996102",
+              "leftValue": "={{ $('On form submission').item.json['N8N Workflow'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "5c132bd2-7fd5-4b37-b1b9-5917ec14959d",
+      "name": "If Workflow",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2440,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe8f68cb-19c8-4521-9c98-d3eec43e76e4",
+              "name": "workflow",
+              "value": "={{ $('Workflow').item.json.workflow ?? null }}",
+              "type": "object"
+            },
+            {
+              "id": "e24cf1d9-ae8b-4da5-87fe-b062232bfab1",
+              "name": "links",
+              "value": "={{ $('On form submission').item.json.Links  ?? null}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2100,
+        320
+      ],
+      "id": "de4a8025-306e-4d86-83b9-dc6f6440b6b2",
+      "name": "Format Missing 2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe8f68cb-19c8-4521-9c98-d3eec43e76e4",
+              "name": "workflow",
+              "value": "={}",
+              "type": "object"
+            },
+            {
+              "id": "e24cf1d9-ae8b-4da5-87fe-b062232bfab1",
+              "name": "links",
+              "value": "={{ $('On form submission').item.json.Links  ?? null}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2100,
+        480
+      ],
+      "id": "a236dc92-269f-4618-8047-00f47f965c15",
+      "name": "Format Missing"
+    },
+    {
+      "parameters": {
+        "content": "## YouTube Video Input",
+        "height": 340,
+        "width": 1040,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2800,
+        300
+      ],
+      "typeVersion": 1,
+      "id": "f97f3dd6-40fe-40e2-a036-99b545593d17",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Create a blog post based on the video transcript provided below. The blog post should be more then 500 words. DO NOT include an intro paragraph, a title, or an outro paragraph because they all have already been created. This should only be the meat/body of the article. You can start with an overview paragraph, or jump straight into the main content. If usefull links are provided, they are to be put at the top of the article as the first thing, under a secion called \"Usefull links\" If not, then dont worry about it. \n\n--- Here is the transcript ---\n{{ $('Final Data').item.json.transcript }}\n\n--- Any usefull links will be provided here if availible ---\n{{ $('Final Data').item.json.links }}\n\n--- Here is the pre generated title  ---\n{{ $('Title').item.json.output.title }}\n\n--- Here is the intro paragraph that was already generated ---\n{{ $json.output.intro }}",
+        "options": {}
+      },
+      "id": "a8e83257-e831-49d0-813f-2013495225d2",
+      "name": "Main Article",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -980,
+        340
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "92622516-e486-49c6-8841-701fcee4306c",
+              "leftValue": "={{ $('Final Data').item.json.workflow }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -300,
+        340
+      ],
+      "id": "4656495f-614d-450e-afff-19a5eb8d0a66",
+      "name": "If Workflow1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your job is to construct a **detailed and structured tutorial article** using the provided content.\n\n** Key Instructions**\n1. **DO NOT remove or summarize any part of the Workflow Documentation.**\n2. **Structure the article in the following format:**\n   - **Step-by-Step Overview** from the Main Content.\n   - **Detailed Configuration** for each step from the Workflow Documentation.\n   - Repeat this format until all content is fully incorporated.\n3. **Merge the two sections logically**, ensuring the full details from the workflow is retained.\n4. **DO NOT add an intro or outro for the blog.** Structure the content for readability.\n5. DO NOT add any text formatting\n6. MAKE the article nice and readable. Your job is to make the article beautiful! Do your best!\n7. The longer and more detailed the better.\n\n\n\nHere is a small sample example output of the first step in an article. \n\nUseful Links:\n\nExample Link: https://linkexample.com\n\nStep 1: Generate AI Script\nThe automation process for creating YouTube Shorts begins with generating the script using Claude, an AI assistant known for producing high-quality scripts. While other AI options are available, Claude's copywriting abilities make it particularly well-suited for this task. Once the script is ready, the next step is to generate video content.\n\n1.1 When chat message received\n- Node Type: @n8n/n8n-nodes-langchain.chatTrigger\n- Purpose: Triggers the workflow when a chat message is received\n- Configuration: Basic webhook trigger setup\n- Webhook ID: ef5cc598-3e21-4aae-be12-7208fcd89ef3\n\n1.2 Short Text\n- Node Type: @n8n/n8n-nodes-langchain.agent\n- Purpose: Generates a YouTube Shorts script\n- Prompt: Detailed prompt for generating a script between 98-106 words with specific structure (Hook, Main Content, Closing)\n- Connected to: Anthropic Chat Model\n- Has Output Parser: True\n- Connected to Structured Output Parser1 with schema: {\"script\": \"string\"}\n\n\n---\n## ** Step-by-Step Overview**\nThis section presents a **high-level breakdown** of the process, **directly from the Main Content**, keeping all original details intact. This would be the first part of the step, with an added title text for the step. \n\n```{{ $('Main Article').item.json.output }}```\n\n---\n## ** Detailed Configuration for Each Step**\nThis section provides the **technical setup and configurations** for each step, as outlined in the Workflow Documentation. You must include all the text from this part, and you must not change it. You can only split it up into the right steps in accordence to the flow of the artic.e\n\n```{{ $json.output }}```\n\n\n\n",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        420,
+        60
+      ],
+      "id": "9d583865-007d-4c5e-8235-83326d5224dc",
+      "name": "Article Constructer",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        440,
+        240
+      ],
+      "id": "0c845c0e-0b2d-4ecf-923e-029ded06789a",
+      "name": "Anthropic Chat Model5",
+      "credentials": {
+        "anthropicApi": {
+          "id": "SrQWYEVjGq2xqUy2",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"article\" : \"string\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        580,
+        240
+      ],
+      "id": "b4dcddd9-4b06-4213-964a-f2cbd9628d26",
+      "name": "Structured Output Parser3"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "asst_jFssBtsvVdZLQnPurhrPLH5x",
+          "mode": "list",
+          "cachedResultName": "Blog Formatter"
+        },
+        "prompt": "define",
+        "text": "={{ $json.output.article }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        780,
+        60
+      ],
+      "id": "040b66b9-a1cc-4282-b1d7-5fc18b4a6f0f",
+      "name": "Format Article",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "title": "={{ $('Title').item.json.output.title }}",
+        "additionalFields": {
+          "authorId": 1,
+          "content": "=\n<!-- wp:embed {\"url\":\"{{ $('Final Data').item.json.youtube }}\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true,\"className\":\"wp-embed-aspect-16-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\n    {{ $('Final Data').item.json.youtube }}\n    </div></figure>\n    <!-- /wp:embed -->\n{{ $('Format Intro & Outro').item.json.output.intro }}\n{{ $('Format Article').item.json.output }}\n{{ $('Format Intro & Outro').item.json.output.outro }}",
+          "slug": "={{ $('Title').item.json.output.slug }}",
+          "categories": "={{ parseInt($('Tags & Categories').item.json.output.category, 10) }}",
+          "tags": "={{ $('Tags & Categories').item.json.output.tags.join(', ') }}"
+        }
+      },
+      "id": "c3d6382c-47aa-4076-b076-1344d4d8dd0a",
+      "name": "Post To WP",
+      "type": "n8n-nodes-base.wordpress",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your job is to generate 1-5 tags and pick one category for the following article. Tags must be related to the article.  \n\nYou must provide the category and tags as an id\nHere are the categories\n5\tBusiness Automation\n3\tN8N Tutorials\n490\tPodcast\n4\tPython Tutorials\n\ntags\n448\tachieving success\n378\tadvanced mental health tech\n52\tai\n271\tAI assistant for Discord\n473\tAI Automation\n208\tAI Chatbot\n217\tAI Chatbot Applications\n214\tAI Chatbot Benefits\n209\tAI Chatbot Best Practices\n220\tAI Chatbot Challenges\n212\tAI Chatbot Development\n216\tAI Chatbot Future\n210\tAI Chatbot Guide\n219\tAI Chatbot Platform\n211\tAI Chatbot Tools\n213\tAI Chatbot Trends\n215\tAI Chatbot Tutorial\n528\tAI content creation\n438\tAI Email Personalization\n461\tAI email tools\n540\tAI for diagnosis\n264\tAI for Discord\n517\tAI for insurers\n478\tAI for Lead Generation\n439\tAI for Marketing\n470\tai in customer service\n437\tAI in Email\n467\tAI in email marketing\n384\tAI in healthcare\n508\tAI in Insurance\n472\tAI in Marketing\n551\tAI in medicine\n382\tAI in mental health\n550\tAI in patient care\n141\tAI in Sales\n189\tAI Marketing\n434\tAI Outreach\n474\tAI Personalization\n479\tAI Personalization Tools\n544\tAI technology\n380\tAI therapy tools\n204\tAI Tools\n515\tAI trends in insurance\n520\tAI video creation\n525\tAI video tools\n465\tAI-driven emails\n506\tAI-driven insurance solutions\n377\tAI-driven mental health\n543\tAI-driven treatments\n503\tAI-powered claims processing\n462\tAI-powered communication\n458\tAI-Powered Email\n554\tai-powered healthcare\n138\tAI-Powered Lead Generation\n113\tai-powered personalization\n553\tAI-powered research\n106\tAI-Powered Summarization\n532\tAI-powered video creation\n51\tai-powered workflow\n499\tAirtable\n493\tAirtable and n8n\n303\tAirtable and n8n integration\n305\tAirtable automation\n496\tAirtable beginner guide\n301\tAirtable data sync\n492\tAirtable integrations\n495\tAirtable pro tips\n500\tAirtable productivity\n494\tAirtable tips\n497\tAirtable tutorial\n498\tAirtable workflow\n416\talternative funding\n193\tAPI\n192\tAPI Call\n200\tAPI Connector\n169\tAPI integration\n134\tartificial intelligence\n370\tAsana Automation\n364\tAsana workflow setup\n66\tauto update n8n\n294\tautomate business processes\n116\tAutomate Client Onboarding\n246\tautomate data collection\n459\tautomate email replies\n427\tAutomate Emails\n292\tautomate Pipedrive tasks\n371\tautomate project management\n335\tautomate reminders\n285\tautomate sales pipeline\n315\tautomate Slack workflows\n277\tautomate tasks on Discord\n368\tautomate tasks with Asana\n330\tautomate tasks with n8n\n357\tautomate Trello workflows\n184\tAutomate Twitter\n464\tautomate with AI\n296\tautomate with n8n\n229\tAutomate Workflows with N8N\n536\tautomate YouTube videos\n480\tAutomated Emails\n404\tautomated file handling\n428\tAutomated Outreach\n361\tautomated task management\n345\tautomated workflows\n40\tautomation\n174\tautomation guide\n390\tautomation tips\n45\tautomation tool\n166\tautomation tools\n20\tb\n114\tB2B Client Onboarding\n137\tB2B Lead Generation\n146\tB2B Marketing\n139\tB2B Sales\n181\tblog post automation\n180\tblogging\n120\tBoost Client Satisfaction\n344\tboost productivity\n279\tboost sales productivity\n128\tBPA\n130\tBPM\n267\tbuild a Discord bot\n207\tBuild AI Chatbot\n253\tbuilding chatbots with OpenAI\n441\tbuilding resilience\n412\tbusiness acquisition\n84\tbusiness areas\n83\tbusiness automation\n86\tbusiness efficiency\n422\tbusiness growth\n99\tBusiness Intelligence\n92\tbusiness management\n135\tbusiness optimization\n408\tbusiness ownership\n124\tbusiness process automation\n131\tbusiness process management\n85\tbusiness productivity\n90\tbusiness solution\n21\tc\n336\tcalendar automation tools\n252\tchatbot customer service\n260\tchatbot design tips\n256\tchatbot development\n258\tchatbot for e-commerce\n250\tchatbot human handoff\n257\tchatbot with NLP\n177\tChatGPT\n505\tclaims automation\n347\tClickUp and n8n\n348\tClickUp Automation\n350\tClickUp features\n351\tClickUp Integrations\n340\tClickUp tips\n349\tClickUp tutorials\n88\tclient onboarding\n115\tClient Onboarding Automation\n121\tClient Onboarding Best Practices\n89\tclient onboarding process\n122\tClient Onboarding Workflow\n123\tclient satisfaction\n402\tcloud storage automation\n53\tcold email\n320\tcold email hacks\n325\tcold email marketing\n54\tcold email outreach\n431\tCold Email Strategy\n321\tcold email tips\n91\tcommunication\n343\tconnect ClickUp to n8n\n318\tconnect Slack to n8n\n359\tconnect Trello to n8n\n101\tConstruction\n97\tConstruction Inventory\n98\tConstruction Technology\n178\tcontent creation\n179\tcontent marketing\n261\tconversational AI\n125\tcost reduction\n206\tCreate AI Chatbot\n263\tcreating engaging chatbots\n352\tCRM tool\n269\tcustom Discord AI\n471\tcustomer service agent\n96\tDashboard Design\n158\tData Analysis\n167\tdata automation\n59\tdata entry\n243\tdata extraction from websites\n483\tData Filtering\n60\tdata management\n112\tData Science\n150\tData Scraping\n168\tdata sync\n93\tData Visualization\n165\tdatabase automation\n537\tdigital health\n254\tdigital human chatbot\n145\tDigital Marketing\n387\tdigital therapy\n129\tdigital transformation\n514\tdigital transformation in insurance\n273\tDiscord AI Chatbot\n272\tDiscord bot setup\n265\tDiscord server automation\n102\tDIY Dashboard\n80\tdocker\n403\tDropbox and n8n\n399\tDropbox automation\n401\tDropbox file management\n400\tDropbox Integration\n405\tDropbox workflows\n245\tdynamic website scraping\n127\tefficiency\n395\tefficient workflows\n435\tEmail AI Tools\n425\tEmail Automation\n468\temail automation tools\n326\temail campaigns\n327\temail copywriting\n329\temail deliverability\n433\tEmail List Management\n319\temail marketing\n475\tEmail Outreach\n323\temail outreach guide\n430\tEmail Personalization\n463\temail productivity\n477\tEmail Strategy\n446\temotional resilience\n270\tenhance Discord server\n136\tenterprise automation\n411\tentrepreneur financing\n75\tethical scraping\n149\tEviction Data\n489\tFeatured Post\n398\tfile management\n406\tfile organization tools\n482\tFiltering in Google Sheets\n418\tfinancing solutions\n420\tfinancing without banks\n419\tflexible financing\n447\tfostering resilience\n513\tfraud detection AI\n541\tfuture of healthcare\n511\tfuture of insurance\n50\tgemini ai\n332\tGoogle Calendar API\n331\tGoogle Calendar automation\n466\tGoogle Drive automation\n460\tGoogle Drive integration\n49\tgoogle gemini\n57\tgoogle sheets\n481\tGoogle Sheets Automation\n484\tGoogle Sheets Functions\n486\tGoogle Sheets Hacks\n488\tGoogle Sheets Tips\n445\tgrit and motivation\n451\tgrowth mindset\n538\thealthcare AI tools\n542\thealthcare automation\n545\thealthcare data analysis\n548\thealthcare innovation\n539\thealthcare treatment\n324\thigh-converting emails\n156\tHousing Market\n251\tHow To Build A Chatbot\n238\thow to scrape event participants\n71\thow to scrape websites\n82\thow to self-host n8n\n173\tHubSpot CRM\n172\tHubSpot Integration\n255\thuman-like chatbot\n196\tIFTTT Alternative\n118\tImprove Client Experience\n119\tIncrease Client Retention\n432\tIncrease Sales\n502\tinsurance AI tools\n509\tinsurance automation\n512\tinsurance data analytics\n504\tinsurance technology\n162\tintegration\n355\tintegration guide\n341\tintegration tutorials\n95\tInventory Dashboard\n100\tInventory Management\n155\tInvestor\n154\tLandlord\n147\tlead generation\n140\tLead Generation Strategies\n242\tlead generation with Python\n201\tLinkedIn Automation\n202\tLinkedIn Marketing\n443\tlong-term success\n199\tLow-Code Automation\n111\tMachine Learning\n546\tmachine learning in healthcare\n516\tmachine learning in insurance\n339\tmanage appointments with n8n\n143\tMarketing Automation\n191\tMarketing Tips\n491\tmastering Airtable\n552\tmedical AI\n547\tmedical breakthroughs\n549\tmedical research\n379\tmental health care\n383\tmental health innovation\n444\tmental toughness\n455\tmindset improvement\n456\tmotivation and grit techniques\n440\tmotivation strategies\n42\tn8n\n306\tn8n Airtable tutorial\n363\tn8n Asana integration\n65\tn8n auto update\n342\tn8n automation\n299\tn8n automation guide\n226\tN8N Automation Platform\n234\tN8N Deployment Guide.\n397\tN8n efficiency\n62\tn8n export\n231\tN8N for Business Automation\n407\tn8n for Dropbox\n372\tn8n for productivity\n312\tn8n for Slack\n531\tn8n for YouTube\n338\tn8n Google Calendar integration\n314\tn8n guide\n222\tN8N Hosting Guide\n391\tN8n how-to\n63\tn8n import\n69\tn8n installation\n224\tN8N Installation Tips\n70\tn8n instance\n48\tn8n integration\n346\tn8n integrations\n233\tN8N Open-Source Tool\n287\tN8N Pipedrive\n282\tN8N sales integration\n235\tn8n self hosted\n78\tn8n self-hosting\n68\tn8n selfhost\n76\tn8n server\n230\tN8N Setup Tutorial\n309\tn8n Slack integration\n228\tN8N Step-by-Step Guide\n393\tN8n tips\n297\tn8n to Airtable\n337\tn8n to Google Calendar\n394\tN8n tricks\n284\tN8N tutorial\n485\tN8N Tutorials\n43\tn8n workflow\n223\tN8N Workflow Automation\n61\tn8n workflows\n110\tNatural Language\n259\tnatural language processing\n81\tnginx\n518\tNLP in insurance\n410\tno upfront capital\n218\tNo-Code AI Chatbot\n304\tno-code Airtable integration\n163\tno-code automation\n276\tno-code Discord AI\n317\tno-code workflow\n295\tno-code workflow guide\n161\tNotion\n171\tnotion integration\n367\toptimize Asana tasks\n56\toutreach campaign\n424\tOutreach Strategy\n457\tovercoming adversity\n450\tovercoming challenges\n417\towner financing\n442\tperseverance tips\n452\tpersonal growth\n109\tPersonalization with AI\n476\tPersonalized Emails\n519\tpersonalized insurance policies\n55\tpersonalized outreach\n221\tpinecone\n293\tPipedrive\n283\tPipedrive and N8N\n281\tPipedrive CRM automation\n289\tPipedrive integration\n290\tPipedrive workflow automation\n197\tPower Automation\n501\tpredictive analytics in insurance\n107\tProcessing (NLP)\n126\tproductivity\n188\tProductivity Tools\n449\tprofessional development\n366\tproject management automation\n365\tproject management with n8n\n152\tProperty Management\n32\tpython\n241\tPython and Selenium automation\n34\tpython scraping\n247\tPython scraping tools\n38\tpython web scraping\n159\tR\n151\tReal Estate\n160\treal estate business\n415\treal estate financing\n157\tReal Estate Investing\n423\treal estate service business\n194\tREST API\n507\trisk management AI\n133\trobotic process automation\n132\tRPA\n275\tRunBear AI bot\n278\tRunbear custom AI\n266\tRunBear tutorial\n148\tsales\n436\tSales Automation\n288\tsales automation tools\n322\tsales email strategies\n142\tSales Enablement\n426\tSales Engagement\n429\tSales Growth\n328\tsales optimization\n144\tSales Technology\n333\tschedule events with n8n\n236\tScrape Event\n240\tscrape event participants\n72\tscrape websites\n249\tscraping business leads\n33\tselenium\n237\tSelenium guide\n248\tSelenium tutorial for beginners\n453\tself-discipline\n77\tself-host n8n\n225\tSelf-Hosted Automation Tools\n67\tself-hosted n8n\n232\tSelf-Hosting Workflow Solutions\n409\tSeller Financing\n421\tseller financing benefits\n413\tseller financing options\n316\tsend messages via n8n\n454\tsetting goals\n308\tSlack automation\n307\tSlack integrations\n313\tSlack to n8n\n311\tSlack triggers\n286\tsmall business automation\n414\tsmall business loans\n183\tSocial Media Automation\n186\tSocial Media Bot\n205\tSocial Media Posting\n190\tSocial Media Scheduler\n58\tspreadsheet\n487\tSpreadsheet Automation\n334\tstreamline calendar management\n117\tStreamline Client Onboarding\n469\tstreamline email replies\n291\tstreamline sales workflow\n310\tstreamline Slack processes\n300\tstreamline workflows\n274\tstreamline workflows with AI\n103\tSummarize Website\n94\tSupply Chain\n302\tsync data with Airtable\n164\ttask automation\n356\ttask management\n369\ttask management automation\n374\ttech in mental health\n280\ttech sales tools\n268\ttech tools for Discord\n153\tTenant\n203\tTime Management\n87\ttime-saving\n392\ttime-saving automation\n358\tTrello and n8n\n353\tTrello Automation\n362\tTrello features\n360\tTrello tips\n354\tTrello tutorials\n182\tTwitter Automation\n185\tTwitter Bot\n187\tTwitter Scheduler\n79\tubuntu\n510\tunderwriting with AI\n521\tvideo automation\n527\tvideo creation workflow\n534\tvideo editing automation\n524\tvideo production automation\n373\tVirtual Reality and AI\n389\tvirtual reality and AI solutions\n385\tvirtual reality applications\n388\tvirtual reality therapy\n376\tVR and AI benefits\n381\tVR for anxiety\n386\tVR for PTSD\n375\tVR treatment\n30\tweb scraping\n35\tweb scraping chrome extension free\n37\tweb scraping definition\n36\tweb scraping python\n39\tweb scraping tools\n239\tweb scraping tutorial\n244\tweb scraping with Selenium\n44\twebhook\n46\twebhook configuration\n47\twebhook trigger\n195\tWebhooks\n108\tWebsite Data Analysis\n104\tWebsite Data Summarization\n73\twebsite scrape\n31\twebsite scraping\n105\tWebsite Summarization\n176\tWordPress Automation\n175\tWordPress Blog\n41\tworkflow automation\n227\tWorkflow Automation Tools\n64\tworkflow management\n170\tworkflow optimization\n396\tworkflow tips\n533\tYouTube growth\n529\tYouTube marketing\n522\tYouTube Shorts\n530\tYouTube Shorts AI\n523\tYouTube Shorts automation\n535\tYouTube Shorts strategy\n526\tYouTube video tips\n198\tZapier Alternative\n74\tzenrows\n\n\nHere is the article title and some info about it. \n{{ $('Title').item.json.output.title }}\n\n{{ $('Intro').item.json.output.intro }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1500,
+        60
+      ],
+      "id": "9740518a-2a31-4a50-99c2-043a8375a8ed",
+      "name": "Tags & Categories",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"category\": \"integer\",\n\t\"tags\": [\"string\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1660,
+        240
+      ],
+      "id": "9ee75d1a-901c-43d9-969c-1a2903b8dde1",
+      "name": "Structured Output Parser4"
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        1500,
+        240
+      ],
+      "id": "f5eb3127-687f-4c87-bf8a-adb61199bace",
+      "name": "Anthropic Chat Model6"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"intro\": \"string\",\n\t\"outro\": \"string\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1300,
+        220
+      ],
+      "id": "2342fd12-3a88-4feb-bf53-51b80cb1ffb8",
+      "name": "Structured Output Parser5"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your job is to format the following intro and outro paragraphs using the following html tags. You can also take links, and turn them into nice CTA Text's. Do not add emojis. \n\nHeadings & Paragraphs\n<h1>Heading 1</h1>\n<h2>Heading 2</h2>\n<h3>Heading 3</h3>\n<p>This is a paragraph.</p>\n<a href=\"http://example.com\">This is a link</a>\n\nText Styling\n<strong>Bold text</strong>  \n<em>Italic text</em>  \n<u>Underlined text</u>  \n<del>Strikethrough text</del>  \n<mark>Highlighted text</mark>\n\nYou must output 2 responses in a json format. One for the intro and one for the outro.\n\n--- Here is the intro ---\n{{ $('Intro').item.json.output.intro }}\n\n\n--- Here is the outro --- \n{{ $('If Workflow1').item.json.output.outro }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1100,
+        60
+      ],
+      "id": "85c7a5a7-87eb-4b68-94a9-d57addda6df5",
+      "name": "Format Intro & Outro",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        1080,
+        220
+      ],
+      "id": "cf00522c-4a18-430b-b66d-8f8d34252afe",
+      "name": "Anthropic Chat Model7"
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        60,
+        220
+      ],
+      "id": "80ed5aff-a01a-47ab-b026-b2b03d153cf4",
+      "name": "Anthropic Chat Model2",
+      "credentials": {
+        "anthropicApi": {
+          "id": "SrQWYEVjGq2xqUy2",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your job is to generate **step-by-step documentation** based on the **n8n workflow** provided below.\n\n**Key Instructions:**\n1. **DO NOT add any text outside of the documentation**—no introduction, no conclusion.\n2. **Document each node individually**, ensuring it includes:\n   - **Node Name**: Use the exact name from the workflow.\n   - **Node Type**: Include the node’s full identifier.\n   - **Purpose**: Clearly explain what the node does in the workflow.\n   - **Configuration**: Provide all necessary settings and parameters.\n   - **Prompts (if applicable)**: If the node uses a prompt, include it exactly as provided.\n   - **Code (if applicable)**: If the node contains custom JavaScript, python or JSON, include the complete code.\n   - **Related Sub-Nodes**: If the node has dependent or connected nodes, document them, with their configurations. If the node has an output parser, put the code for the parser as well. \n   - **Settings**: Include any relevant parameters, authentication settings, or custom configurations.\n3. **Follow a consistent, structured format** for each node.\n4. **Do not format text with bold, italics, or special styling.** Keep the output **plain and structured** for easy readability.\n5. Be sure to go in as much detail as you can. This is for a tutorial so please add information about EVERYTHING! The more thourough the better.\n6. If there is a HTTP NODE then please include the endpoint, the payload, all the queries, and EVERY detail about the node.\n7. Include the configuration for EVERY single node! \n\n---\n\n**Example Node Documentation Format**\n\n **AI Agent Node**  \n(Claude AI is used here, but you can replace it with any AI service.)  \n\n- **Node Type**: `@n8n/n8n-nodes-langchain.chatTrigger`  \n- **Purpose**: Generates the title of the blog.  \n- **Prompt**:  \"Generate a compelling blog title based on the given topic. Ensure it is engaging and under 60 characters.\"\n- **Configuration**:\n- Model`: claude-3-opus\n- Temperature: 0.7\n- Max Tokens: 256\n- Has Output Parser: True\n- **Connected Structured Output Parser**:{ \"title\": \"string\" }\nAuthentication: Uses API Key stored under Claude API Credentials\n\n\n--- WORKFLOW ---\n{{ JSON.stringify($('Final Data').item.json.workflow) }}\n",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        60,
+        60
+      ],
+      "id": "61d60ac6-2406-4aa2-ba39-c7ad4b96d703",
+      "name": "Workflow Generator",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "asst_WxqgPl29duADpzfTy4kCEix5",
+          "mode": "list",
+          "cachedResultName": "No Code Blog Formatter"
+        },
+        "prompt": "define",
+        "text": "={{ $('Main Article').item.json.output }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        20,
+        520
+      ],
+      "id": "ac0b618a-1210-4a36-9e03-e79c0cabbe3c",
+      "name": "Format Article No Code",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        320,
+        680
+      ],
+      "id": "8487a436-b0f9-4ecc-b5fb-8f43d7a0d424",
+      "name": "Anthropic Chat Model9"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your job is to format the following intro and outro paragraphs using the following html tags. You can also take links, and turn them into nice CTA Text's. Do not add emojis. \n\nHeadings & Paragraphs\n<h1>Heading 1</h1>\n<h2>Heading 2</h2>\n<h3>Heading 3</h3>\n<p>This is a paragraph.</p>\n<a href=\"http://example.com\">This is a link</a>\n\nText Styling\n<strong>Bold text</strong>  \n<em>Italic text</em>  \n<u>Underlined text</u>  \n<del>Strikethrough text</del>  \n<mark>Highlighted text</mark>\n\nYou must output 2 responses in a json format. One for the intro and one for the outro.\n\n--- Here is the intro ---\n{{ $('Intro').item.json.output.intro }}\n\n\n--- Here is the outro --- \n{{ $('If Workflow1').item.json.output.outro }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        340,
+        520
+      ],
+      "id": "a0c5822f-3fd7-4902-a8f2-9fffeed940e7",
+      "name": "Format Intro & Outro1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"intro\": \"string\",\n\t\"outro\": \"string\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        540,
+        680
+      ],
+      "id": "fe53f2c6-2bb1-4498-a64b-ecec68807370",
+      "name": "Structured Output Parser7"
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        740,
+        700
+      ],
+      "id": "827a076e-da71-4b31-9f05-af6ad8d11d97",
+      "name": "Anthropic Chat Model8"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"category\": \"integer\",\n\t\"tags\": [\"string\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        900,
+        700
+      ],
+      "id": "f7844a20-7bcd-4ff0-902c-056666e6dfb9",
+      "name": "Structured Output Parser6"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your job is to generate 1-5 tags and pick one category for the following article. Tags must be related to the article.  \n\nYou must provide the category and tags as an id\nHere are the categories\n5\tBusiness Automation\n3\tN8N Tutorials\n490\tPodcast\n4\tPython Tutorials\n\ntags\n448\tachieving success\n378\tadvanced mental health tech\n52\tai\n271\tAI assistant for Discord\n473\tAI Automation\n208\tAI Chatbot\n217\tAI Chatbot Applications\n214\tAI Chatbot Benefits\n209\tAI Chatbot Best Practices\n220\tAI Chatbot Challenges\n212\tAI Chatbot Development\n216\tAI Chatbot Future\n210\tAI Chatbot Guide\n219\tAI Chatbot Platform\n211\tAI Chatbot Tools\n213\tAI Chatbot Trends\n215\tAI Chatbot Tutorial\n528\tAI content creation\n438\tAI Email Personalization\n461\tAI email tools\n540\tAI for diagnosis\n264\tAI for Discord\n517\tAI for insurers\n478\tAI for Lead Generation\n439\tAI for Marketing\n470\tai in customer service\n437\tAI in Email\n467\tAI in email marketing\n384\tAI in healthcare\n508\tAI in Insurance\n472\tAI in Marketing\n551\tAI in medicine\n382\tAI in mental health\n550\tAI in patient care\n141\tAI in Sales\n189\tAI Marketing\n434\tAI Outreach\n474\tAI Personalization\n479\tAI Personalization Tools\n544\tAI technology\n380\tAI therapy tools\n204\tAI Tools\n515\tAI trends in insurance\n520\tAI video creation\n525\tAI video tools\n465\tAI-driven emails\n506\tAI-driven insurance solutions\n377\tAI-driven mental health\n543\tAI-driven treatments\n503\tAI-powered claims processing\n462\tAI-powered communication\n458\tAI-Powered Email\n554\tai-powered healthcare\n138\tAI-Powered Lead Generation\n113\tai-powered personalization\n553\tAI-powered research\n106\tAI-Powered Summarization\n532\tAI-powered video creation\n51\tai-powered workflow\n499\tAirtable\n493\tAirtable and n8n\n303\tAirtable and n8n integration\n305\tAirtable automation\n496\tAirtable beginner guide\n301\tAirtable data sync\n492\tAirtable integrations\n495\tAirtable pro tips\n500\tAirtable productivity\n494\tAirtable tips\n497\tAirtable tutorial\n498\tAirtable workflow\n416\talternative funding\n193\tAPI\n192\tAPI Call\n200\tAPI Connector\n169\tAPI integration\n134\tartificial intelligence\n370\tAsana Automation\n364\tAsana workflow setup\n66\tauto update n8n\n294\tautomate business processes\n116\tAutomate Client Onboarding\n246\tautomate data collection\n459\tautomate email replies\n427\tAutomate Emails\n292\tautomate Pipedrive tasks\n371\tautomate project management\n335\tautomate reminders\n285\tautomate sales pipeline\n315\tautomate Slack workflows\n277\tautomate tasks on Discord\n368\tautomate tasks with Asana\n330\tautomate tasks with n8n\n357\tautomate Trello workflows\n184\tAutomate Twitter\n464\tautomate with AI\n296\tautomate with n8n\n229\tAutomate Workflows with N8N\n536\tautomate YouTube videos\n480\tAutomated Emails\n404\tautomated file handling\n428\tAutomated Outreach\n361\tautomated task management\n345\tautomated workflows\n40\tautomation\n174\tautomation guide\n390\tautomation tips\n45\tautomation tool\n166\tautomation tools\n20\tb\n114\tB2B Client Onboarding\n137\tB2B Lead Generation\n146\tB2B Marketing\n139\tB2B Sales\n181\tblog post automation\n180\tblogging\n120\tBoost Client Satisfaction\n344\tboost productivity\n279\tboost sales productivity\n128\tBPA\n130\tBPM\n267\tbuild a Discord bot\n207\tBuild AI Chatbot\n253\tbuilding chatbots with OpenAI\n441\tbuilding resilience\n412\tbusiness acquisition\n84\tbusiness areas\n83\tbusiness automation\n86\tbusiness efficiency\n422\tbusiness growth\n99\tBusiness Intelligence\n92\tbusiness management\n135\tbusiness optimization\n408\tbusiness ownership\n124\tbusiness process automation\n131\tbusiness process management\n85\tbusiness productivity\n90\tbusiness solution\n21\tc\n336\tcalendar automation tools\n252\tchatbot customer service\n260\tchatbot design tips\n256\tchatbot development\n258\tchatbot for e-commerce\n250\tchatbot human handoff\n257\tchatbot with NLP\n177\tChatGPT\n505\tclaims automation\n347\tClickUp and n8n\n348\tClickUp Automation\n350\tClickUp features\n351\tClickUp Integrations\n340\tClickUp tips\n349\tClickUp tutorials\n88\tclient onboarding\n115\tClient Onboarding Automation\n121\tClient Onboarding Best Practices\n89\tclient onboarding process\n122\tClient Onboarding Workflow\n123\tclient satisfaction\n402\tcloud storage automation\n53\tcold email\n320\tcold email hacks\n325\tcold email marketing\n54\tcold email outreach\n431\tCold Email Strategy\n321\tcold email tips\n91\tcommunication\n343\tconnect ClickUp to n8n\n318\tconnect Slack to n8n\n359\tconnect Trello to n8n\n101\tConstruction\n97\tConstruction Inventory\n98\tConstruction Technology\n178\tcontent creation\n179\tcontent marketing\n261\tconversational AI\n125\tcost reduction\n206\tCreate AI Chatbot\n263\tcreating engaging chatbots\n352\tCRM tool\n269\tcustom Discord AI\n471\tcustomer service agent\n96\tDashboard Design\n158\tData Analysis\n167\tdata automation\n59\tdata entry\n243\tdata extraction from websites\n483\tData Filtering\n60\tdata management\n112\tData Science\n150\tData Scraping\n168\tdata sync\n93\tData Visualization\n165\tdatabase automation\n537\tdigital health\n254\tdigital human chatbot\n145\tDigital Marketing\n387\tdigital therapy\n129\tdigital transformation\n514\tdigital transformation in insurance\n273\tDiscord AI Chatbot\n272\tDiscord bot setup\n265\tDiscord server automation\n102\tDIY Dashboard\n80\tdocker\n403\tDropbox and n8n\n399\tDropbox automation\n401\tDropbox file management\n400\tDropbox Integration\n405\tDropbox workflows\n245\tdynamic website scraping\n127\tefficiency\n395\tefficient workflows\n435\tEmail AI Tools\n425\tEmail Automation\n468\temail automation tools\n326\temail campaigns\n327\temail copywriting\n329\temail deliverability\n433\tEmail List Management\n319\temail marketing\n475\tEmail Outreach\n323\temail outreach guide\n430\tEmail Personalization\n463\temail productivity\n477\tEmail Strategy\n446\temotional resilience\n270\tenhance Discord server\n136\tenterprise automation\n411\tentrepreneur financing\n75\tethical scraping\n149\tEviction Data\n489\tFeatured Post\n398\tfile management\n406\tfile organization tools\n482\tFiltering in Google Sheets\n418\tfinancing solutions\n420\tfinancing without banks\n419\tflexible financing\n447\tfostering resilience\n513\tfraud detection AI\n541\tfuture of healthcare\n511\tfuture of insurance\n50\tgemini ai\n332\tGoogle Calendar API\n331\tGoogle Calendar automation\n466\tGoogle Drive automation\n460\tGoogle Drive integration\n49\tgoogle gemini\n57\tgoogle sheets\n481\tGoogle Sheets Automation\n484\tGoogle Sheets Functions\n486\tGoogle Sheets Hacks\n488\tGoogle Sheets Tips\n445\tgrit and motivation\n451\tgrowth mindset\n538\thealthcare AI tools\n542\thealthcare automation\n545\thealthcare data analysis\n548\thealthcare innovation\n539\thealthcare treatment\n324\thigh-converting emails\n156\tHousing Market\n251\tHow To Build A Chatbot\n238\thow to scrape event participants\n71\thow to scrape websites\n82\thow to self-host n8n\n173\tHubSpot CRM\n172\tHubSpot Integration\n255\thuman-like chatbot\n196\tIFTTT Alternative\n118\tImprove Client Experience\n119\tIncrease Client Retention\n432\tIncrease Sales\n502\tinsurance AI tools\n509\tinsurance automation\n512\tinsurance data analytics\n504\tinsurance technology\n162\tintegration\n355\tintegration guide\n341\tintegration tutorials\n95\tInventory Dashboard\n100\tInventory Management\n155\tInvestor\n154\tLandlord\n147\tlead generation\n140\tLead Generation Strategies\n242\tlead generation with Python\n201\tLinkedIn Automation\n202\tLinkedIn Marketing\n443\tlong-term success\n199\tLow-Code Automation\n111\tMachine Learning\n546\tmachine learning in healthcare\n516\tmachine learning in insurance\n339\tmanage appointments with n8n\n143\tMarketing Automation\n191\tMarketing Tips\n491\tmastering Airtable\n552\tmedical AI\n547\tmedical breakthroughs\n549\tmedical research\n379\tmental health care\n383\tmental health innovation\n444\tmental toughness\n455\tmindset improvement\n456\tmotivation and grit techniques\n440\tmotivation strategies\n42\tn8n\n306\tn8n Airtable tutorial\n363\tn8n Asana integration\n65\tn8n auto update\n342\tn8n automation\n299\tn8n automation guide\n226\tN8N Automation Platform\n234\tN8N Deployment Guide.\n397\tN8n efficiency\n62\tn8n export\n231\tN8N for Business Automation\n407\tn8n for Dropbox\n372\tn8n for productivity\n312\tn8n for Slack\n531\tn8n for YouTube\n338\tn8n Google Calendar integration\n314\tn8n guide\n222\tN8N Hosting Guide\n391\tN8n how-to\n63\tn8n import\n69\tn8n installation\n224\tN8N Installation Tips\n70\tn8n instance\n48\tn8n integration\n346\tn8n integrations\n233\tN8N Open-Source Tool\n287\tN8N Pipedrive\n282\tN8N sales integration\n235\tn8n self hosted\n78\tn8n self-hosting\n68\tn8n selfhost\n76\tn8n server\n230\tN8N Setup Tutorial\n309\tn8n Slack integration\n228\tN8N Step-by-Step Guide\n393\tN8n tips\n297\tn8n to Airtable\n337\tn8n to Google Calendar\n394\tN8n tricks\n284\tN8N tutorial\n485\tN8N Tutorials\n43\tn8n workflow\n223\tN8N Workflow Automation\n61\tn8n workflows\n110\tNatural Language\n259\tnatural language processing\n81\tnginx\n518\tNLP in insurance\n410\tno upfront capital\n218\tNo-Code AI Chatbot\n304\tno-code Airtable integration\n163\tno-code automation\n276\tno-code Discord AI\n317\tno-code workflow\n295\tno-code workflow guide\n161\tNotion\n171\tnotion integration\n367\toptimize Asana tasks\n56\toutreach campaign\n424\tOutreach Strategy\n457\tovercoming adversity\n450\tovercoming challenges\n417\towner financing\n442\tperseverance tips\n452\tpersonal growth\n109\tPersonalization with AI\n476\tPersonalized Emails\n519\tpersonalized insurance policies\n55\tpersonalized outreach\n221\tpinecone\n293\tPipedrive\n283\tPipedrive and N8N\n281\tPipedrive CRM automation\n289\tPipedrive integration\n290\tPipedrive workflow automation\n197\tPower Automation\n501\tpredictive analytics in insurance\n107\tProcessing (NLP)\n126\tproductivity\n188\tProductivity Tools\n449\tprofessional development\n366\tproject management automation\n365\tproject management with n8n\n152\tProperty Management\n32\tpython\n241\tPython and Selenium automation\n34\tpython scraping\n247\tPython scraping tools\n38\tpython web scraping\n159\tR\n151\tReal Estate\n160\treal estate business\n415\treal estate financing\n157\tReal Estate Investing\n423\treal estate service business\n194\tREST API\n507\trisk management AI\n133\trobotic process automation\n132\tRPA\n275\tRunBear AI bot\n278\tRunbear custom AI\n266\tRunBear tutorial\n148\tsales\n436\tSales Automation\n288\tsales automation tools\n322\tsales email strategies\n142\tSales Enablement\n426\tSales Engagement\n429\tSales Growth\n328\tsales optimization\n144\tSales Technology\n333\tschedule events with n8n\n236\tScrape Event\n240\tscrape event participants\n72\tscrape websites\n249\tscraping business leads\n33\tselenium\n237\tSelenium guide\n248\tSelenium tutorial for beginners\n453\tself-discipline\n77\tself-host n8n\n225\tSelf-Hosted Automation Tools\n67\tself-hosted n8n\n232\tSelf-Hosting Workflow Solutions\n409\tSeller Financing\n421\tseller financing benefits\n413\tseller financing options\n316\tsend messages via n8n\n454\tsetting goals\n308\tSlack automation\n307\tSlack integrations\n313\tSlack to n8n\n311\tSlack triggers\n286\tsmall business automation\n414\tsmall business loans\n183\tSocial Media Automation\n186\tSocial Media Bot\n205\tSocial Media Posting\n190\tSocial Media Scheduler\n58\tspreadsheet\n487\tSpreadsheet Automation\n334\tstreamline calendar management\n117\tStreamline Client Onboarding\n469\tstreamline email replies\n291\tstreamline sales workflow\n310\tstreamline Slack processes\n300\tstreamline workflows\n274\tstreamline workflows with AI\n103\tSummarize Website\n94\tSupply Chain\n302\tsync data with Airtable\n164\ttask automation\n356\ttask management\n369\ttask management automation\n374\ttech in mental health\n280\ttech sales tools\n268\ttech tools for Discord\n153\tTenant\n203\tTime Management\n87\ttime-saving\n392\ttime-saving automation\n358\tTrello and n8n\n353\tTrello Automation\n362\tTrello features\n360\tTrello tips\n354\tTrello tutorials\n182\tTwitter Automation\n185\tTwitter Bot\n187\tTwitter Scheduler\n79\tubuntu\n510\tunderwriting with AI\n521\tvideo automation\n527\tvideo creation workflow\n534\tvideo editing automation\n524\tvideo production automation\n373\tVirtual Reality and AI\n389\tvirtual reality and AI solutions\n385\tvirtual reality applications\n388\tvirtual reality therapy\n376\tVR and AI benefits\n381\tVR for anxiety\n386\tVR for PTSD\n375\tVR treatment\n30\tweb scraping\n35\tweb scraping chrome extension free\n37\tweb scraping definition\n36\tweb scraping python\n39\tweb scraping tools\n239\tweb scraping tutorial\n244\tweb scraping with Selenium\n44\twebhook\n46\twebhook configuration\n47\twebhook trigger\n195\tWebhooks\n108\tWebsite Data Analysis\n104\tWebsite Data Summarization\n73\twebsite scrape\n31\twebsite scraping\n105\tWebsite Summarization\n176\tWordPress Automation\n175\tWordPress Blog\n41\tworkflow automation\n227\tWorkflow Automation Tools\n64\tworkflow management\n170\tworkflow optimization\n396\tworkflow tips\n533\tYouTube growth\n529\tYouTube marketing\n522\tYouTube Shorts\n530\tYouTube Shorts AI\n523\tYouTube Shorts automation\n535\tYouTube Shorts strategy\n526\tYouTube video tips\n198\tZapier Alternative\n74\tzenrows\n\n\nHere is the article title and some info about it. \n{{ $('Title').item.json.output.title }}\n\n{{ $('Intro').item.json.output.intro }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        740,
+        520
+      ],
+      "id": "45cc2bfe-b9a1-4b4d-9948-7da17098b172",
+      "name": "Tags & Categories1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "title": "={{ $('Title').item.json.output.title }}",
+        "additionalFields": {
+          "authorId": 1,
+          "content": "=\n<!-- wp:embed {\"url\":\"{{ $('Final Data').item.json.youtube }}\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true,\"className\":\"wp-embed-aspect-16-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\n    {{ $('Final Data').item.json.youtube }}\n    </div></figure>\n    <!-- /wp:embed -->\n{{ $('Format Intro & Outro1').item.json.output.intro }}\n{{ $('Format Article No Code').item.json.output }}\n{{ $('Format Intro & Outro1').item.json.output.outro }}",
+          "slug": "={{ $('Title').item.json.output.slug }}",
+          "categories": "={{ parseInt($('Tags & Categories1').item.json.output.category, 10) }}",
+          "tags": "={{ $('Tags & Categories1').item.json.output.tags.join(', ') }}"
+        }
+      },
+      "id": "d407e4b0-f80a-4fd0-8aa4-a894c5b7797b",
+      "name": "Post To WP1",
+      "type": "n8n-nodes-base.wordpress",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Article Pieces",
+        "height": 380,
+        "width": 1560,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1700,
+        280
+      ],
+      "typeVersion": 1,
+      "id": "c6e4debe-da18-4ddb-9957-e1ebc1617d10",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## IF Code",
+        "height": 380,
+        "width": 2040,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "ac30e6e8-30a9-43fc-a44d-ba9c671919fc",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## IF No Code",
+        "height": 380,
+        "width": 1300,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        460
+      ],
+      "typeVersion": 1,
+      "id": "d4f2a63e-4bbe-439b-9748-fcecb7089c16",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "binaryPropertyName": "Transcript",
+        "destinationKey": "Transcript",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -2000,
+        1480
+      ],
+      "id": "9fd8c28f-c1e5-445b-bd59-f16d86e76ed3",
+      "name": "Transcript1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0c8e355c-309c-482d-97ac-b19497c438cc",
+              "name": "=transcript",
+              "value": "={{ $('Transcript1').item.json.Transcript }}",
+              "type": "string"
+            },
+            {
+              "id": "c17bca6f-5d8d-4363-beed-2c2d12ea82cd",
+              "name": "links",
+              "value": "={{ $('On form submission1').item.json.Links }}",
+              "type": "string"
+            },
+            {
+              "id": "d9903b44-a8a5-4933-94e9-27b4ccc18ccd",
+              "name": "youtube",
+              "value": "={{ $('On form submission1').item.json['YouTube URL'] }}",
+              "type": "string"
+            },
+            {
+              "id": "d21b661f-40c0-442f-ab18-113c9ed53c17",
+              "name": "guest",
+              "value": "={{ $('On form submission1').item.json['Guest Name'] }}",
+              "type": "string"
+            },
+            {
+              "id": "dd9e4f31-e834-4f45-a09a-13badd4a7c6d",
+              "name": "episode",
+              "value": "={{ $('On form submission1').item.json['Episode Number'] }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1840,
+        1480
+      ],
+      "id": "8e2b0b3e-30ff-46e2-a64e-1567dbb93c55",
+      "name": "Final Data1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e7d1d358-a98f-4ed7-a276-58368e2ec506",
+      "name": "Anthropic Chat Model10",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        -1580,
+        1660
+      ]
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"title\": \"string\",\n    \"slug\": \"string\"\n}"
+      },
+      "id": "d7b10a9d-fc48-4ff2-83ba-1cfce7cac8d9",
+      "name": "Structured Output Parser8",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1400,
+        1660
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "7a720358-fa22-48ed-98b5-1ceec7662bd2",
+      "name": "Anthropic Chat Model11",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        -1240,
+        1640
+      ]
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"intro\": \"string\"\n}"
+      },
+      "id": "94c14049-2a83-4af5-851a-fe3769762cdc",
+      "name": "Structured Output Parser9",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1060,
+        1640
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "162fc06a-3bd4-4d84-b6ac-d8252f201e64",
+      "name": "Anthropic Chat Model12",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        -560,
+        1640
+      ]
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"outro\": \"string\"\n}"
+      },
+      "id": "f0ed23dc-1e82-42d9-bed3-1b55a2d880e5",
+      "name": "Structured Output Parser10",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -360,
+        1640
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your job is to make a compelling title and a slug based on the podcast transcript provided below. The title should draw curiousity for the user to click on the article. The title should be representitive of what the podcast was about.  The title is for a blog. Include the guests name, and the episode number in the title as well. The slug should be relatively short. Dont mention a video. The slug should be really short, but still having some relevant keywords from the podcast. Do not mention the names of any companies. \n\n\n\nHere is an example title format\n\n\"Compelling title - Guest Name | 07\"\n\n\nHere is the guest name:\n{{ $json.guest }}\n\nWe are on episode:\n{{ $json.episode }}\n\nHere is the transcript:\n{{ $json.transcript }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "59b437e2-7d9f-4bad-9afd-73149f3b4f4e",
+      "name": "Title1",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -1580,
+        1480
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=This GPT specializes in generating compelling blog outro paragraphs. You will give a nice conclusion to the article previously provided, and then do a CTA Offering a free community whatsapp group for AI and AUTOMATION of which here is the link https://chat.whatsapp.com/D0ziYlB9A8k4pULCqNSmHJ . This community is made to for people looking to get better and master automation. This may not be related to the article main topic, so you must seemlessly transition. \n\n--- Here is the title ---\n{{ $('Title1').item.json.output.title }}\n\n--- Here is the intro paragraph ---\n{{ $('Intro1').item.json.output.intro }}\n\n--- Here is the main blog content ---\n{{ $json.output.article }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "8c9d0cdc-4d68-448f-8d94-381940161b15",
+      "name": "Outro1",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -540,
+        1480
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=This agent specializes in generating compelling blog intro paragraphs by leveraging psychology and NLP techniques. These intro paragraphs will be for a blog about a podcast episode. It applies a structured 3-step hook formula to captivate viewers: starting with a Context Lean-In to establish relevance, followed by a Scroll-Stop Interjection to create surprise, and concluding with a Contrarian Snapback to deepen curiosity. Here is more information and an example on how to create a good hook. \n\n\nThe Psychology and Tactics Behind Effective Hooks: A Condensed Guide\n1. The 3-Step Hook Formula\nA proven method to grab attention:\n\nContext Lean-In: Clearly state the topic and establish relevance by addressing pain points, benefits, or shared interests. Example: \"The tech in the Vegas Sphere is insane—biggest screen ever built.\"\nScroll-Stop Interjection: Use contrasting words (e.g., \"but,\" \"however\") to surprise the viewer. Example: \"But the screen is actually the least impressive part.\"\nContrarian Snapback: Deliver a shocking twist that pulls viewers in deeper. Example: \"Because the most impressive part is the audio.\"\nThis formula builds a \"curiosity loop,\" compelling viewers to stay and find out more.\n\nExample of a Hook Using the 3-Step Formula\nContext Lean-In:\n\"The tech in the Vegas Sphere is insane—biggest screen ever built, 20 times bigger than an IMAX.\"\n\nScroll-Stop Interjection:\n\"But get this—the screen is actually the least impressive part of the whole thing.\"\n\nContrarian Snapback:\n\"Because the most impressive part is the audio. This will blow your mind.\"\n\nThis example effectively grabs attention by introducing an intriguing topic, surprising the viewer with an unexpected twist, and snapping their curiosity in a new direction, compelling them to keep watching.\n\n2. Appeal to Interests with New Perspectives\nViewers are drawn to topics they care about, but they'll stay for new insights that promise benefits or solve pain points. Lead with the benefit. Example: Instead of \"Magnesium is essential,\" say, \"If you want better sleep, you need magnesium.\"\n\n\n3. Staccato Sentences\nStart with short, concise sentences to maximize clarity and value per word. Expand sentence length as the blog progresses to maintain rhythm and depth.\n\n\nIt is important that we do not invent any information that is outside of what was provided in the script.\n\n\nGenerate the intro paragraph based on the information provided below\n\n--- Guest Name ---\n{{ $('Final Data1').item.json.guest }}\n\n--- Podcast Transcript ---\n{{ $('Final Data1').item.json.transcript }}\n\n",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "d3e80b99-cfd4-411e-aa6c-46f163b3d4f6",
+      "name": "Intro1",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -1240,
+        1480
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "9ccac205-fdf1-4ed5-ab45-754e1cf8cba6",
+      "name": "Anthropic Chat Model13",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        -880,
+        1640
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Create a blog post based on the video transcript provided below. The blog post should be more then 750 words. DO NOT include an intro paragraph, a title, or an outro paragraph because they all have already been created. This should only be the meat/body of the article. You can start with an overview paragraph, or jump straight into the main content. If usefull links are provided, they are to be put at the top of the article as the first thing, under a secion called \"Usefull links\" If not, then dont worry about it. This blog will be about a podcast that was already recorded. Make it focused on the guest and interesting questions about the guest. Do a breif overview of the guests history, then jump straight into value driven questions that were asked inside of the podcast. Do not invent any information that is outside of the provided script. Be sure to clearly define sections in the blog, giving headings and new paragraphs were needed. The longer the blog is the better. Max size is 1500 words.   Output your response in a json format where Article is a String. DO NOT generate an outro paragraph. \n\n--- Here is the transcript ---\n{{ $('Transcript1').item.json.Transcript }}\n\n--- Any usefull links will be provided here if availible ---\n{{ $('Final Data1').item.json.links }}\n\n--- Here is the pre generated title  ---\n{{ $('Title1').item.json.output.title }}\n\n--- Here is the intro paragraph that was already generated ---\n{{ $json.output.intro }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "05a985d5-77a3-432d-ab45-a7aee548a1f8",
+      "name": "Main Article1",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -880,
+        1480
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"article\": \"string\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -700,
+        1640
+      ],
+      "id": "0430f81e-82af-4b74-98fa-0ccc84a0d9e7",
+      "name": "Structured Output Parser11"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "asst_WxqgPl29duADpzfTy4kCEix5",
+          "mode": "list",
+          "cachedResultName": "No Code Blog Formatter"
+        },
+        "prompt": "define",
+        "text": "={{ $('Main Article1').item.json.output.article }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -60,
+        1640
+      ],
+      "id": "e37eb168-bd52-49d8-8937-0bb997f7e9fd",
+      "name": "Format Article No Code1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        1800
+      ],
+      "id": "4516f021-44dd-4758-8e78-658a46a9c148",
+      "name": "Anthropic Chat Model14"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your job is to format the following intro and outro paragraphs using the following html tags. You can also take links, and turn them into nice CTA Text's. Do not add emojis. \n\nHeadings & Paragraphs\n<h1>Heading 1</h1>\n<h2>Heading 2</h2>\n<h3>Heading 3</h3>\n<p>This is a paragraph.</p>\n<a href=\"http://example.com\">This is a link</a>\n\nText Styling\n<strong>Bold text</strong>  \n<em>Italic text</em>  \n<u>Underlined text</u>  \n<del>Strikethrough text</del>  \n<mark>Highlighted text</mark>\n\nYou must output 2 responses in a json format. One for the intro and one for the outro.\n\n--- Here is the intro ---\n{{ $('Intro1').item.json.output.intro }}\n\n\n--- Here is the outro --- \n{{ $('Outro1').item.json.output.outro }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        260,
+        1640
+      ],
+      "id": "ebb76a6a-cdb6-49b6-8a68-90d2ceda45db",
+      "name": "Format Intro & Outro2",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"intro\": \"string\",\n\t\"outro\": \"string\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        460,
+        1800
+      ],
+      "id": "5cce9b4b-ccdf-4a83-b50d-a0b0629ee5bf",
+      "name": "Structured Output Parser12"
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        1820
+      ],
+      "id": "94e3c32c-b319-4cba-a3a3-73f5ed8352c5",
+      "name": "Anthropic Chat Model15"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"category\": \"integer\",\n\t\"tags\": [\"string\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        820,
+        1820
+      ],
+      "id": "910096a8-1d9e-45a5-afba-ccae3c374c6b",
+      "name": "Structured Output Parser13"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your job is to generate 1-5 tags and pick one category for the following article. Tags must be related to the article.  \n\nYou must provide the category and tags as an id\nHere are the categories\n5\tBusiness Automation\n3\tN8N Tutorials\n490\tPodcast\n4\tPython Tutorials\n\ntags\n448\tachieving success\n378\tadvanced mental health tech\n52\tai\n271\tAI assistant for Discord\n473\tAI Automation\n208\tAI Chatbot\n217\tAI Chatbot Applications\n214\tAI Chatbot Benefits\n209\tAI Chatbot Best Practices\n220\tAI Chatbot Challenges\n212\tAI Chatbot Development\n216\tAI Chatbot Future\n210\tAI Chatbot Guide\n219\tAI Chatbot Platform\n211\tAI Chatbot Tools\n213\tAI Chatbot Trends\n215\tAI Chatbot Tutorial\n528\tAI content creation\n438\tAI Email Personalization\n461\tAI email tools\n540\tAI for diagnosis\n264\tAI for Discord\n517\tAI for insurers\n478\tAI for Lead Generation\n439\tAI for Marketing\n470\tai in customer service\n437\tAI in Email\n467\tAI in email marketing\n384\tAI in healthcare\n508\tAI in Insurance\n472\tAI in Marketing\n551\tAI in medicine\n382\tAI in mental health\n550\tAI in patient care\n141\tAI in Sales\n189\tAI Marketing\n434\tAI Outreach\n474\tAI Personalization\n479\tAI Personalization Tools\n544\tAI technology\n380\tAI therapy tools\n204\tAI Tools\n515\tAI trends in insurance\n520\tAI video creation\n525\tAI video tools\n465\tAI-driven emails\n506\tAI-driven insurance solutions\n377\tAI-driven mental health\n543\tAI-driven treatments\n503\tAI-powered claims processing\n462\tAI-powered communication\n458\tAI-Powered Email\n554\tai-powered healthcare\n138\tAI-Powered Lead Generation\n113\tai-powered personalization\n553\tAI-powered research\n106\tAI-Powered Summarization\n532\tAI-powered video creation\n51\tai-powered workflow\n499\tAirtable\n493\tAirtable and n8n\n303\tAirtable and n8n integration\n305\tAirtable automation\n496\tAirtable beginner guide\n301\tAirtable data sync\n492\tAirtable integrations\n495\tAirtable pro tips\n500\tAirtable productivity\n494\tAirtable tips\n497\tAirtable tutorial\n498\tAirtable workflow\n416\talternative funding\n193\tAPI\n192\tAPI Call\n200\tAPI Connector\n169\tAPI integration\n134\tartificial intelligence\n370\tAsana Automation\n364\tAsana workflow setup\n66\tauto update n8n\n294\tautomate business processes\n116\tAutomate Client Onboarding\n246\tautomate data collection\n459\tautomate email replies\n427\tAutomate Emails\n292\tautomate Pipedrive tasks\n371\tautomate project management\n335\tautomate reminders\n285\tautomate sales pipeline\n315\tautomate Slack workflows\n277\tautomate tasks on Discord\n368\tautomate tasks with Asana\n330\tautomate tasks with n8n\n357\tautomate Trello workflows\n184\tAutomate Twitter\n464\tautomate with AI\n296\tautomate with n8n\n229\tAutomate Workflows with N8N\n536\tautomate YouTube videos\n480\tAutomated Emails\n404\tautomated file handling\n428\tAutomated Outreach\n361\tautomated task management\n345\tautomated workflows\n40\tautomation\n174\tautomation guide\n390\tautomation tips\n45\tautomation tool\n166\tautomation tools\n20\tb\n114\tB2B Client Onboarding\n137\tB2B Lead Generation\n146\tB2B Marketing\n139\tB2B Sales\n181\tblog post automation\n180\tblogging\n120\tBoost Client Satisfaction\n344\tboost productivity\n279\tboost sales productivity\n128\tBPA\n130\tBPM\n267\tbuild a Discord bot\n207\tBuild AI Chatbot\n253\tbuilding chatbots with OpenAI\n441\tbuilding resilience\n412\tbusiness acquisition\n84\tbusiness areas\n83\tbusiness automation\n86\tbusiness efficiency\n422\tbusiness growth\n99\tBusiness Intelligence\n92\tbusiness management\n135\tbusiness optimization\n408\tbusiness ownership\n124\tbusiness process automation\n131\tbusiness process management\n85\tbusiness productivity\n90\tbusiness solution\n21\tc\n336\tcalendar automation tools\n252\tchatbot customer service\n260\tchatbot design tips\n256\tchatbot development\n258\tchatbot for e-commerce\n250\tchatbot human handoff\n257\tchatbot with NLP\n177\tChatGPT\n505\tclaims automation\n347\tClickUp and n8n\n348\tClickUp Automation\n350\tClickUp features\n351\tClickUp Integrations\n340\tClickUp tips\n349\tClickUp tutorials\n88\tclient onboarding\n115\tClient Onboarding Automation\n121\tClient Onboarding Best Practices\n89\tclient onboarding process\n122\tClient Onboarding Workflow\n123\tclient satisfaction\n402\tcloud storage automation\n53\tcold email\n320\tcold email hacks\n325\tcold email marketing\n54\tcold email outreach\n431\tCold Email Strategy\n321\tcold email tips\n91\tcommunication\n343\tconnect ClickUp to n8n\n318\tconnect Slack to n8n\n359\tconnect Trello to n8n\n101\tConstruction\n97\tConstruction Inventory\n98\tConstruction Technology\n178\tcontent creation\n179\tcontent marketing\n261\tconversational AI\n125\tcost reduction\n206\tCreate AI Chatbot\n263\tcreating engaging chatbots\n352\tCRM tool\n269\tcustom Discord AI\n471\tcustomer service agent\n96\tDashboard Design\n158\tData Analysis\n167\tdata automation\n59\tdata entry\n243\tdata extraction from websites\n483\tData Filtering\n60\tdata management\n112\tData Science\n150\tData Scraping\n168\tdata sync\n93\tData Visualization\n165\tdatabase automation\n537\tdigital health\n254\tdigital human chatbot\n145\tDigital Marketing\n387\tdigital therapy\n129\tdigital transformation\n514\tdigital transformation in insurance\n273\tDiscord AI Chatbot\n272\tDiscord bot setup\n265\tDiscord server automation\n102\tDIY Dashboard\n80\tdocker\n403\tDropbox and n8n\n399\tDropbox automation\n401\tDropbox file management\n400\tDropbox Integration\n405\tDropbox workflows\n245\tdynamic website scraping\n127\tefficiency\n395\tefficient workflows\n435\tEmail AI Tools\n425\tEmail Automation\n468\temail automation tools\n326\temail campaigns\n327\temail copywriting\n329\temail deliverability\n433\tEmail List Management\n319\temail marketing\n475\tEmail Outreach\n323\temail outreach guide\n430\tEmail Personalization\n463\temail productivity\n477\tEmail Strategy\n446\temotional resilience\n270\tenhance Discord server\n136\tenterprise automation\n411\tentrepreneur financing\n75\tethical scraping\n149\tEviction Data\n489\tFeatured Post\n398\tfile management\n406\tfile organization tools\n482\tFiltering in Google Sheets\n418\tfinancing solutions\n420\tfinancing without banks\n419\tflexible financing\n447\tfostering resilience\n513\tfraud detection AI\n541\tfuture of healthcare\n511\tfuture of insurance\n50\tgemini ai\n332\tGoogle Calendar API\n331\tGoogle Calendar automation\n466\tGoogle Drive automation\n460\tGoogle Drive integration\n49\tgoogle gemini\n57\tgoogle sheets\n481\tGoogle Sheets Automation\n484\tGoogle Sheets Functions\n486\tGoogle Sheets Hacks\n488\tGoogle Sheets Tips\n445\tgrit and motivation\n451\tgrowth mindset\n538\thealthcare AI tools\n542\thealthcare automation\n545\thealthcare data analysis\n548\thealthcare innovation\n539\thealthcare treatment\n324\thigh-converting emails\n156\tHousing Market\n251\tHow To Build A Chatbot\n238\thow to scrape event participants\n71\thow to scrape websites\n82\thow to self-host n8n\n173\tHubSpot CRM\n172\tHubSpot Integration\n255\thuman-like chatbot\n196\tIFTTT Alternative\n118\tImprove Client Experience\n119\tIncrease Client Retention\n432\tIncrease Sales\n502\tinsurance AI tools\n509\tinsurance automation\n512\tinsurance data analytics\n504\tinsurance technology\n162\tintegration\n355\tintegration guide\n341\tintegration tutorials\n95\tInventory Dashboard\n100\tInventory Management\n155\tInvestor\n154\tLandlord\n147\tlead generation\n140\tLead Generation Strategies\n242\tlead generation with Python\n201\tLinkedIn Automation\n202\tLinkedIn Marketing\n443\tlong-term success\n199\tLow-Code Automation\n111\tMachine Learning\n546\tmachine learning in healthcare\n516\tmachine learning in insurance\n339\tmanage appointments with n8n\n143\tMarketing Automation\n191\tMarketing Tips\n491\tmastering Airtable\n552\tmedical AI\n547\tmedical breakthroughs\n549\tmedical research\n379\tmental health care\n383\tmental health innovation\n444\tmental toughness\n455\tmindset improvement\n456\tmotivation and grit techniques\n440\tmotivation strategies\n42\tn8n\n306\tn8n Airtable tutorial\n363\tn8n Asana integration\n65\tn8n auto update\n342\tn8n automation\n299\tn8n automation guide\n226\tN8N Automation Platform\n234\tN8N Deployment Guide.\n397\tN8n efficiency\n62\tn8n export\n231\tN8N for Business Automation\n407\tn8n for Dropbox\n372\tn8n for productivity\n312\tn8n for Slack\n531\tn8n for YouTube\n338\tn8n Google Calendar integration\n314\tn8n guide\n222\tN8N Hosting Guide\n391\tN8n how-to\n63\tn8n import\n69\tn8n installation\n224\tN8N Installation Tips\n70\tn8n instance\n48\tn8n integration\n346\tn8n integrations\n233\tN8N Open-Source Tool\n287\tN8N Pipedrive\n282\tN8N sales integration\n235\tn8n self hosted\n78\tn8n self-hosting\n68\tn8n selfhost\n76\tn8n server\n230\tN8N Setup Tutorial\n309\tn8n Slack integration\n228\tN8N Step-by-Step Guide\n393\tN8n tips\n297\tn8n to Airtable\n337\tn8n to Google Calendar\n394\tN8n tricks\n284\tN8N tutorial\n485\tN8N Tutorials\n43\tn8n workflow\n223\tN8N Workflow Automation\n61\tn8n workflows\n110\tNatural Language\n259\tnatural language processing\n81\tnginx\n518\tNLP in insurance\n410\tno upfront capital\n218\tNo-Code AI Chatbot\n304\tno-code Airtable integration\n163\tno-code automation\n276\tno-code Discord AI\n317\tno-code workflow\n295\tno-code workflow guide\n161\tNotion\n171\tnotion integration\n367\toptimize Asana tasks\n56\toutreach campaign\n424\tOutreach Strategy\n457\tovercoming adversity\n450\tovercoming challenges\n417\towner financing\n442\tperseverance tips\n452\tpersonal growth\n109\tPersonalization with AI\n476\tPersonalized Emails\n519\tpersonalized insurance policies\n55\tpersonalized outreach\n221\tpinecone\n293\tPipedrive\n283\tPipedrive and N8N\n281\tPipedrive CRM automation\n289\tPipedrive integration\n290\tPipedrive workflow automation\n197\tPower Automation\n501\tpredictive analytics in insurance\n107\tProcessing (NLP)\n126\tproductivity\n188\tProductivity Tools\n449\tprofessional development\n366\tproject management automation\n365\tproject management with n8n\n152\tProperty Management\n32\tpython\n241\tPython and Selenium automation\n34\tpython scraping\n247\tPython scraping tools\n38\tpython web scraping\n159\tR\n151\tReal Estate\n160\treal estate business\n415\treal estate financing\n157\tReal Estate Investing\n423\treal estate service business\n194\tREST API\n507\trisk management AI\n133\trobotic process automation\n132\tRPA\n275\tRunBear AI bot\n278\tRunbear custom AI\n266\tRunBear tutorial\n148\tsales\n436\tSales Automation\n288\tsales automation tools\n322\tsales email strategies\n142\tSales Enablement\n426\tSales Engagement\n429\tSales Growth\n328\tsales optimization\n144\tSales Technology\n333\tschedule events with n8n\n236\tScrape Event\n240\tscrape event participants\n72\tscrape websites\n249\tscraping business leads\n33\tselenium\n237\tSelenium guide\n248\tSelenium tutorial for beginners\n453\tself-discipline\n77\tself-host n8n\n225\tSelf-Hosted Automation Tools\n67\tself-hosted n8n\n232\tSelf-Hosting Workflow Solutions\n409\tSeller Financing\n421\tseller financing benefits\n413\tseller financing options\n316\tsend messages via n8n\n454\tsetting goals\n308\tSlack automation\n307\tSlack integrations\n313\tSlack to n8n\n311\tSlack triggers\n286\tsmall business automation\n414\tsmall business loans\n183\tSocial Media Automation\n186\tSocial Media Bot\n205\tSocial Media Posting\n190\tSocial Media Scheduler\n58\tspreadsheet\n487\tSpreadsheet Automation\n334\tstreamline calendar management\n117\tStreamline Client Onboarding\n469\tstreamline email replies\n291\tstreamline sales workflow\n310\tstreamline Slack processes\n300\tstreamline workflows\n274\tstreamline workflows with AI\n103\tSummarize Website\n94\tSupply Chain\n302\tsync data with Airtable\n164\ttask automation\n356\ttask management\n369\ttask management automation\n374\ttech in mental health\n280\ttech sales tools\n268\ttech tools for Discord\n153\tTenant\n203\tTime Management\n87\ttime-saving\n392\ttime-saving automation\n358\tTrello and n8n\n353\tTrello Automation\n362\tTrello features\n360\tTrello tips\n354\tTrello tutorials\n182\tTwitter Automation\n185\tTwitter Bot\n187\tTwitter Scheduler\n79\tubuntu\n510\tunderwriting with AI\n521\tvideo automation\n527\tvideo creation workflow\n534\tvideo editing automation\n524\tvideo production automation\n373\tVirtual Reality and AI\n389\tvirtual reality and AI solutions\n385\tvirtual reality applications\n388\tvirtual reality therapy\n376\tVR and AI benefits\n381\tVR for anxiety\n386\tVR for PTSD\n375\tVR treatment\n30\tweb scraping\n35\tweb scraping chrome extension free\n37\tweb scraping definition\n36\tweb scraping python\n39\tweb scraping tools\n239\tweb scraping tutorial\n244\tweb scraping with Selenium\n44\twebhook\n46\twebhook configuration\n47\twebhook trigger\n195\tWebhooks\n108\tWebsite Data Analysis\n104\tWebsite Data Summarization\n73\twebsite scrape\n31\twebsite scraping\n105\tWebsite Summarization\n176\tWordPress Automation\n175\tWordPress Blog\n41\tworkflow automation\n227\tWorkflow Automation Tools\n64\tworkflow management\n170\tworkflow optimization\n396\tworkflow tips\n533\tYouTube growth\n529\tYouTube marketing\n522\tYouTube Shorts\n530\tYouTube Shorts AI\n523\tYouTube Shorts automation\n535\tYouTube Shorts strategy\n526\tYouTube video tips\n198\tZapier Alternative\n74\tzenrows\n\n\nHere is the article title and some info about it. \n{{ $('Title1').item.json.output.title }}\n\n{{ $json.output.intro }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        660,
+        1640
+      ],
+      "id": "7dc88a91-5d1d-4436-b17d-7a748e136c44",
+      "name": "Tags & Categories2",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "title": "={{ $('Title1').item.json.output.title }}",
+        "additionalFields": {
+          "authorId": 1,
+          "content": "=\n<!-- wp:embed {\"url\":\"{{ $('Final Data1').item.json.youtube }}\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true,\"className\":\"wp-embed-aspect-16-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\n    {{ $('Final Data1').item.json.youtube }}\n    </div></figure>\n    <!-- /wp:embed -->\n{{ $('Format Intro & Outro2').item.json.output.intro }}\n{{ $('Format Article No Code1').item.json.output }}\n{{ $('Format Intro & Outro2').item.json.output.outro }}",
+          "slug": "={{ $('Title1').item.json.output.slug }}",
+          "categories": "={{ parseInt($('Tags & Categories2').item.json.output.category, 10) }}",
+          "tags": "={{ $('Tags & Categories2').item.json.output.tags.join(', ') }}"
+        }
+      },
+      "id": "40a0e696-1348-46cc-a97e-e277ee9b09a7",
+      "name": "Post To WP2",
+      "type": "n8n-nodes-base.wordpress",
+      "typeVersion": 1,
+      "position": [
+        1020,
+        1640
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Format And Push To WP",
+        "height": 380,
+        "width": 1300,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -80,
+        1580
+      ],
+      "typeVersion": 1,
+      "id": "6892f21f-1865-4392-af59-529a8f45f100",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## Podcast Input\n",
+        "height": 240,
+        "width": 520,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2200,
+        1420
+      ],
+      "typeVersion": 1,
+      "id": "fc3ba01b-1a6b-4a02-8330-1590aed5bce9",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "## Article Pieces",
+        "height": 380,
+        "width": 1360,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1600,
+        1420
+      ],
+      "typeVersion": 1,
+      "id": "8e44e3a6-4b60-4224-a432-b2c0a395ed64",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "authentication": "basicAuth",
+        "formTitle": "Blog Importer",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Transcript",
+              "fieldType": "file",
+              "multipleFiles": false,
+              "acceptFileTypes": ".txt",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "YouTube URL",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Guest Name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Episode Number",
+              "fieldType": "number",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Links",
+              "fieldType": "textarea"
+            }
+          ]
+        },
+        "options": {
+          "path": "Podcast-Importer"
+        }
+      },
+      "id": "eea1e5a0-5175-4cc6-97a7-e6c66020da08",
+      "name": "On form submission1",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -2160,
+        1480
+      ],
+      "webhookId": "f364720d-d3f0-435d-9c17-8a0954e50719"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "rglTVBeCWFz1aDaV",
+          "mode": "list",
+          "cachedResultName": "Twitter posts"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "article": "={{ $('Main Article').item.json.output }}",
+            "outro": "={{ $('Outro').item.json.output.outro }}",
+            "intro": "={{ $('Intro').item.json.output.intro }}",
+            "title": "={{ $('Title').item.json.output.title }}",
+            "link": "={{ $('Final Data').item.json.youtube }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "intro",
+              "displayName": "intro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "outro",
+              "displayName": "outro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "article",
+              "displayName": "article",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -340,
+        20
+      ],
+      "id": "d57bb6d1-abe4-4e41-a8ec-65bf2c275fce",
+      "name": "Create Twitter Posts"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "rglTVBeCWFz1aDaV",
+          "mode": "list",
+          "cachedResultName": "Twitter posts"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "article": "={{ $('Main Article1').item.json.output.article }}",
+            "outro": "={{ $('Outro1').item.json.output.outro }}",
+            "intro": "={{ $('Intro1').item.json.output.intro }}",
+            "title": "={{ $('Title1').item.json.output.title }}",
+            "link": "={{ $('Final Data1').item.json.youtube }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "intro",
+              "displayName": "intro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "outro",
+              "displayName": "outro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "article",
+              "displayName": "article",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -80,
+        1320
+      ],
+      "id": "1ddff80d-b7be-4d71-beca-a5efe6442a4e",
+      "name": "Create Twitter Posts 2"
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        -1680,
+        520
+      ],
+      "id": "71283da2-183f-4997-a1e8-b05c3d1773fd",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "SrQWYEVjGq2xqUy2",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2080,
+        100
+      ],
+      "id": "e7cf95e5-05ac-4f68-9335-604fc2897d83",
+      "name": "When clicking ‘Test workflow’"
+    }
+  ],
+  "pinData": {
+    "Final Data": [
+      {
+        "json": {
+          "transcript": "00:00:00:00 - 00:00:25:14\r\nUnknown\r\nDo you think that automating your workflows with AI agents is just a bit too complicated? Well, the truth is, anybody can do it. In this video, I'm going to take you from beginner to expert, teaching you how to build powerful workflows with AI agents inside and hidden. So let's go ahead and jump right in. Let's get started with a beginner level AI agent.\r\n\r\n00:00:25:19 - 00:00:46:14\r\nUnknown\r\nSo jump into a new workflow right in in it. And let's go ahead and add an AI agent node. Beautiful. Now in order to get this to work, we need to connect the chat model. And there's tons to choose from. Lately I've been using a lot of cloud and cloud. AI's really amazing. It's better at English than ChatGPT.\r\n\r\n00:00:46:19 - 00:01:07:42\r\nUnknown\r\nChatGPT is good as well. You can look up whichever one you want. I have some videos on how to hook up the various ones. But today we're going to hook up cloud. So I'm going to go ahead and go over to cloud API. Go and topic.com/api. Click start building here. It'll give you some it'll give you a form to fill out.\r\n\r\n00:01:07:42 - 00:01:23:30\r\nUnknown\r\nYou're going to have to log in. Wonderful. And once you're on the screen you're all signed up. You can go ahead and click get API keys. You can create a new key here and grab it. Call it whatever you want. It'll give you a key. You're also going to have to put some money on there so you can go over to billing.\r\n\r\n00:01:23:34 - 00:01:40:27\r\nUnknown\r\nPut some money on there. I put $50 on this account so you can see so you can just click Add Funds. You're going to need a little bit of money on there. Once you have that going go ahead and go back to it. And let's click on cloud here. Let's click create a new account. You can paste the API key here.\r\n\r\n00:01:40:31 - 00:01:59:51\r\nUnknown\r\nAnd you are good to go. Right now that you have cloud connected. Now basically we are all good to go. Now I would choose the newest version of sonnet because it's a little bit better than this older version. But outside of that, this is already working. So we can click chat. We can say, hi, how are you today?\r\n\r\n00:01:59:52 - 00:02:23:39\r\nUnknown\r\nWhat is the capital of France? And then it should tell me. Hi. I'm doing well. Thanks for asking. The capital France is parents blah blah blah. Well, so technically, we've already built a pretty simple agent that does something we can talk to it, but it's the same functionality as using the chat right inside of cloud. So now let's go ahead and start adding some things.\r\n\r\n00:02:23:43 - 00:02:47:22\r\nUnknown\r\nSo that the AI can really start doing a good job. So in order to do that let's go ahead and double click on the agent. Let's click define below right here under source for prompt okay. And let's grab this chat input and text it over. Now we can start prompting based on the chat input so that whenever we text in the chat it will have guardrails or do whatever.\r\n\r\n00:02:47:22 - 00:03:11:22\r\nUnknown\r\nBasically the prompt says. So here what I'm going to do is translate whatever I say in Spanish and then we can save that. Let's go ahead and chat and be like, I please subscribe to YouTube. Let's check it here all our part for subscribing to our YouTube. This is for most translation. Yeah. Okay, good to know. All right.\r\n\r\n00:03:11:24 - 00:03:32:07\r\nUnknown\r\nNow let's do an intermediate level AI agent. So now we can start adding memory here. Now this will allow the AI agent to remember our past iterations, our past chats basically. Now you could hook up Postgres. You can use super base. It's free and it's really easy to connect. However, today the easiest to connect is window by from memory.\r\n\r\n00:03:32:07 - 00:03:51:48\r\nUnknown\r\nSo that's what we're going to use. And we're going to remember the last five chats. That's the context window length. How many chats in the past they I actually remembers. Now what we can do is we can go into the AI tools agent. Let's go ahead and chat with it and be like, hi, my name is honest and read beautiful.\r\n\r\n00:03:51:50 - 00:04:13:07\r\nUnknown\r\nLet's ask, what's the capital of Paris? What is my name? Let's see if it remembers your name is on read as you mentioned in your first message. Beautiful. So now it's actually has a little bit of memory, a little bit of chat context. Now, I believe at this point it's time to give it some more advanced functionality so we can start playing with tools.\r\n\r\n00:04:13:12 - 00:04:35:48\r\nUnknown\r\nNow tools are things that you can give the AI to give it kind of superpowers, and you can build your own tools with code. Tools can be other workflows, but there's also a lot of pre-made tools in here as well. So you can do a calculator, you can do Airtable where it interacts with an Airtable. You can give it Gmail so that it interacts with your emails.\r\n\r\n00:04:35:51 - 00:04:57:06\r\nUnknown\r\nGoogle drive. I mean, there's tons of things that you can do in here, and the possibilities are essentially limitless. But basically, you're giving the AI the power to use one of these tools as if a human would use a tool like a hammer. So to start out, the easiest tool to show you guys is the Wikipedia tool. So I'm going to add the Wikipedia tool.\r\n\r\n00:04:57:10 - 00:05:27:31\r\nUnknown\r\nAnd now we're going to ask a question about Wikipedia. So according to Wikipedia how old is Paris. And now it's going to use the Wikipedia tool. See it search Wikipedia. And it's keep searching Wikipedia and it's getting the answer for you. And it got the answer based on the Wikipedia information. Paris has very ancient origins, and the first mention of settlement appears to be med first century.\r\n\r\n00:05:27:36 - 00:05:48:23\r\nUnknown\r\nSo there you go. Now we're essentially using tools. Now, since we're still on the intermediate level, it's time to talk about the different types of agents. So if we double click our agent here again we see that there is all kinds of different types of agents here. So the tools agent is good for generally almost everything. It can use tools.\r\n\r\n00:05:48:23 - 00:06:13:10\r\nUnknown\r\nIt's really good. Conversational agent is really good at just talking to doing things like that. Open AI functions agent uses the functions within the open AI platform. Pretty simple. Plan and execute agent is really good for giving control of multiple AIS or multiple different workflows within your in it in. It's good in a administrative kind of sense. If you can think of like a project manager.\r\n\r\n00:06:13:22 - 00:06:38:25\r\nUnknown\r\nThat would be your plan and execute agent. Your React.js is really good for a Stem type of stuff, so anything that has a lot of complex reasoning, the react agent is really good, and your SQL agent is really good for interfacing with SQL databases to find and populate information. Now to conclude the intermediate tutorial I'm going to talk about the required specific output format.\r\n\r\n00:06:38:40 - 00:07:05:21\r\nUnknown\r\nSometimes you don't want it to come out with a big blob of text. Instead, you want it to come out in a specific format that you can use later on. Separated information, something like that. So what we can do is we can click here and click on the output parser and add a structured alpha parser. Now what this is going to do is this is going to output all the information in the way that you specified.\r\n\r\n00:07:05:25 - 00:07:29:52\r\nUnknown\r\nSo for example, if we were to make Twitter posts and we wanted a list of Twitter posts, we could go here. And instead of cities we could put posts. And here we could put string. We don't have to put anything else here okay. Now this and Json is a list okay. This in Json is an item. So we can put topic here and we can put string.\r\n\r\n00:07:30:00 - 00:07:48:36\r\nUnknown\r\nSo now this will come out with a list of posts and a topic. So let's go ahead and go here. In order for this to work we need to change the prompt. So we have a chat input which is great. Let's go. You are to take the subject down below and create beautiful. So we have a simple prompt.\r\n\r\n00:07:48:36 - 00:08:14:20\r\nUnknown\r\nHere you are to take the subject down below and create five Twitter posts for it. Each post should be 180 characters or less. Also, you might summarize the topic for all of the parts. The output should be one topic and five posts. So let's go ahead and test this out. And I'm going to say flying an airplane. It's not going to use the Wikipedia tool I don't think because it doesn't need to.\r\n\r\n00:08:14:25 - 00:08:39:00\r\nUnknown\r\nBeautiful. And so now we have an output. And this output now has a list of posts one, two, three, 4 or 5 and the topic itself. So all of these posts are essential tips and facts about flying. Here's a fact. Here's weather here is flying at night. So as you can see, you can section the information in ways that you can later manipulate really easily within in it.\r\n\r\n00:08:39:00 - 00:09:06:45\r\nUnknown\r\nAnd right now let's get into the advanced portion of the tutorial. So in order to have a more advanced age and the first thing we need to do is give it a base memory of documents. And it can search too. You can imagine this in a customer service context. Basically, you have a bunch of fake documents and training documents for your customer service agents, and you want to give all those documents to an AI so that it can generate answers for the people that interact with it.\r\n\r\n00:09:06:59 - 00:09:30:59\r\nUnknown\r\nOkay. So in order to do that, we need to start a vector database. Now the vector database is basically a memory for the AI that the AI can then access. It's not a memory of the chat, it's the AI's knowledge. It's the AI brain. Okay. So let's go ahead and connect a vector memory. So first we're going to go over to pinecone.\r\n\r\n00:09:31:01 - 00:09:49:46\r\nUnknown\r\nNow this is totally free. All right so when you first sign up it will give you an API key directly. All you need to do is copy this API key. Go back over to init and let's create a new pinecone node. Pinecone vector store. And we're going to retrieve documents for an AI agent as a tool. And here let's go ahead and click edit.\r\n\r\n00:09:49:51 - 00:10:10:08\r\nUnknown\r\nAnd you can paste your API key and right in there and it should work for you. Now I've already done this. So let's go ahead and jump out. Do you guys think that building AI agents is a little bit complicated, and would like to have a little bit of free support? Well, I'm here for you. I'm offering a free WhatsApp community for anybody who's obsessed with automation and anything.\r\n\r\n00:10:10:19 - 00:10:30:22\r\nUnknown\r\nSo if you're interested in joining, please click the link down below. Now, the next thing that you need to do is you need to create a vector database or a database for the memory of the AI. So let's go back over to pinecone. Let's close. All right. Now go ahead and click on Database and Indexes and click Create Index.\r\n\r\n00:10:30:27 - 00:10:54:45\r\nUnknown\r\nCall it whatever you want. There we go. Now this part is really important. So this needs to be exactly the same as what you defined here in it. So for example and this AI if we're using open AI imagine we have open AI connected. Now quick thing for those of you who need to connect open AI all you need to go is platform dot open ai.com.\r\n\r\n00:10:54:45 - 00:11:17:40\r\nUnknown\r\nGo to dashboard here. Click on API keys and just create a new key. Then go over here, click edit. Paste the API key in and you're good to go. So now that that's connected let's go ahead and work on the vector storage. Let's delete this delete this, delete this, delete this. I'll just rebuild this entire thing for you.\r\n\r\n00:11:17:49 - 00:11:40:37\r\nUnknown\r\nLet's start out with a pinecone. And we're going to go add documents to Vector Star. Beautiful. We have our pinecone account here we have insert documents. So next we're going to go to embeddings. And we're going to go use embeddings an. The important thing here is that you make sure that these embeddings here are exactly the same as on the pinecone right here.\r\n\r\n00:11:40:51 - 00:12:02:10\r\nUnknown\r\nSo text embedding three small needs to be with text embedding three small. Now text embedding three small is really really good for Q&A type of stuff. Yeah. To quickly explain the difference between these your eight is going to cost the largest. It also has the lowest quality. Your small has slightly better quality and your large has even better quality.\r\n\r\n00:12:02:15 - 00:12:21:36\r\nUnknown\r\nThese change how the information is stored into your database. How many data points are stored in the database. And basically to explain how this works when you import a document into a vector storage, it turns that document into a mathematical formula. Now you don't need to know any of that because anything is going to do it for you.\r\n\r\n00:12:21:48 - 00:12:40:26\r\nUnknown\r\nBut it's important for you to understand the concept here. So we're going to choose the text embedding three small. And we're going to make sure that I'm convert choosing the small as well. I find this small works good in most cases. We're going to click Create Index. And we're going to give that a couple minutes to boot up.\r\n\r\n00:12:40:35 - 00:12:59:42\r\nUnknown\r\nWhile that's booting up we can jump out of here. Double click on the vector store and choose the index from the list. Hello. So it's already booted up. Now this is pretty good except for it's not going to do anything. Now we have to add a document node. And we're going to put a default data loader in here.\r\n\r\n00:12:59:47 - 00:13:18:01\r\nUnknown\r\nAnd the type of data we're going to put is binary. And the reason why is because we're going to pass a file to it instead of passing in Json. And then in terms of the data format automatically detect by meme type works really, really well. If you're having some issues here, you can select what type of file it is.\r\n\r\n00:13:18:07 - 00:13:46:09\r\nUnknown\r\nThat being said, this should work just fine. Now below that we have to add a text splitter. Now we're going to do a token splitter. And basically what this does is this is an overlap in the database. So what happens is is when you save a document to the database it will save it in chunks okay. And the AI will grab an entire chunk at the same time and read that whole chunk and then determine if the chunk has the access to the information that it needs.\r\n\r\n00:13:46:13 - 00:14:08:47\r\nUnknown\r\nSo in order to make these vector databases more efficient, we have something called chunk size and overlap. Now chunk size is how big these chunks are or how much data that AI is grabbing at a time. And the overlap is basically saving the data twice. So we could have this chunk here. In this chunk here, the overlap is is like this.\r\n\r\n00:14:08:51 - 00:14:26:38\r\nUnknown\r\nSo this chunk will have a little bit of this chunk. And this sunk will have a little bit of that chunk. Now why is that important. Well because when the AI is grabbing chunks randomly, it can say, oh, I have a little bit of the answer of what I need right here. So let me go ahead and go to the chunk before it.\r\n\r\n00:14:26:51 - 00:14:49:59\r\nUnknown\r\nGrab that one. And that should be the answer to my question. So it will essentially speed up your vector database to be able to grab the information even faster. So we can put a chunk overlap here of ten. That should be fine for now. There's a lot of theory about chunk sizes and chunk overlaps, depending on what type of data you're saving and what type of agent you're making.\r\n\r\n00:14:50:04 - 00:15:12:34\r\nUnknown\r\nI'm not going to dive super deep into that, but you can use an AI like GPT or CLI to tell you some ideal figures for the type of agent you're trying to build. Beautiful. Well, now we need to supply some documents to this. So I'm going to go ahead and add a form node here.\r\n\r\n00:15:12:39 - 00:15:44:44\r\nUnknown\r\nLet's go add another trigger. Let's go on form submission. Go ahead and link this up here and we'll give it a title. I will be like file. And let's go ahead and put file here. Accepted file types. Let's put dot txt. All right. So here I have a document of a bunch of customer service conversations. Here I have a document I have a bunch of customer service conversations between a cell phone service company and their customers.\r\n\r\n00:15:44:49 - 00:16:04:39\r\nUnknown\r\nSo what I'm going to do here is we're going to go over and we're going to test this step really quick. It's going to bring up the form. I'm going to just choose the form and click submit. Beautiful. And it's going to give me this. And now we should be able to just click play right here. And it will load it directly into the pinecone storage.\r\n\r\n00:16:04:39 - 00:16:25:12\r\nUnknown\r\nAnd we're ready to go. So to verify it in the storage let's go over to pinecone. Let's click refresh. And there we go. As you can see we now have our mathematic formulas and our database. Of course we're not going to understand this, but if you click show on more it will show the text here. But these are the values that I is going to read.\r\n\r\n00:16:25:17 - 00:16:46:48\r\nUnknown\r\nOkay. Now we have stuff in our eyes memory. But how do we access it. Well that's pretty easy. So we're going to delete the Wikipedia tool. We're going to delete the output parsing. All right. So now let's go ahead and grab data from our pinecone storage and use it to answer some questions. So here first we're going to have to create a prompt okay.\r\n\r\n00:16:46:48 - 00:17:09:20\r\nUnknown\r\nWe have to give whatever tools that we attach to the AI agent or whatever custom tools a name. So that agent knows which tools to use when. Okay. So let's go ahead and add a tool. We're going to add the pinecone. And we have to give the same name company data. And the description is not that important. Beautiful.\r\n\r\n00:17:09:25 - 00:17:29:57\r\nUnknown\r\nNow we choose our pinecone index. Now we save the data and we're going to add the embedding and make sure it's exactly the same as the embedding that we added previously. Now let's go ahead and chat. And now it will check the bank. And as you can see it did grab some information from pinecone. And then it says I'm sorry to hear your cell phone service isn't working.\r\n\r\n00:17:30:01 - 00:17:54:33\r\nUnknown\r\nHere are some steps you can help. Here are some steps that you can use to reset your cell phone. Beautiful. So now we have our own AI memory. We have our model. You guys kind of understand how to use tools. You understand how to use your output parser. Now let's go into the really advanced stuff. All right. Now that we have retrieved data from our pinecone storage, let's talk about some advanced details here.\r\n\r\n00:17:54:37 - 00:18:19:57\r\nUnknown\r\nSo if we jump into our AI agent we notice that there's different options here. I want to talk a little bit about those. So your system message is going to be the message that is sent before the AI sends its prompts. This will help you put further guardrails on what the AI is supposed to do. You are Max iterations is how many times that I can process and use its various tools in order to come with a conclusion.\r\n\r\n00:18:19:58 - 00:18:45:31\r\nUnknown\r\nReturn to intermediate steps means that as the AI is processing the information and using the different tools, it's outputting what it thinks every single time and automatically pass through binary images down here. That means if you have any images from before the AI chain, it'll just pass through those images to the other side. So you can still access that binary or file information.\r\n\r\n00:18:45:36 - 00:19:08:00\r\nUnknown\r\nNow talking a little bit about some advanced use cases here. If we click on the tool node we can now call in it in workflows. You can give it a name. So you can make, for example, a workflow that uses zeros to scrape websites. And you could call it web scraper. And then you could go to the AI and say, hey, use the web scraper tool to give you information about this.\r\n\r\n00:19:08:02 - 00:19:29:21\r\nUnknown\r\nAnd then the other workflow can return information from zeros. Do whatever you want on the website, maybe do some automation and then get back to you. This workflow could also be post to Twitter for example. So you can be like hey, use the post to Twitter tool to post these six, post to Twitter and then it goes through and it runs the workflow, puts the Twitter and then you're good to go.\r\n\r\n00:19:29:25 - 00:19:50:16\r\nUnknown\r\nNow another really important tool here is your code tool. Now of course you can put any custom JavaScript code in here. So you can give it some code to format HTML or to unformatted HTML, and just clean out the text so that you don't have to use any API tokens for that. Code tool is very useful. Another one is your simple Http request tool.\r\n\r\n00:19:50:18 - 00:20:20:27\r\nUnknown\r\nNow of course this is good for doing API calls to create videos or to do all kinds of different things. For instances where it does not have a node that's already available is really, really good. And then you have a bunch of other tools here, and I'm not going to go into detail about every single tool here. It's pretty obvious what some of these tools do, but you can imagine the possibilities if you give an AI agent access to some workflows that have other agents and other workflows inside of it.\r\n\r\n00:20:20:42 - 00:20:46:12\r\nUnknown\r\nYou can have a master AI that controls things, that does amazing, amazing workflows for you and automates your entire everything. I hope you enjoyed that video. If you want to level up your automation game even further, I am building a free WhatsApp community for anybody obsessed with automation. So if that's something you're interested, click the link down below and I'll see you guys next time.\r\n\r\n",
+          "workflow": {},
+          "links": "TESTING.COM",
+          "youtube": "https://youtu.be/aC8u4q78gAk"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-03-09T02:43:57.047Z",
+      "updatedAt": "2025-03-09T02:43:57.047Z",
+      "id": "FfD230h3oPxwYPdm",
+      "name": "Social"
+    },
+    {
+      "createdAt": "2025-03-09T02:43:57.047Z",
+      "updatedAt": "2025-03-09T02:43:57.047Z",
+      "id": "4avYfJkcMijIK0Xz",
+      "name": "Wordpress"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-10T21:33:57.502Z",
+  "versionId": "44224340-fee4-401e-8e63-89944722c9ea"
+}
