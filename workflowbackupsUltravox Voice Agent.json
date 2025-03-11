@@ -1,0 +1,168 @@
+{
+  "active": false,
+  "connections": {
+    "Join URL": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Connect to Ultravox": {
+      "main": [
+        [
+          {
+            "node": "Join URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook2": {
+      "main": [
+        [
+          {
+            "node": "Connect to Ultravox",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-10T20:24:20.720Z",
+  "id": "QSu53LtXs6UTU0Yj",
+  "meta": null,
+  "name": "Ultravox Voice Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "=<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n  <Connect>\n    <Stream url=\"{{ $json.joinUrl }}\"/>\n  </Connect>\n</Response>",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "text/xml"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        960,
+        0
+      ],
+      "id": "904b445e-34a9-4ff8-8fb4-1fd61d89c6d9",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4e72e417-5d23-41e4-9c14-e572d928feab",
+              "name": "joinUrl",
+              "value": "={{ $json.joinUrl }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        700,
+        0
+      ],
+      "id": "03620575-03f0-4596-a0c9-c39025d5139b",
+      "name": "Join URL"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.ultravox.ai/api/calls",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"systemPrompt\": \"You are a concise AI phone assistant. On new calls, say: \\\"At your service, (YOUR NAME). How may I assist you today?\\\" Respond like a human would, as authentic as possible. GUIDELINES: Keep responses under 3 sentences when possible. If you don't know something, say so briefly. Never make up information. Call and execute tools after information is received without delays. When retrieving news, explain it to the user in a very fun, engaging way. Todays date is {{ $now }}\",\n  \"model\": \"fixie-ai/ultravox-70B\",\n  \"voice\": \"Steve-English-Australian\",\n  \"temperature\": 0.1,\n  \"firstSpeaker\": \"FIRST_SPEAKER_AGENT\",\n  \"medium\": {\"twilio\": {}}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        340,
+        0
+      ],
+      "id": "c8f36083-382a-4238-8ecd-6b948a467c94",
+      "name": "Connect to Ultravox",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "V93mI58mOUGf3eQv",
+          "name": "Tavily"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "incoming-call",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "85c9f632-ec50-43f5-b72b-91ccfa46c68f",
+      "name": "Webhook2",
+      "webhookId": "ef446795-247f-4b5c-a59c-94a2a5b1677b"
+    },
+    {
+      "parameters": {
+        "content": "## Ensure you get your Ultravox API key.\n\nAdd it in the credentials.\n\n1. Click 'Generic Credential Type'\n2. Click 'Header Auth'\n3. Add in X-API-KEY for name\n4. Add your API key below",
+        "height": 220,
+        "width": 480,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        160,
+        200
+      ],
+      "typeVersion": 1,
+      "id": "edd24822-a60a-48a2-a608-d787e26af3e8",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-10T20:24:20.720Z",
+  "versionId": "d7c4361b-3330-41a1-9578-3bbbb5be7b0b"
+}
