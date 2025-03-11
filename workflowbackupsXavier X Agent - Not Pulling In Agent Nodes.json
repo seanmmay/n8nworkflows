@@ -1,0 +1,2309 @@
+{
+  "active": false,
+  "connections": {
+    "Get Users": {
+      "main": [
+        [
+          {
+            "node": "Clean up",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Tweet": {
+      "main": [
+        [
+          {
+            "node": "Merge_3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Topics": {
+      "main": [
+        [
+          {
+            "node": "Merge_1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze Images": {
+      "main": [
+        [
+          {
+            "node": "Merge_5",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Clean up": {
+      "main": [
+        [
+          {
+            "node": "Merge_5",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Analyze Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Up Again": {
+      "main": [
+        [
+          {
+            "node": "Send Data to Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Character List": {
+      "main": [
+        [
+          {
+            "node": "Merge_1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Character List_2": {
+      "main": [
+        [
+          {
+            "node": "Merge_3",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get Replies Data": {
+      "main": [
+        [
+          {
+            "node": "Clean Up Again",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get User ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every 4 hours": {
+      "main": [
+        [
+          {
+            "node": "Get Tweet",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Character List_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every 11 hours": {
+      "main": [
+        [
+          {
+            "node": "Get Users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tweet Prompt Builder": {
+      "main": [
+        [
+          {
+            "node": "Merge_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply Prompt Builder": {
+      "main": [
+        [
+          {
+            "node": "Merge_4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get User ID": {
+      "main": [
+        [
+          {
+            "node": "User ID & Rest ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every 24 hours": {
+      "main": [
+        [
+          {
+            "node": "Get Replies Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Input RSS Feeds here": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RSS Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Read": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every 3 days": {
+      "main": [
+        [
+          {
+            "node": "Input RSS Feeds here",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Scrape Articles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape Articles": {
+      "main": [
+        [
+          {
+            "node": "Summarization Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Summarization Chain": {
+      "main": [
+        [
+          {
+            "node": "Create Topics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Summarization Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge_1": {
+      "main": [
+        [
+          {
+            "node": "Tweet Prompt Builder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Delete Topic",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge_3": {
+      "main": [
+        [
+          {
+            "node": "Reply Prompt Builder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Delete Tweet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge_5": {
+      "main": [
+        [
+          {
+            "node": "Send Results to Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete Tweet": {
+      "main": [
+        [
+          {
+            "node": "Merge_4",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Delete Topic": {
+      "main": [
+        [
+          {
+            "node": "Merge_2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge_6": {
+      "main": [
+        [
+          {
+            "node": "Tweet Prompt Builder1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Topics_2": {
+      "main": [
+        [
+          {
+            "node": "Merge_6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Character List_3": {
+      "main": [
+        [
+          {
+            "node": "Merge_6",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Every Day": {
+      "main": [
+        [
+          {
+            "node": "Get Topics",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Character List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every 3 days_2": {
+      "main": [
+        [
+          {
+            "node": "Delete Topics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "(No need for schedule)": {
+      "main": [
+        [
+          {
+            "node": "Get Topics_2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Character List_3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-10T23:45:32.351Z",
+  "id": "Rq1hjBwCqqvvFGQ8",
+  "meta": null,
+  "name": "Xavier X Agent - Not Pulling In Agent Nodes",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "=https://twitter-aio.p.rapidapi.com/search/anime",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "count",
+              "value": "9"
+            },
+            {
+              "name": "category",
+              "value": "Top"
+            },
+            {
+              "name": "filters",
+              "value": "={\"since\": \"{{ new Date().toISOString().slice(0,10).replace(/-/g,'/') }}\"}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "twitter-aio.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -880,
+        2180
+      ],
+      "id": "17880e17-b368-49b0-a052-42079cf037b8",
+      "name": "Get Users"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        240,
+        1360
+      ],
+      "id": "22efc520-9e50-4fb5-99fe-c57b814d09ce",
+      "name": "Xavier"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "scraped_tweets",
+        "limit": 1,
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "scraped_at",
+              "condition": "gte",
+              "keyValue": "={{ new Date(Date.now() - 4 * 60 * 60 * 1000).toISOString().split('T')[0] }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -1100,
+        1640
+      ],
+      "id": "397e0b17-5099-42b8-9051-3086648881b3",
+      "name": "Get Tweet"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Call this tool to create a tweet",
+        "text": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Text', ``, 'string') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.twitterTool",
+      "typeVersion": 2,
+      "position": [
+        460,
+        1740
+      ],
+      "id": "421881b5-921d-4768-bab2-85e0422bd2f8",
+      "name": "Create Tweet"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "topics",
+        "limit": 1,
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "created_at",
+              "condition": "gte",
+              "keyValue": "={{ new Date(Date.now() - 4 * 60 * 60 * 1000).toISOString().split('T')[0] }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -1100,
+        1120
+      ],
+      "id": "aef3344e-27bf-4d95-8703-8b504cffcb91",
+      "name": "Get Topics",
+      "credentials": {
+        "supabaseApi": {
+          "id": "TOGUNMon8ZWFLxAF",
+          "name": "Xavier X Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        240,
+        2040
+      ],
+      "id": "46cdaa07-a316-4901-a4a8-dcdaac15e609",
+      "name": "Tweet Analyzer"
+    },
+    {
+      "parameters": {
+        "url": "https://twitter-aio.p.rapidapi.com/user/44196397/tweetsAndReplies",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "username",
+              "value": "your username"
+            },
+            {
+              "name": "userId",
+              "value": "your user id"
+            },
+            {
+              "name": "count",
+              "value": "20"
+            },
+            {
+              "name": "cursor"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "twitter-aio.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1160,
+        1700
+      ],
+      "id": "6903d289-17ab-4614-af0d-f19e2e8ad0a7",
+      "name": "Get Replies Data"
+    },
+    {
+      "parameters": {
+        "tableId": "tweets",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "tweet_text",
+              "fieldValue": "={{ $json[\"Tweet text\"] }}"
+            },
+            {
+              "fieldId": "views_count",
+              "fieldValue": "={{ $json.views_count }}"
+            },
+            {
+              "fieldId": "retweet_count",
+              "fieldValue": "={{ $json.retweet_count }}"
+            },
+            {
+              "fieldId": "reply_count",
+              "fieldValue": "={{ $json.reply_count }}"
+            },
+            {
+              "fieldId": "favorite_count",
+              "fieldValue": "={{ $json.favorite_count }}"
+            },
+            {
+              "fieldId": "bookmark_count",
+              "fieldValue": "={{ $json.bookmark_count }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        1700
+      ],
+      "id": "b8f4d91c-a999-48f9-a349-5cd0db6a6dd0",
+      "name": "Send Data to Supabase"
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "text": "=Describe this image. It's style (is it a cartoon, real life, anime, be clear). \n\nWhat is in this image as well, the details.\n\nThis is a tweet text the user also posted with the image i'm asking you to analyze here:\n\n{{ $json[\"Tweet text\"] }}\n\nThe tweet text may help or not help in identifying what the image is about.\n\nAvoid saying \"the image is\", or \"in this image\", just give the description and thats it.",
+        "imageUrls": "={{ $json.media_url_https }}",
+        "options": {
+          "detail": "high",
+          "maxTokens": 100
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -880,
+        2400
+      ],
+      "id": "716b509b-7c45-4847-9580-d645ffef8dc9",
+      "name": "Analyze Images"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst processedItems = [];\nconst sourceData = items[0].json;\n\n// Helper function to safely get nested properties\nfunction getNestedValue(obj, path, defaultValue = \"\") {\n  try {\n    const parts = path.split('.');\n    let current = obj;\n    \n    for (const part of parts) {\n      if (part.includes('[') && part.includes(']')) {\n        // Handle array access\n        const arrayPart = part.split('[')[0];\n        const index = parseInt(part.split('[')[1].split(']')[0]);\n        \n        if (!current[arrayPart] || !Array.isArray(current[arrayPart]) || !current[arrayPart][index]) {\n          return defaultValue;\n        }\n        \n        current = current[arrayPart][index];\n      } else {\n        // Handle object property access\n        if (current === null || current === undefined || !current[part]) {\n          return defaultValue;\n        }\n        \n        current = current[part];\n      }\n    }\n    \n    return current || defaultValue;\n  } catch (error) {\n    return defaultValue;\n  }\n}\n\n// Function to find tweet data\nfunction findAllTweetData(obj) {\n  if (!obj || typeof obj !== 'object') {\n    return;\n  }\n  \n  // Check for tweet structure\n  if (obj.content && obj.content.itemContent && obj.content.itemContent.tweet_results) {\n    const tweetResult = getNestedValue(obj, 'content.itemContent.tweet_results.result');\n    \n    if (tweetResult) {\n      const userLegacy = getNestedValue(tweetResult, 'core.user_results.result.legacy');\n      const tweetLegacy = getNestedValue(tweetResult, 'legacy');\n      \n      if (userLegacy && tweetLegacy) {\n        // Extract the data with renamed fields\n        processedItems.push({\n          json: {\n            username: getNestedValue(userLegacy, 'screen_name'),\n            followers: getNestedValue(userLegacy, 'followers_count', 0),\n            media_url_https: getNestedValue(tweetLegacy, 'entities.media[0].media_url_https'),\n            \"conversation ID\": getNestedValue(tweetLegacy, 'id_str'),\n            \"Tweet text\": getNestedValue(tweetLegacy, 'full_text'),\n            retweet_count: getNestedValue(tweetLegacy, 'retweet_count', 0),\n            reply_count: getNestedValue(tweetLegacy, 'reply_count', 0),\n            quote_count: getNestedValue(tweetLegacy, 'quote_count', 0),\n            created_at: getNestedValue(tweetLegacy, 'created_at')\n          }\n        });\n      }\n    }\n  }\n  \n  // Process arrays\n  if (Array.isArray(obj)) {\n    for (let i = 0; i < obj.length; i++) {\n      findAllTweetData(obj[i]);\n    }\n  } else {\n    // Process object properties\n    for (const key in obj) {\n      findAllTweetData(obj[key]);\n    }\n  }\n}\n\ntry {\n  findAllTweetData(sourceData);\n  console.log(`Found ${processedItems.length} tweet records`);\n} catch (error) {\n  console.log(\"Error:\", error.message);\n}\n\n// Return all processed items\nreturn processedItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1400,
+        2400
+      ],
+      "id": "394927ec-c623-4c50-b584-315366552acc",
+      "name": "Clean up"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst processedItems = [];\nconst sourceData = items[0].json;\nconst processedTweetIds = new Set(); // For deduplication\n\n// Helper function to safely get nested properties\nfunction getNestedValue(obj, path, defaultValue = \"\") {\n  try {\n    const parts = path.split('.');\n    let current = obj;\n    \n    for (const part of parts) {\n      if (current === null || current === undefined || !current[part]) {\n        return defaultValue;\n      }\n      current = current[part];\n    }\n    \n    return current || defaultValue;\n  } catch (error) {\n    return defaultValue;\n  }\n}\n\n// Helper function to process tweet data\nfunction processTweetData(tweetResult) {\n  if (!tweetResult || !tweetResult.legacy) return null;\n  \n  const tweetId = getNestedValue(tweetResult, 'legacy.id_str');\n  const tweetText = getNestedValue(tweetResult, 'legacy.full_text');\n  \n  // Skip if already processed or contains a link\n  if (processedTweetIds.has(tweetId) || tweetText.includes('https')) {\n    return null;\n  }\n\n  processedTweetIds.add(tweetId);\n  \n  return {\n    json: {\n      \"Tweet text\": tweetText,\n      views_count: getNestedValue(tweetResult, 'views.count', 0),\n      retweet_count: getNestedValue(tweetResult, 'legacy.retweet_count', 0),\n      reply_count: getNestedValue(tweetResult, 'legacy.reply_count', 0),\n      favorite_count: getNestedValue(tweetResult, 'legacy.favorite_count', 0),\n      bookmark_count: getNestedValue(tweetResult, 'legacy.bookmark_count', 0),\n      created_at: getNestedValue(tweetResult, 'legacy.created_at')\n    }\n  };\n}\n\ntry {\n  // Get all instructions\n  const instructions = sourceData.user.result.timeline_v2.timeline.instructions;\n  \n  // Process each instruction\n  instructions.forEach(instruction => {\n    if (instruction.entries && Array.isArray(instruction.entries)) {\n      instruction.entries.forEach(entry => {\n        // Case 1: Direct tweet data under itemContent\n        if (entry.content && entry.content.itemContent && entry.content.itemContent.tweet_results) {\n          const tweetResult = entry.content.itemContent.tweet_results.result;\n          const tweetData = processTweetData(tweetResult);\n          if (tweetData) processedItems.push(tweetData);\n        }\n\n        // Case 2: Tweet data under items array (replies)\n        if (entry.content && entry.content.items && Array.isArray(entry.content.items)) {\n          entry.content.items.forEach(item => {\n            if (item.item && item.item.itemContent && item.item.itemContent.tweet_results) {\n              const tweetResult = item.item.itemContent.tweet_results.result;\n              const tweetData = processTweetData(tweetResult);\n              if (tweetData) processedItems.push(tweetData);\n            }\n          });\n        }\n      });\n    }\n  });\n  \n  console.log(`Successfully extracted ${processedItems.length} unique tweets/replies without links`);\n} catch (error) {\n  console.log(\"Error:\", error.message);\n}\n\n// Return all processed items\nreturn processedItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1380,
+        1700
+      ],
+      "id": "b8e052c6-f3fa-48c1-b6c0-8aca7b140c81",
+      "name": "Clean Up Again"
+    },
+    {
+      "parameters": {
+        "content": "# Create Tweets",
+        "height": 480,
+        "width": 1320,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1460,
+        1040
+      ],
+      "typeVersion": 1,
+      "id": "aebeed93-1314-4e7e-a87b-6e0c231aa83e",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# Reply to Tweets",
+        "height": 480,
+        "width": 1320,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1460,
+        1560
+      ],
+      "typeVersion": 1,
+      "id": "383cd7f2-5fb1-4964-a41f-1bba88524fe5",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "# Scrape Top Tweets",
+        "height": 480,
+        "width": 1320,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1460,
+        2080
+      ],
+      "typeVersion": 1,
+      "id": "33683588-f3ab-4270-a3f7-b6fba46d9233",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "# Create and reply to tweets",
+        "height": 640,
+        "width": 920,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -80,
+        1260
+      ],
+      "typeVersion": 1,
+      "id": "bd31a1da-0c4c-40d3-8817-c46cb7073d26",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "# Analyze Replies and Tweets",
+        "height": 640,
+        "width": 920,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -80,
+        1940
+      ],
+      "typeVersion": 1,
+      "id": "4422a0cc-c4a8-48ac-8e14-793f6df54e8c",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "characters",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "name",
+              "keyValue": "Lisa"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -1100,
+        1320
+      ],
+      "id": "d3236043-78a6-4a9b-b295-c917c3fa65f5",
+      "name": "Character List",
+      "credentials": {
+        "supabaseApi": {
+          "id": "TOGUNMon8ZWFLxAF",
+          "name": "Xavier X Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "characters",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "name",
+              "keyValue": "Bill Burr"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -1100,
+        1840
+      ],
+      "id": "f80df88a-3e3b-430a-9372-1d6c1756bb88",
+      "name": "Character List_2"
+    },
+    {
+      "parameters": {
+        "tableId": "scraped_tweets",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "username",
+              "fieldValue": "={{ $json.username }}"
+            },
+            {
+              "fieldId": "followers",
+              "fieldValue": "={{ $json.followers }}"
+            },
+            {
+              "fieldId": "media_url_https",
+              "fieldValue": "={{ $json.media_url_https }}"
+            },
+            {
+              "fieldId": "conversation_id",
+              "fieldValue": "={{ $json[\"conversation ID\"] }}"
+            },
+            {
+              "fieldId": "tweet_text",
+              "fieldValue": "={{ $json[\"Tweet text\"] }}"
+            },
+            {
+              "fieldId": "retweet_count",
+              "fieldValue": "={{ $json.retweet_count }}"
+            },
+            {
+              "fieldId": "reply_count",
+              "fieldValue": "={{ $json.reply_count }}"
+            },
+            {
+              "fieldId": "quote_count",
+              "fieldValue": "={{ $json.quote_count }}"
+            },
+            {
+              "fieldId": "image_description",
+              "fieldValue": "={{ $json.content }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -360,
+        2300
+      ],
+      "id": "ef592faf-3865-4690-8ade-f136875745c4",
+      "name": "Send Results to Supabase"
+    },
+    {
+      "parameters": {
+        "content": "# Get username ID \n## (Add your username to the end of the URL. Run once)",
+        "height": 280,
+        "width": 920,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        900,
+        1260
+      ],
+      "typeVersion": 1,
+      "id": "0c8d00aa-cf6f-42c6-ac95-2f75eb2fa6ff",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a43036d0-321a-4be0-bd2e-f5449f279fd4",
+              "name": "Your User ID",
+              "value": "={{ $json.user.result.id }}",
+              "type": "string"
+            },
+            {
+              "id": "6ee41b60-5fea-4049-8c2f-0badd543222f",
+              "name": "Rest ID",
+              "value": "={{ $json.user.result.rest_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1380,
+        1380
+      ],
+      "id": "877b8717-4f15-4851-bc8e-214c4ccc0d46",
+      "name": "User ID & Rest ID"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        940,
+        1380
+      ],
+      "id": "6b62f2d0-113e-4c90-b962-bc04d4b3986f",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "content": "# Get your own tweet data\n## (place your user ID & username in the Get Replies node)",
+        "height": 300,
+        "width": 920,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        900,
+        1580
+      ],
+      "typeVersion": 1,
+      "id": "9d7911c6-8045-4eb6-8a15-46d01ea4248f",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 4,
+              "triggerAtMinute": 51
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1400,
+        1740
+      ],
+      "id": "397d0874-2c95-4aa0-ab2b-fe241b37b96c",
+      "name": "Every 4 hours"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 11,
+              "triggerAtMinute": 45
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1400,
+        2180
+      ],
+      "id": "16d3f2a0-506a-4a1e-a11e-5584fe05b921",
+      "name": "Every 11 hours"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Call this tool to get Tweet data",
+        "operation": "getAll",
+        "tableId": "tweets",
+        "limit": 20
+      },
+      "type": "n8n-nodes-base.supabaseTool",
+      "typeVersion": 1,
+      "position": [
+        400,
+        2420
+      ],
+      "id": "f16683f7-8555-4004-aa32-b4196fdbe6ff",
+      "name": "Get Tweet Data"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the input data\nconst inputData = $input.first().json;\n\n// Create the user message from the raw article content\nconst userMessage = `Article content: \"${inputData.content || 'No content provided'}\"`;\n\n// Format the avoid_topics array as a comma-separated string\nconst avoidTopics = inputData.behavior.avoid_topics.join(', ');\n\n// Create the refined prompt with [Role] [Task] structure\nconst prompt = `\n[Role] You are ${inputData.name}, a ${inputData.age}-year-old with a backstory of: ${inputData.backstory}.\n[Context] You talk ${inputData.personality.tone} with a ${inputData.personality.style} flair, and dig ${inputData.passions.fights}, ${inputData.passions.openings}, and ${inputData.passions.collecting}.\n[Task] Create an original tweet inspired by the article content.\n[Instructions] Craft a tweet (max 100 chars) inspired by the article content in the user message. Pick one passion (${inputData.passions.fights}, ${inputData.passions.openings}, or ${inputData.passions.collecting}) that fits the article's topic best, weaving in your goal (${inputData.goals}) naturally. Avoid ${avoidTopics}, keep it short and punchy over wordy slang, and share a hot take in your ${inputData.behavior.reply_style} style as ${inputData.name}.\n[Output Format] Plain text tweet, under 100 chars with spaces and punctuation.\n[Limits] Max 100 characters, no exceptions.\n`;\n\n// Return the prompt and user message separately\nreturn [{\n  json: {\n    prompt: prompt,\n    user_message: userMessage\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -620,
+        1120
+      ],
+      "id": "3f9dda35-69ee-420d-ba3c-9b98dd4eeada",
+      "name": "Tweet Prompt Builder"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the input data\nconst inputData = $input.first().json;\n\n// Format the avoid_topics array as a comma-separated string\nconst avoidTopics = inputData.behavior.avoid_topics.join(', ');\n\n// Create the user message from tweet text and image description\nconst userMessage = `Their tweet: \"${inputData.tweet_text || 'No tweet provided'}\"\n${inputData.image_description ? `Image they posted: ${inputData.image_description}` : ''}`;\n\n// Create the refined prompt with [Role] [Task] structure\nconst prompt = `\n[Role] You are ${inputData.name}, a ${inputData.age}-year-old with a backstory of: ${inputData.backstory}.\n[Context] You talk ${inputData.personality.tone} with a ${inputData.personality.style} flair, and dig ${inputData.passions.fights}, ${inputData.passions.openings}, and ${inputData.passions.collecting}.\n[Task] Reply with a personal vibe and a hook to spark convo.\n[Instructions] Craft a tweet (max 100 chars) replying to their tweet. Stay tightly relevant to their tweet text and image description in the user message. Pick one passion (${inputData.passions.fights}, ${inputData.passions.openings}, or ${inputData.passions.collecting}) that fits their topic best, weaving in your goal (${inputData.goals}) naturally. Avoid ${avoidTopics}, keep it short and punchy over wordy slang, and drop a hot take in your ${inputData.behavior.reply_style} style as ${inputData.name}.\n[Output Format] Plain text tweet, under 100 chars with spaces and punctuation.\n[Limits] Max 100 characters, no exceptions.\n`;\n\n// Return the prompt and user message separately\nreturn [{\n  json: {\n    prompt: prompt,\n    user_message: userMessage\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -620,
+        1640
+      ],
+      "id": "df17d7c2-d22a-441d-947a-4684a1754a8c",
+      "name": "Reply Prompt Builder"
+    },
+    {
+      "parameters": {
+        "url": "https://twitter-aio.p.rapidapi.com/user/by/username/your-user-name",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "twitter-aio.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1160,
+        1380
+      ],
+      "id": "916f11dc-3172-4090-8672-89c32bcc29a2",
+      "name": "Get User ID"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Call this tool to reply to tweets",
+        "text": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Text', ``, 'string') }}",
+        "additionalFields": {
+          "inReplyToStatusId": {
+            "__rl": true,
+            "value": "={{ $('Get Tweet').item.json.conversation_id }}",
+            "mode": "id"
+          }
+        }
+      },
+      "type": "n8n-nodes-base.twitterTool",
+      "typeVersion": 2,
+      "position": [
+        320,
+        1740
+      ],
+      "id": "21b12daf-c77d-4757-af14-fa80719b2ef8",
+      "name": "Reply to Tweet"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 23,
+              "triggerAtMinute": 55
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -40,
+        2040
+      ],
+      "id": "b3e489ee-ec29-4e3a-aacd-d809fa741d7c",
+      "name": "Every 23 hours"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 23,
+              "triggerAtMinute": 45
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        940,
+        1700
+      ],
+      "id": "ed59c465-3e84-445b-94d9-c3f694f40dcb",
+      "name": "Every 24 hours"
+    },
+    {
+      "parameters": {
+        "content": "# Get Trending Topics\n",
+        "height": 480,
+        "width": 2360,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1460,
+        520
+      ],
+      "typeVersion": 1,
+      "id": "96149390-a0f2-4582-8b84-c176ff3a368f",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "tableId": "topics",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "content",
+              "fieldValue": "={{ $json.response.text }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        500,
+        700
+      ],
+      "id": "161589a1-1cf3-45c4-8824-5e7010235b75",
+      "name": "Create Topics",
+      "credentials": {
+        "supabaseApi": {
+          "id": "TOGUNMon8ZWFLxAF",
+          "name": "Xavier X Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░██╗░░██╗░█████╗░██╗░░░██╗██╗███████╗██████╗░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░╚██╗██╔╝██╔══██╗██║░░░██║██║██╔════╝██╔══██╗░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░░╚███╔╝░███████║╚██╗░██╔╝██║█████╗░░██████╔╝░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░░██╔██╗░██╔══██║░╚████╔╝░██║██╔══╝░░██╔══██╗░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░██╔╝╚██╗██║░░██║░░╚██╔╝░░██║███████╗██║░░██║░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝╚══════╝╚═╝░░╚═╝░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
+        "height": 200,
+        "width": 780,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -20,
+        1020
+      ],
+      "typeVersion": 1,
+      "id": "6a92814e-9e48-4422-87a1-f640522d2fa5",
+      "name": "Sticky Note8"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.feed }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.1,
+      "position": [
+        -440,
+        700
+      ],
+      "id": "975d05b7-a5ae-49e1-85c5-d5126ac807f5",
+      "name": "RSS Read"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  { json: { feed: \"https://www.theanimedaily.com/feed/\" } },\n  { json: { feed: \"https://honeysanime.com/feed/\" } }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1160,
+        700
+      ],
+      "id": "d3752326-a687-4a3b-85dd-fbe0829c5491",
+      "name": "Input RSS Feeds here"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -860,
+        700
+      ],
+      "id": "66e88a94-39c4-46e7-b88e-ef9a9f6bb5fd",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8342b6df-b1cb-44f1-9018-7868169c3c69",
+              "leftValue": "={{ (new Date() - new Date($json.isoDate)) <= 604800000 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -440,
+        560
+      ],
+      "id": "70248669-1174-4bec-b745-e6a08956cad5",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "daysInterval": 3,
+              "triggerAtMinute": 55
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1400,
+        700
+      ],
+      "id": "39b5939c-4588-4539-8f9e-9e78e7cff94c",
+      "name": "Every 3 days"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.tavily.com/extract",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "urls",
+              "value": "={{ $json.link }}"
+            },
+            {
+              "name": "include_images",
+              "value": "false"
+            },
+            {
+              "name": "extract_depth",
+              "value": "basic"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -100,
+        700
+      ],
+      "id": "d93eedd9-ac9c-46d6-9522-344873fbd31a",
+      "name": "Scrape Articles",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "V93mI58mOUGf3eQv",
+          "name": "Tavily"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chunkSize": 1500,
+        "chunkOverlap": 300,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "typeVersion": 2,
+      "position": [
+        120,
+        700
+      ],
+      "id": "d494ccc4-8053-433c-9195-000002d084fd",
+      "name": "Summarization Chain"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        140,
+        860
+      ],
+      "id": "41366387-59dc-4407-85be-febdff997ad2",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# How to setup\n\n## 1. Start by going to \"Get Users\" in the Scrape Top Tweets section. On the URL, at the end, change the keyword to whatever you want (your niche)\n\n## 2. Then input your favourite RSS feeds into \"Input RSS Feeds here\" in the Get Trending Topics section (double check they work, run it, etc, to make sure its getting articles). Ideally you want 7-10 articles that pass the \"IF\" node, so add a few different RSS feeds and ensure they're also updated ones which post frequently. (You can ask your chat model to search for RSS feeds related to your niche)\n\n## 3. Create the tables in Supabase, all the SQL's have been provided. Simply go to Supabase, click on \"SQL Editor\" and run them, one by one (the ones in purple boxes below)\n\n## 4. Create a character for the \"Character\" table, the template has also been provided. Once you've finished the template, send it to your chat model with the prompt, then execute the SQL it gives you in Supabase\n\n## 5. Connect your Gmail account for Reports\n\n## 6. Add the Twitter AIO API keys, Tavily, ChatGPT, Claude\n\n## 7. Connect your Supabase credentials",
+        "height": 860,
+        "width": 920,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2460,
+        520
+      ],
+      "typeVersion": 1,
+      "id": "02a439c4-761c-46ac-ae82-697055338fd2",
+      "name": "Sticky Note9"
+    },
+    {
+      "parameters": {
+        "content": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░██╗░░██╗░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░╚██╗██╔╝░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░░╚███╔╝░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░░██╔██╗░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░██╔╝╚██╗░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░╚═╝░░╚═╝░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░░█████╗░██╗░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░██╔══██╗██║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░███████║██║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░██╔══██║██║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░██║░░██║██║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░╚═╝░░╚═╝╚═╝░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░░█████╗░░██████╗░███████╗███╗░░██╗████████╗░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░██╔══██╗██╔════╝░██╔════╝████╗░██║╚══██╔══╝░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░███████║██║░░██╗░█████╗░░██╔██╗██║░░░██║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░██╔══██║██║░░╚██╗██╔══╝░░██║╚████║░░░██║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░██║░░██║╚██████╔╝███████╗██║░╚███║░░░██║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░╚═╝░░╚═╝░╚═════╝░╚══════╝╚═╝░░╚══╝░░░╚═╝░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
+        "height": 460,
+        "width": 760,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "b4d06e99-8206-450b-9cea-8c68185e2f99",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "content": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░░██████╗░░██████╗░██╗░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░██╔════╝░██╔═══██╗██║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░╚█████╗░░██║░░░██║██║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░░╚═══██╗░██║░░░██║██║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░██████╔╝░╚██████╔╝███████╗░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░╚═════╝░░░╚═════╝░╚══════╝░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
+        "height": 200,
+        "width": 760,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2380,
+        1400
+      ],
+      "typeVersion": 1,
+      "id": "6605aea2-7c4f-42a1-9d6e-30f0338610b1",
+      "name": "Sticky Note12"
+    },
+    {
+      "parameters": {
+        "content": "-- Characters table with auto-incrementing ID\nCREATE TABLE public.characters (\n    id SERIAL PRIMARY KEY,\n    name VARCHAR(255) NOT NULL,\n    age VARCHAR(50),\n    backstory TEXT,\n    personality JSONB,\n    passions JSONB,\n    goals TEXT,\n    behavior JSONB,\n    tasks JSONB,\n    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP\n);",
+        "height": 340,
+        "width": 440,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1980,
+        1760
+      ],
+      "typeVersion": 1,
+      "id": "4f6aa485-52c2-4a69-bfd3-045d720596b1",
+      "name": "Sticky Note11"
+    },
+    {
+      "parameters": {
+        "content": "CREATE TABLE public.scraped_tweets (\n    id SERIAL PRIMARY KEY,\n    username VARCHAR(255) NOT NULL,\n    followers VARCHAR(255),\n    media_url_https TEXT,\n    conversation_id VARCHAR(255),\n    tweet_text TEXT,\n    retweet_count VARCHAR(255),\n    reply_count VARCHAR(255),\n    quote_count VARCHAR(255),\n    image_description TEXT,\n    scraped_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP\n);",
+        "height": 340,
+        "width": 440,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2460,
+        2260
+      ],
+      "typeVersion": 1,
+      "id": "073108ec-e58f-4f77-a719-52ef7753b0a6",
+      "name": "Sticky Note13"
+    },
+    {
+      "parameters": {
+        "content": "-- Tweets table with auto-incrementing ID\nCREATE TABLE public.tweets (\n    id SERIAL PRIMARY KEY,\n    character_name VARCHAR(255),\n    tweet_text TEXT,\n    views_count VARCHAR(255),\n    retweet_count VARCHAR(255),\n    reply_count VARCHAR(255),\n    favorite_count VARCHAR(255),\n    bookmark_count VARCHAR(255),\n    inserted_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP\n);",
+        "height": 340,
+        "width": 440,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1980,
+        2260
+      ],
+      "typeVersion": 1,
+      "id": "7ed1fcd1-940c-46a9-9b5e-6a9af24a6040",
+      "name": "Sticky Note14"
+    },
+    {
+      "parameters": {
+        "content": "# Characters",
+        "height": 80,
+        "width": 220,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1980,
+        1660
+      ],
+      "typeVersion": 1,
+      "id": "e68beaea-df69-4b7c-bd19-57f4ef5df18c",
+      "name": "Sticky Note15"
+    },
+    {
+      "parameters": {
+        "content": "# Scraped Tweets",
+        "height": 80,
+        "width": 300,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2460,
+        2160
+      ],
+      "typeVersion": 1,
+      "id": "fa343e8b-73af-475e-9745-e61a28fbae83",
+      "name": "Sticky Note16"
+    },
+    {
+      "parameters": {
+        "content": "# Tweets",
+        "height": 80,
+        "width": 160,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1980,
+        2160
+      ],
+      "typeVersion": 1,
+      "id": "ee2e2857-ce75-4e83-9b96-7bc249349ae4",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "content": "CREATE TABLE public.topics (\n    id SERIAL PRIMARY KEY,\n    content TEXT NOT NULL,\n    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP\n);",
+        "height": 340,
+        "width": 440,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2460,
+        1760
+      ],
+      "typeVersion": 1,
+      "id": "18fdd8c1-d791-46a5-bcfa-2fc2d60bdb5b",
+      "name": "Sticky Note18"
+    },
+    {
+      "parameters": {
+        "content": "# Topics",
+        "height": 80,
+        "width": 150,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2460,
+        1660
+      ],
+      "typeVersion": 1,
+      "id": "f7af9644-6124-44c2-8ea9-7290fd62d9d1",
+      "name": "Sticky Note19"
+    },
+    {
+      "parameters": {
+        "content": "# Delete Old Topics",
+        "height": 480,
+        "width": 600,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        960,
+        520
+      ],
+      "typeVersion": 1,
+      "id": "a16264e2-0d80-4183-b36a-6dc130d0d46f",
+      "name": "Sticky Note20"
+    },
+    {
+      "parameters": {
+        "content": "# Create your character\n\n=== Create a New Character ===\n\nInstructions:\n1. Fill out the required details below about your character.\n2. The Name field is where you set your character’s name—you don’t need to repeat it in the other fields.\n3. Add any extra details you know (like interests, personality traits, behavior preferences, or tasks).\n4. The more detail you provide, the better the chat model can complete the character and build a prompt!\n5. Take this filled template to a chat model and ask it to:\n   - Complete the missing details (e.g., personality, passions, behavior, tasks) in JSON format.\n   - Generate an SQL INSERT statement for the 'characters' table.\n6. Run the SQL in Supabase to add your character.\n\n---\n\n### Character template (Note: You can also generate characters just by giving this to your chat model directly if you don't want to fill it out yourself):\n\n{\n  \"name\": \"<text, required>\",\n  \"age\": a number,\n  \"backstory\": \"<text, required - a brief history of the character>\",\n  \"personality\": {\n    \"tone\": \"<text - how they sound>\",\n    \"style\": \"<text - their way of expressing themselves>\",\n    \"traits\": [\n      \"<trait1>\",\n      \"<trait2>\",\n      \"<trait3>\"\n    ]\n  },\n  \"passions\": {\n    \"fights\": \"<text - what they passionately argue or obsess over>\",\n    \"openings\": \"<text - what they love starting with or exploring>\",\n    \"collecting\": \"<text - what they collect>\"\n  },\n  \"goals\": \"<text, required - what they aim to achieve>\",\n  \"behavior\": {\n    \"reply_style\": \"<text - how they respond to others>\",\n    \"avoid_topics\": [\n      \"<topic1>\",\n      \"<topic2>\"\n    ]\n  },\n  \"tasks\": {\n    \"post\": \"<text - what they post about>\",\n    \"reply\": \"<text - how they engage in replies>\"\n  }\n}\n",
+        "height": 1060,
+        "width": 920,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3460,
+        520
+      ],
+      "typeVersion": 1,
+      "id": "047fda87-7aea-4459-8824-ce31bb4812c0",
+      "name": "Sticky Note21"
+    },
+    {
+      "parameters": {
+        "content": "## Put your characters name in the Character List node",
+        "height": 80,
+        "width": 340
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1460,
+        1940
+      ],
+      "typeVersion": 1,
+      "id": "642b5837-d742-4868-9680-d0c12e07d9a3",
+      "name": "Sticky Note22"
+    },
+    {
+      "parameters": {
+        "content": "## Put your characters name in the Character List node",
+        "height": 80,
+        "width": 340
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1460,
+        1420
+      ],
+      "typeVersion": 1,
+      "id": "9ffcc1cf-6c4b-429c-9f45-6ae8b8717b70",
+      "name": "Sticky Note23"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "tableId": "topics",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "created_at",
+              "condition": "lt",
+              "keyValue": "={{ new Date(Date.now() - 4 * 60 * 60 * 1000).toISOString().split('T')[0] }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        700
+      ],
+      "id": "8228b56b-3060-49a6-aedb-9fe45d92360c",
+      "name": "Delete Topics"
+    },
+    {
+      "parameters": {
+        "content": "# Prompt to give your chat model\n\n## Complete the character details for the 'characters' table and generate an SQL INSERT statement. The table has columns: id (integer, auto-incrementing), name (text, required), age (integer, required), backstory (text, required), personality (jsonb, required), passions (jsonb, required), goals (text, required), behavior (jsonb, required), tasks (jsonb, required), created_at (timestamp, auto-filled). The jsonb fields should be JSON objects, where personality includes 'tone' and 'style', passions includes 'fights', 'openings', and 'collecting', and behavior includes 'reply_style' and 'avoid_topics'.\n\n## (Copy paste your character you created here and send the prompt + your character you created in your chat model of choice)",
+        "height": 480,
+        "width": 920,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3460,
+        1620
+      ],
+      "typeVersion": 1,
+      "id": "bb92f46e-c992-4f44-ade2-e28ed3be77ca",
+      "name": "Sticky Note24"
+    },
+    {
+      "parameters": {
+        "content": "# Now with the SQL the chat model gives you, execute it in SQL editor\n",
+        "height": 120,
+        "width": 920,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3460,
+        2140
+      ],
+      "typeVersion": 1,
+      "id": "2e71f06b-6aca-4a36-9614-3f1c9157499a",
+      "name": "Sticky Note25"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        -360,
+        1220
+      ],
+      "id": "4f2ed7e2-8e4c-4593-93ce-d94203b68307",
+      "name": "Merge_2"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        -880,
+        1220
+      ],
+      "id": "dc332f6c-b977-481d-a137-b5ae9a3db24c",
+      "name": "Merge_1"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        -880,
+        1740
+      ],
+      "id": "52003eb1-8c0e-4408-b7a3-87556eacf8d3",
+      "name": "Merge_3"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        -360,
+        1740
+      ],
+      "id": "e64147e5-7942-4718-aa0c-a2f0ee370c86",
+      "name": "Merge_4"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        -620,
+        2300
+      ],
+      "id": "13767005-e027-4388-97e4-d638cb501a26",
+      "name": "Merge_5"
+    },
+    {
+      "parameters": {
+        "sendTo": "indianarustandi@gmail.com",
+        "subject": "Twitter Report",
+        "message": "={{ $json.output }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        620,
+        2040
+      ],
+      "id": "4c6b5bec-216f-470e-8358-59e38b3cc417",
+      "name": "Gmail",
+      "webhookId": "4c4370aa-fec4-4c3a-a1fc-29b7e4795121"
+    },
+    {
+      "parameters": {
+        "content": "### Add Twitter AIO API key",
+        "height": 80,
+        "width": 230
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -940,
+        2080
+      ],
+      "typeVersion": 1,
+      "id": "1dec5c5a-7db9-46e2-a24e-7395467f8da7",
+      "name": "Sticky Note26"
+    },
+    {
+      "parameters": {
+        "content": "### Add Twitter AIO API key",
+        "height": 80,
+        "width": 230
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1580,
+        1300
+      ],
+      "typeVersion": 1,
+      "id": "e52f2ca9-bd34-48e7-92a2-4f746c6d4b51",
+      "name": "Sticky Note27"
+    },
+    {
+      "parameters": {
+        "content": "### Add Twitter AIO API key",
+        "height": 80,
+        "width": 230
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1580,
+        1600
+      ],
+      "typeVersion": 1,
+      "id": "4621d672-746c-4710-9ce5-90027617fd28",
+      "name": "Sticky Note28"
+    },
+    {
+      "parameters": {
+        "content": "### Connect ChatGPT credentials",
+        "height": 80,
+        "width": 270
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        280,
+        880
+      ],
+      "typeVersion": 1,
+      "id": "56ac3226-60b2-476b-b8ac-8487cb828a93",
+      "name": "Sticky Note29"
+    },
+    {
+      "parameters": {
+        "content": "### Add Tavily API key in Header Auth. \n\n### 1. Name: Authorization\n### 2. Key: Bearer your-api-key",
+        "width": 270
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -140,
+        520
+      ],
+      "typeVersion": 1,
+      "id": "fbea8d50-99ec-4bb1-b9e3-e968c8b9fab7",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "content": "### Connect Claude credentials",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -40,
+        2440
+      ],
+      "typeVersion": 1,
+      "id": "953191ef-9c20-4139-85f5-08b16725a0dd",
+      "name": "Sticky Note31"
+    },
+    {
+      "parameters": {
+        "content": "### Connect Claude credentials",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -100,
+        1760
+      ],
+      "typeVersion": 1,
+      "id": "d41bf08a-ac36-4409-aabc-6ac12ea3d320",
+      "name": "Sticky Note32"
+    },
+    {
+      "parameters": {
+        "content": "# Connect X credentials\n\n## Docs: https://docs.n8n.io/integrations/builtin/credentials/twitter/",
+        "height": 200,
+        "width": 690
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2020,
+        280
+      ],
+      "typeVersion": 1,
+      "id": "fdd5c93b-7390-4264-ab1f-10c6834be418",
+      "name": "Sticky Note33"
+    },
+    {
+      "parameters": {
+        "content": "### Sign in to your Gmail",
+        "height": 80,
+        "width": 190
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        580,
+        2200
+      ],
+      "typeVersion": 1,
+      "id": "17a2df8a-fff0-4d09-be2d-deb1bdbd1b01",
+      "name": "Sticky Note34"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "tableId": "scraped_tweets",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id",
+              "condition": "eq",
+              "keyValue": "={{ $('Get Tweet').item.json.id }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        1840
+      ],
+      "id": "e552ba96-3f7e-4b11-9ef4-f0d2aec530d4",
+      "name": "Delete Tweet"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "tableId": "topics",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id",
+              "condition": "eq",
+              "keyValue": "={{ $('Get Topics').item.json.id }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        1320
+      ],
+      "id": "cebdb0c9-78ae-486b-8289-b5c621c00a22",
+      "name": "Delete Topic"
+    },
+    {
+      "parameters": {
+        "content": "# 1. Make sure to click \"Test Workflow\" here (on the node itself)\n\n# 2. Then add your User ID into the \"Get Replies Data\" node below",
+        "width": 1150,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        900,
+        1080
+      ],
+      "typeVersion": 1,
+      "id": "8be7f26d-791a-4c0b-86de-44cbe1cce288",
+      "name": "Sticky Note35"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the input data\nconst inputData = $input.first().json;\n\n// Create the user message from the raw article content\nconst userMessage = `Article content: \"${inputData.content || 'No content provided'}\"`;\n\n// Format the avoid_topics array as a comma-separated string\nconst avoidTopics = inputData.behavior.avoid_topics.join(', ');\n\n// Create the refined prompt with [Role] [Task] structure\nconst prompt = `\n[Role] You are ${inputData.name}, a ${inputData.age}-year-old with a backstory of: ${inputData.backstory}.\n[Context] You talk ${inputData.personality.tone} with a ${inputData.personality.style} flair, and dig ${inputData.passions.fights}, ${inputData.passions.openings}, and ${inputData.passions.collecting}.\n[Task] Create an original tweet inspired by the article content.\n[Instructions] Craft a tweet (max 100 chars) inspired by the article content in the user message. Pick one passion (${inputData.passions.fights}, ${inputData.passions.openings}, or ${inputData.passions.collecting}) that fits the article's topic best, weaving in your goal (${inputData.goals}) naturally. Avoid ${avoidTopics}, keep it short and punchy over wordy slang, and share a hot take in your ${inputData.behavior.reply_style} style as ${inputData.name}.\n[Output Format] Plain text tweet, under 100 chars with spaces and punctuation.\n[Limits] Max 100 characters, no exceptions.\n`;\n\n// Return the prompt and user message separately\nreturn [{\n  json: {\n    prompt: prompt,\n    user_message: userMessage\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        2160
+      ],
+      "id": "1c89c1ba-7ac6-4050-a4f3-3e3ec31739ea",
+      "name": "Tweet Prompt Builder1"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1520,
+        2160
+      ],
+      "id": "c4ee1bde-c6e5-45df-99e3-e1a910c5d655",
+      "name": "Merge_6"
+    },
+    {
+      "parameters": {
+        "content": "# Test your character",
+        "height": 600,
+        "width": 1540
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        880,
+        1960
+      ],
+      "typeVersion": 1,
+      "id": "9fbdc1df-1e3c-462b-8cb2-37fbe6cbe4db",
+      "name": "Sticky Note36"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        2040,
+        2160
+      ],
+      "id": "b013dfa4-f3db-4c04-a670-51a9276c2413",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "topics",
+        "limit": 1,
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "created_at",
+              "condition": "gte",
+              "keyValue": "={{ new Date(Date.now() - 4 * 60 * 60 * 1000).toISOString().split('T')[0] }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        2060
+      ],
+      "id": "a09bb3df-06e9-4eb9-986d-b5b8968d10ff",
+      "name": "Get Topics_2",
+      "credentials": {
+        "supabaseApi": {
+          "id": "TOGUNMon8ZWFLxAF",
+          "name": "Xavier X Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "characters",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "name",
+              "keyValue": "Michael Wright"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        2280
+      ],
+      "id": "2c2c74d0-829d-4fd0-9392-a7ac3cd2afd3",
+      "name": "Character List_3",
+      "credentials": {
+        "supabaseApi": {
+          "id": "TOGUNMon8ZWFLxAF",
+          "name": "Xavier X Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "### Add your RSS Feeds here",
+        "height": 80,
+        "width": 230
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1220,
+        860
+      ],
+      "typeVersion": 1,
+      "id": "39558f40-f425-468e-ae44-5365f643fb22",
+      "name": "Sticky Note37"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtMinute": 30
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1400,
+        1240
+      ],
+      "id": "91bcd069-c85c-4181-ad16-922329fb4118",
+      "name": "Every Day"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "daysInterval": 3,
+              "triggerAtMinute": 45
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        1020,
+        700
+      ],
+      "id": "b2e021c0-7dd0-4a0c-b380-8e2da4f0c9f7",
+      "name": "Every 3 days_2"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      query: \"Task has completed successfully.\"\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        620,
+        1360
+      ],
+      "id": "1d0ba944-4e44-4dd8-9472-3e4f49affe34",
+      "name": "Success"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        180,
+        1740
+      ],
+      "id": "ccaac4f4-5259-4a57-be3b-6a0837b4695a",
+      "name": "Claude 3.5",
+      "credentials": {}
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        240,
+        2420
+      ],
+      "id": "acedc8c5-9a98-47ae-a5d8-9b8e17b72e1d",
+      "name": "Claude 3.5x",
+      "credentials": {}
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        2040,
+        2360
+      ],
+      "id": "f0bdebd5-273d-4326-9e2c-83a8e1170a31",
+      "name": "Claude 3.5xx",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "months",
+              "monthsInterval": 6,
+              "triggerAtMinute": 42
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        1000,
+        2180
+      ],
+      "id": "936499bc-4511-45d2-af9a-35a3d1bb19e3",
+      "name": "(No need for schedule)"
+    },
+    {
+      "parameters": {
+        "content": "# Your Twitter AIO API key, get it here:\n\n## https://rapidapi.com/viperscores-viperscores-default/api/twitter-aio\n\n## Add the API key in the header\n\n### 1. Click \"Genertic Credential Type\"\n### 2. Choose \"Header Auth\"\n### 3. Name: x-rapidapi-key\n### 4. Then place your API key below",
+        "height": 400,
+        "width": 700
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2740,
+        80
+      ],
+      "typeVersion": 1,
+      "id": "5fd3006a-b150-4cbc-b520-adc936fffac2",
+      "name": "Sticky Note38"
+    },
+    {
+      "parameters": {
+        "content": "# Connect Supabase credentials\n\n## Docs: https://docs.n8n.io/integrations/builtin/credentials/supabase/",
+        "height": 200,
+        "width": 690
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3460,
+        280
+      ],
+      "typeVersion": 1,
+      "id": "e56f50ed-7316-4c8f-b575-8b09ac7c9891",
+      "name": "Sticky Note39"
+    },
+    {
+      "parameters": {
+        "content": "# Disclaimer\n\n## Be sensible with the characters you make. Think about the writing styles, etc. Think about who they are, whether fictional or yourself. Ensure it responds how you would like be testing your character before hand as well. ",
+        "height": 300,
+        "width": 920
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3460,
+        2300
+      ],
+      "typeVersion": 1,
+      "id": "03d65198-fc55-4621-9325-39be90bc6b9a",
+      "name": "Sticky Note40"
+    }
+  ],
+  "pinData": {
+    "Every 23 hours": [
+      {
+        "json": {
+          "timestamp": "2025-03-07T21:52:32.532+10:00",
+          "Readable date": "March 7th 2025, 9:52:32 pm",
+          "Readable time": "9:52:32 pm",
+          "Day of week": "Friday",
+          "Year": "2025",
+          "Month": "March",
+          "Day of month": "07",
+          "Hour": "21",
+          "Minute": "52",
+          "Second": "32",
+          "Timezone": "Australia/Brisbane (UTC+10:00)"
+        }
+      }
+    ],
+    "Every 24 hours": [
+      {
+        "json": {
+          "timestamp": "2025-03-07T21:52:32.532+10:00",
+          "Readable date": "March 7th 2025, 9:52:32 pm",
+          "Readable time": "9:52:32 pm",
+          "Day of week": "Friday",
+          "Year": "2025",
+          "Month": "March",
+          "Day of month": "07",
+          "Hour": "21",
+          "Minute": "52",
+          "Second": "32",
+          "Timezone": "Australia/Brisbane (UTC+10:00)"
+        }
+      }
+    ],
+    "Every 3 days": [
+      {
+        "json": {
+          "timestamp": "2025-03-07T21:52:32.532+10:00",
+          "Readable date": "March 7th 2025, 9:52:32 pm",
+          "Readable time": "9:52:32 pm",
+          "Day of week": "Friday",
+          "Year": "2025",
+          "Month": "March",
+          "Day of month": "07",
+          "Hour": "21",
+          "Minute": "52",
+          "Second": "32",
+          "Timezone": "Australia/Brisbane (UTC+10:00)"
+        }
+      }
+    ],
+    "Every 3 days_2": [
+      {
+        "json": {
+          "timestamp": "2025-03-07T21:52:32.532+10:00",
+          "Readable date": "March 7th 2025, 9:52:32 pm",
+          "Readable time": "9:52:32 pm",
+          "Day of week": "Friday",
+          "Year": "2025",
+          "Month": "March",
+          "Day of month": "07",
+          "Hour": "21",
+          "Minute": "52",
+          "Second": "32",
+          "Timezone": "Australia/Brisbane (UTC+10:00)"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-10T23:48:22.768Z",
+  "versionId": "28312db4-a38b-49b8-a67f-2a1ceee6b00d"
+}
