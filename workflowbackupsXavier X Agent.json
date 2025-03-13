@@ -2596,19 +2596,29 @@
       ]
     },
     "node:Every 23 hours": {
-      "recurrenceRules": []
+      "recurrenceRules": [
+        23
+      ]
     },
     "node:Every 24 hours": {
-      "recurrenceRules": []
+      "recurrenceRules": [
+        23
+      ]
     },
     "node:Every 3 days": {
-      "recurrenceRules": []
+      "recurrenceRules": [
+        71
+      ]
     },
     "node:Every Day": {
-      "recurrenceRules": []
+      "recurrenceRules": [
+        0
+      ]
     },
     "node:Every 3 days_2": {
-      "recurrenceRules": []
+      "recurrenceRules": [
+        71
+      ]
     },
     "node:(No need for schedule)": {
       "recurrenceRules": []
