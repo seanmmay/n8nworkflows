@@ -1,0 +1,946 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Scrape LinkedIn Profile",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Scrape LinkedIn Company  Profile",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape LinkedIn Profile": {
+      "main": [
+        [
+          {
+            "node": "Linkedin Profile Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape LinkedIn Company  Profile": {
+      "main": [
+        [
+          {
+            "node": "LinkedIn Company Profile Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Linkedin Profile Data": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "LinkedIn Company Profile Data": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "OpenAI1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-12T04:38:37.379Z",
+  "id": "vFN7uD0zlYiNSaHj",
+  "meta": null,
+  "name": "Get Information On Leads",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        900
+      ],
+      "id": "f3dc11df-9168-42c7-a975-9e73309a7921",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1dLcqT3wNMUtUzhdiKuEKz8SAvIAiwJ-U1hxg6pxiFRo",
+          "mode": "list",
+          "cachedResultName": "n8n Apollo Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dLcqT3wNMUtUzhdiKuEKz8SAvIAiwJ-U1hxg6pxiFRo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1809714842,
+          "mode": "list",
+          "cachedResultName": "Cleaned Lead Data Short",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dLcqT3wNMUtUzhdiKuEKz8SAvIAiwJ-U1hxg6pxiFRo/edit#gid=1809714842"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -220,
+        900
+      ],
+      "id": "a11f09cf-5ff9-422c-802b-731ce93114f3",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EfWTDOyZBNSeoRkx",
+          "name": "sean@alphafv.co Google Sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://www.{{ $json.organization_primary_domain }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        160,
+        60
+      ],
+      "id": "85bcce25-c6a7-4ef4-9c15-e5a486fe39da",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "html": "={{ $json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        360,
+        60
+      ],
+      "id": "6967d3e9-0172-44b0-92d8-b3d52cdd0ee1",
+      "name": "Markdown"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an expert web scraper. I will provide you with the markdown of a website. Your task is to extract all the visible text content and consolidate it into a single block of text. Ignore HTML tags, scripts, URLs and styles. Output the extracted text in a JSON format with the following structure:\n\n{\n  \"extracted_text\": \"All the extracted text from the webpage goes here in one block.\"\n}\n\nMarkdown from scraped website:\n\n{{ $json.data }}\n"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        580,
+        60
+      ],
+      "id": "dda3013b-414e-45d1-947e-5c3bf0ff3b4e",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c38cc1f4-aabb-4c3a-af85-ba3c18145ad6",
+              "name": "extraxted_text",
+              "value": "={{ $json.message.content.extracted_text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        940,
+        60
+      ],
+      "id": "f11c0c3d-6a95-45e2-8963-26059d9877ec",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "url": "https://piloterr.com/api/v2/linkedin/advanced/profile/info",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "={{ $json.linkedin_url }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "7aeebade-9bb3-413c-84ff-f628e7b1541a"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        140,
+        340
+      ],
+      "id": "22f17081-e5e9-4130-bf00-35b6f563f5b6",
+      "name": "Scrape LinkedIn Profile"
+    },
+    {
+      "parameters": {
+        "url": "https://piloterr.com/api/v2/linkedin/company/info",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "={{ $json.organization_linkedin_url }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "7aeebade-9bb3-413c-84ff-f628e7b1541a"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        120,
+        600
+      ],
+      "id": "71a44b91-a138-4bca-888a-2195f86d0eef",
+      "name": "Scrape LinkedIn Company  Profile"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4e0b0e26-405e-45cd-9e06-08294d3b8ef2",
+              "name": "Summary",
+              "value": "={{ $json.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "6b78dd8d-3f6e-4365-9862-4fa4a6b71d62",
+              "name": "Education",
+              "value": "={{ $json.educations[0].place }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        340,
+        340
+      ],
+      "id": "ab1c5e6c-a46a-4efb-b6a9-43b9b37b5730",
+      "name": "Linkedin Profile Data"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "970d31a1-07be-4829-915a-f043313e4944",
+              "name": "Tagline",
+              "value": "={{ $json.tagline }}",
+              "type": "string"
+            },
+            {
+              "id": "bfa8444c-9e8f-4cd2-9c57-ff05433be724",
+              "name": "Company Description",
+              "value": "={{ $json.description }}",
+              "type": "string"
+            },
+            {
+              "id": "8d221cba-e586-4df5-8373-52be7f65ab0d",
+              "name": "Staff Count",
+              "value": "={{ $json.staff_count }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        360,
+        600
+      ],
+      "id": "0eb7a03b-75aa-44fb-9ab9-f7f4b88626a9",
+      "name": "LinkedIn Company Profile Data"
+    },
+    {
+      "parameters": {
+        "numberInputs": 4
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1120,
+        580
+      ],
+      "id": "ea7e9bb7-e1cc-4db6-9a27-6c24bc33fff9",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Create a one sentence personalised intro for a cold email. Be very creative and keep it as a short sentence. Make this a sentence that the reader can't help but open as it is clearly personalised and makes them curious. Only return the one sentence and nothing else. Only use the best information to achieve the objective of the email which is to stand out and get the person to open the email. Make it punchy and urgent.\n\nBelow is some information on the person to help you:\n\n{{ $json.extraxted_text }}\n\n{{ $json.Summary }}\n\n{{ $json.Education }}\n\n{{ $json.Tagline }}\n\n{{ $json['Company Description'] }}\n\n{{ $json.organization_name }}"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1560,
+        580
+      ],
+      "id": "d714d414-fb7b-46f1-95bd-5866f071c67e",
+      "name": "OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8cc7c656-8ad1-47d8-a281-23459a01b0d2",
+              "name": "Icebreaker",
+              "value": "={{ $json.message.content.intro }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1980,
+        580
+      ],
+      "id": "78cffd5b-5db4-499b-86a4-68f29c342b94",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize an empty object\nlet combinedObject = {};\n\n// Iterate over each item\nitems.forEach(item => {\n  // Merge each item into the combinedObject\n  Object.assign(combinedObject, item.json);\n});\n\n// Return the combined object as a single item\nreturn [{ json: combinedObject }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1340,
+        580
+      ],
+      "id": "6010527d-6fa2-4430-8495-f083c6aa07c6",
+      "name": "Code"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2160,
+        580
+      ],
+      "id": "4a4f34ef-4d8d-4f81-b19e-69c6eff12ea0",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize an empty object\nlet combinedObject = {};\n\n// Iterate over each item\nitems.forEach(item => {\n  // Merge each item into the combinedObject\n  Object.assign(combinedObject, item.json);\n});\n\n// Return the combined object as a single item\nreturn [{ json: combinedObject }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2320,
+        580
+      ],
+      "id": "c66cc28b-3d02-43ea-b4ce-c558826a16ff",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1dLcqT3wNMUtUzhdiKuEKz8SAvIAiwJ-U1hxg6pxiFRo",
+          "mode": "list",
+          "cachedResultName": "n8n Apollo Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dLcqT3wNMUtUzhdiKuEKz8SAvIAiwJ-U1hxg6pxiFRo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 778358936,
+          "mode": "list",
+          "cachedResultName": "Zuck Spy Bot",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dLcqT3wNMUtUzhdiKuEKz8SAvIAiwJ-U1hxg6pxiFRo/edit#gid=778358936"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Icebreaker": "={{ $json.Icebreaker }}",
+            "extraxted_text": "={{ $json.extraxted_text }}",
+            "Summary": "={{ $json.Summary }}",
+            "Education": "={{ $json.Education }}",
+            "Tagline": "={{ $json.Tagline }}",
+            "Company Description": "={{ $json[\"Company Description\"] }}",
+            "Staff Count": "={{ $json[\"Staff Count\"] }}",
+            "row_number": "={{ $json.row_number }}",
+            "email": "={{ $json.email }}",
+            "first_name": "={{ $json.first_name }}",
+            "last_name": "={{ $json.last_name }}",
+            "linkedin_url": "={{ $json.linkedin_url }}",
+            "organization_primary_domain": "={{ $json.organization_primary_domain }}",
+            "city": "={{ $json.city }}",
+            "country": "={{ $json.country }}",
+            "organization_linkedin_url": "={{ $json.organization_linkedin_url }}",
+            "title": "={{ $json.title }}",
+            "CleanedJobTitle": "={{ $json.CleanedJobTitle }}",
+            "organization_name": "={{ $json.organization_name }}",
+            "CleanedCompanyName": "={{ $json.CleanedCompanyName }}"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "Icebreaker",
+              "displayName": "Icebreaker",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "extraxted_text",
+              "displayName": "extraxted_text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Summary",
+              "displayName": "Summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Education",
+              "displayName": "Education",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Tagline",
+              "displayName": "Tagline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company Description",
+              "displayName": "Company Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Staff Count",
+              "displayName": "Staff Count",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "first_name",
+              "displayName": "first_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "last_name",
+              "displayName": "last_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "linkedin_url",
+              "displayName": "linkedin_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "organization_primary_domain",
+              "displayName": "organization_primary_domain",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "city",
+              "displayName": "city",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "country",
+              "displayName": "country",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "organization_linkedin_url",
+              "displayName": "organization_linkedin_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CleanedJobTitle",
+              "displayName": "CleanedJobTitle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "organization_name",
+              "displayName": "organization_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CleanedCompanyName",
+              "displayName": "CleanedCompanyName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2560,
+        580
+      ],
+      "id": "c89f2344-e938-4764-8247-107b4a60f6ca",
+      "name": "Google Sheets1"
+    },
+    {
+      "parameters": {
+        "content": "## Scrape Company Website\n",
+        "height": 220,
+        "width": 1060,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        0
+      ],
+      "id": "7da0b407-776c-4f38-b7ca-5f8d5276f91f",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Scrape LinkedIn Profile\n\n",
+        "height": 220,
+        "width": 480,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        280
+      ],
+      "id": "5beb1963-5439-4e9e-8723-fdbf2587ee73",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Scrape LinkedIn Company Profile\n",
+        "height": 220,
+        "width": 480,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        540
+      ],
+      "id": "c21c7898-3d00-4e43-8ead-a1ce84a547bb",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Data Formatting",
+        "height": 280,
+        "width": 400,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        500
+      ],
+      "id": "4e9c764f-aaca-4f9c-b56a-bc79792b5830",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Personalised Email Icebreaker",
+        "height": 280,
+        "width": 320,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        500
+      ],
+      "id": "5b4e2d55-51d2-46dd-8b66-c2e0888eed3a",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## Format Data",
+        "height": 280,
+        "width": 500,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1960,
+        500
+      ],
+      "id": "1df9e6b9-5f72-4e8b-a51a-cf88f6995235",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "## Upload to Google Sheets",
+        "height": 280,
+        "width": 260,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2520,
+        500
+      ],
+      "id": "7a98aeac-5561-430f-be00-2ed208113594",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "content": "## Upload Lead Data",
+        "height": 240,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -280,
+        820
+      ],
+      "id": "2c5140b4-31c7-4aad-9dc3-f891b58e4ed6",
+      "name": "Sticky Note7"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-12T04:38:37.379Z",
+  "versionId": "65eddd8e-ed43-4320-ab2d-68759f287797"
+}
