@@ -1,0 +1,601 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Apollo Lead Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Company Name": {
+      "main": [
+        [
+          {
+            "node": "Merge Job Title & Company Name",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Clean Job Title": {
+      "main": [
+        [
+          {
+            "node": "Merge Job Title & Company Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Merge All Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apollo Lead Data": {
+      "main": [
+        [
+          {
+            "node": "Clean Data of Empty Cells",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Data of Empty Cells": {
+      "main": [
+        [
+          {
+            "node": "Clean Job Title",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Clean Company Name",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge All Data",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Job Title & Company Name": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge All Data": {
+      "main": [
+        [
+          {
+            "node": "Update Cleaned Lead Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-12T04:40:02.930Z",
+  "id": "XXkgC1BmZQ1Bvil3",
+  "meta": null,
+  "name": "Apollo Leads Cleaner",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -960,
+        400
+      ],
+      "id": "01fe34fd-9886-4d97-8a26-84376dbca865",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Create a clean, concise, and standardized job title from that is suitable for professional communication such as emails, databases, and formal documents. Important rule, never include more than one role in the title. Use the following process to help in cleaning the title: Single Role Focus: When multiple roles are listed, retain only the more senior title. Role hierarchy: Founder > Co-founder > any type of ‘Director’ > Anything else. A ‘+’, ‘and’, ‘&’, ‘|’, ‘and’ should give you an indicator that more then one role is being presented so list one and use the highest seniority, ‘Founder’ is always the highest seniority. Remove Separator Characters: Eliminate characters like ‘|’ and ensure titles reflect a singular, focused role. Standardize Capitalization: Use title case for all titles, capitalizing the first letter of each word. Maintain all-caps for C-suite titles (e.g., CEO, CFO). Abbreviations and Acronyms: Standardize common abbreviations and acronyms (e.g., \"VP\" for \"Vice President\"). Eliminate Redundant Phrases: Remove non-essential phrases such as \"of the\" or \"in charge of\" to streamline titles. Adjust for Clarity and Brevity: Shorten overly long titles while ensuring they remain clear and understandable. For example, \"Senior Manager of Marketing and Communications\" can be simplified to \"Senior Marketing Manager\". Remove Company Names from Title: e.g ‘Founder of Agency’ should become ‘Founder’ Error Check: Perform a final review for typos, misspellings, or inconsistent formatting to guarantee professionalism. Only output the title exactly as it is written and nothing else. Never give me options or return ‘title:’\n\nInputs:\nJob Title Uncleaned - {{ $json.title }}\n\nResponse format:\n{\n  \"cleanedJobTitle\": \"\",\n  \"email\": \"{{ $json['email'] }}\"\n} "
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        120,
+        100
+      ],
+      "id": "5038f9db-fca3-40b8-935b-5fd7fdae1443",
+      "name": "Clean Job Title",
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Create a clean, concise, and standardized list of company names suitable for professional communication such as emails, databases, and formal documents. Use the following process to help in cleaning the names. Remove Legal Designations: Exclude legal forms like Ltd, LLC, Inc., simplifying names for informal use. Standardize Capitalization: Use title case for all names, making exceptions for brands with unique capitalization (e.g., \"CYOA\"). Eliminate Descriptive Elements: Remove non-essential descriptive parts and generic descriptors (e.g., \"Agency,\" \"Consultancy\"). Simplify Names: Shorten names to their most recognized form, using abbreviations if commonly known. Uniform Formatting: Apply consistent rules for spaces, hyphens, and punctuation across all names. Keep & when appropriate. Error Check: Conduct a final review for typos or misspellings to ensure accuracy and professionalism. Only return the cleaned company name as an output. Never return more than one option or the old company name in the output.\n\n\nInputs:\nCompany Name Uncleaned - {{ $json.organization_name }}\n\nResponse format:\n{\n  \"cleanedCompanyName\": \"\",\n  \"email\": \"{{ $json['email'] }}\"\n} \n\n\n"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        120,
+        240
+      ],
+      "id": "4ae5fe85-804f-42d9-8011-7f0ef51f12d2",
+      "name": "Clean Company Name",
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bd64c1a2-427a-4a85-bd50-f6eb5b82a65e",
+              "name": "CleanedJobTitle",
+              "value": "={{ $json.message.content.cleanedJobTitle }}",
+              "type": "string"
+            },
+            {
+              "id": "b727e09d-78c5-4dcf-b947-79c48ee8de95",
+              "name": "email",
+              "value": "={{ $json.message.content.email }}",
+              "type": "string"
+            },
+            {
+              "id": "a27e82e2-b1c4-4ac1-a2b8-d4b702ea63bf",
+              "name": "CleanedCompanyName",
+              "value": "={{ $json.message.content.cleanedCompanyName }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        860,
+        160
+      ],
+      "id": "34b2e565-3fa0-4603-926d-be71d88cea20",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "content": "## Add Apollo Lead Data\nConnect your Google Account & upload your Apollo lead data",
+        "height": 380,
+        "width": 280,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -780,
+        260
+      ],
+      "id": "942e6eaf-f598-401f-b45e-4e07aa2cc025",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1dLcqT3wNMUtUzhdiKuEKz8SAvIAiwJ-U1hxg6pxiFRo",
+          "mode": "list",
+          "cachedResultName": "n8n Apollo Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dLcqT3wNMUtUzhdiKuEKz8SAvIAiwJ-U1hxg6pxiFRo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1190244531,
+          "mode": "list",
+          "cachedResultName": "Example Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dLcqT3wNMUtUzhdiKuEKz8SAvIAiwJ-U1hxg6pxiFRo/edit#gid=1190244531"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -700,
+        400
+      ],
+      "id": "72039b30-b8d3-43a6-bf78-543da9dbdecf",
+      "name": "Apollo Lead Data"
+    },
+    {
+      "parameters": {
+        "content": "## Clean Data\nFilter out empty cells missing job title, company name, organisation URL, & LinkedIn URl\n",
+        "height": 380,
+        "width": 280,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -400,
+        260
+      ],
+      "id": "30a1bd97-4c60-4d30-b617-1e106e7e10ed",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Clean Job Title and Company Name\nClean data to prepare it for cold outreach. Output a JSON.\n",
+        "height": 380,
+        "width": 480,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "194b438e-7ff7-4b12-aaa3-0f8d34c42297",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Merge and Format Data\nMerge job title and company name. Extract them as flat json field so that they can be merged with the original data.\n",
+        "height": 380,
+        "width": 480,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        580,
+        0
+      ],
+      "id": "c51e127b-7335-434e-87e4-f170b0356be3",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Merge Data & Export to Google Sheets\nEnsure you create a new Google Sheets and add all the values from the final merge node as headers\n",
+        "height": 380,
+        "width": 480,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        240
+      ],
+      "id": "620e99d0-2905-455b-9981-45881ce28b54",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c6710927-51d0-4e7e-9616-e3b079c02aee",
+              "leftValue": "={{ $json.linkedin_url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "e18be07e-cb56-4618-b56d-5850bae85f55",
+              "leftValue": "={{ $json.organization_primary_domain }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c1595fcd-13db-42a6-a122-0cb8401ffa1f",
+              "leftValue": "={{ $json.title }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "7b1fa683-f664-4a29-89fc-046d20820956",
+              "leftValue": "={{ $json.organization_name }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -320,
+        400
+      ],
+      "id": "5c9ae13b-f2f7-4756-8254-132df09e35ef",
+      "name": "Clean Data of Empty Cells"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "message.content.email",
+              "field2": "message.content.email"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        700,
+        160
+      ],
+      "id": "f01eb272-3a17-4e15-8933-ef4e26a86776",
+      "name": "Merge Job Title & Company Name"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "fieldsToMatchString": "=email",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1260,
+        400
+      ],
+      "id": "86fabbf3-6627-40c1-9e1b-895e03ed771f",
+      "name": "Merge All Data"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1dLcqT3wNMUtUzhdiKuEKz8SAvIAiwJ-U1hxg6pxiFRo",
+          "mode": "list",
+          "cachedResultName": "n8n Apollo Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dLcqT3wNMUtUzhdiKuEKz8SAvIAiwJ-U1hxg6pxiFRo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 78767262,
+          "mode": "list",
+          "cachedResultName": "Cleaned Lead Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dLcqT3wNMUtUzhdiKuEKz8SAvIAiwJ-U1hxg6pxiFRo/edit#gid=78767262"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email": "={{ $json.email }}",
+            "first_name": "={{ $json.first_name }}",
+            "last_name": "={{ $json.last_name }}",
+            "linkedin_url": "={{ $json.linkedin_url }}",
+            "organization_name": "={{ $json.organization_name }}",
+            "organization_primary_domain": "={{ $json.organization_primary_domain }}",
+            "city": "={{ $json.city }}",
+            "country": "={{ $json.country }}",
+            "title": "={{ $json.title }}",
+            "organization_linkedin_url": "={{ $json.organization_linkedin_url }}",
+            "CleanedJobTitle": "={{ $json.CleanedJobTitle }}",
+            "CleanedCompanyName": "={{ $json.CleanedCompanyName }}"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "first_name",
+              "displayName": "first_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "last_name",
+              "displayName": "last_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "linkedin_url",
+              "displayName": "linkedin_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "organization_primary_domain",
+              "displayName": "organization_primary_domain",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "city",
+              "displayName": "city",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "country",
+              "displayName": "country",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "organization_linkedin_url",
+              "displayName": "organization_linkedin_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CleanedJobTitle",
+              "displayName": "CleanedJobTitle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "organization_name",
+              "displayName": "organization_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CleanedCompanyName",
+              "displayName": "CleanedCompanyName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1420,
+        400
+      ],
+      "id": "4b9b7470-bbb6-4f49-b65a-7283204af871",
+      "name": "Update Cleaned Lead Data"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-12T04:40:02.930Z",
+  "versionId": "c8eb681c-752d-4102-95e1-32dcf9a47772"
+}
