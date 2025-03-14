@@ -1,0 +1,265 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Get Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Content": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-14T01:08:54.299Z",
+  "id": "XTWHIl0aeLi7kUNL",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Updating RAG Database - Google Drive - Remark",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "ebadaa91-df71-40fa-b446-fd6ff416b9ab",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "returnAll": true,
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "value": "https://drive.google.com/drive/folders/1KWgk-dx0QFiTvGZ4Exg377JtU4eHGnA3",
+            "mode": "url"
+          }
+        },
+        "options": {}
+      },
+      "id": "fdcf03ca-6bff-4820-ada5-68ac3cf3a19b",
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        220,
+        0
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "NK7LhIx29QtOpLeP",
+          "name": "sean@alphafv.co Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "4c6a3151-2ad1-4ab9-93e1-1e798f766c43",
+      "name": "Get Content",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        440,
+        0
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "NK7LhIx29QtOpLeP",
+          "name": "sean@alphafv.co Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "f5ebeacd-4df2-4105-b05f-9363e0056198",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        660,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-small",
+        "options": {}
+      },
+      "id": "e999b81b-a8cf-48be-bdf8-d51947a56b10",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1,
+      "position": [
+        760,
+        260
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "options": {}
+      },
+      "id": "8a5bc05c-9537-4757-a1fc-22a7b27e26e4",
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        960,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "chunkSize": 300,
+        "chunkOverlap": 50,
+        "options": {}
+      },
+      "id": "d1f39db0-785b-4c55-a6b9-cea94613a65a",
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        960,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "options": {
+          "pineconeNamespace": "Restaurant"
+        }
+      },
+      "id": "0f3ded2e-3616-4ee1-8490-34376080af87",
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1,
+      "position": [
+        880,
+        0
+      ],
+      "credentials": {
+        "pineconeApi": {
+          "id": "9d13tIInEVamjOxI",
+          "name": "Convert411 PineconeApi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-14T01:10:42.405Z",
+  "versionId": "d4a6515b-4fb9-4427-9126-257887f1cea8"
+}
