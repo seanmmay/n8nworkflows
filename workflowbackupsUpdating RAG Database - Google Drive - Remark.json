@@ -1,17 +1,6 @@
 {
   "active": false,
   "connections": {
-    "When clicking ‘Test workflow’": {
-      "main": [
-        [
-          {
-            "node": "Google Drive",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Google Drive": {
       "main": [
         [
@@ -89,6 +78,100 @@
           }
         ]
       ]
+    },
+    "Google Drive1": {
+      "main": [
+        []
+      ]
+    },
+    "Get Content1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Pinecone Vector Store1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader1": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store1",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter1": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader1",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "File Updated": {
+      "main": [
+        [
+          {
+            "node": "Get Content1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "New File": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-03-14T01:08:54.299Z",
@@ -98,17 +181,6 @@
   },
   "name": "Updating RAG Database - Google Drive - Remark",
   "nodes": [
-    {
-      "parameters": {},
-      "id": "ebadaa91-df71-40fa-b446-fd6ff416b9ab",
-      "name": "When clicking ‘Test workflow’",
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        0,
-        0
-      ]
-    },
     {
       "parameters": {
         "resource": "fileFolder",
@@ -251,15 +323,268 @@
           "name": "Convert411 PineconeApi account"
         }
       }
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "returnAll": true,
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "value": "https://drive.google.com/drive/folders/1KWgk-dx0QFiTvGZ4Exg377JtU4eHGnA3",
+            "mode": "url"
+          }
+        },
+        "options": {
+          "fields": []
+        }
+      },
+      "id": "6da60a97-8007-49e5-a36a-db2a42e130b2",
+      "name": "Google Drive1",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        240,
+        800
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "NK7LhIx29QtOpLeP",
+          "name": "sean@alphafv.co Google Drive account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "66449112-7632-4f83-8620-4f4ff798294d",
+      "name": "Get Content1",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        440,
+        620
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "NK7LhIx29QtOpLeP",
+          "name": "sean@alphafv.co Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "6446e90d-ff59-4624-bf4d-aff555a2643a",
+      "name": "Loop Over Items1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        660,
+        620
+      ]
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-small",
+        "options": {}
+      },
+      "id": "3c9bf470-2cf4-4d06-85c2-b01be2398c10",
+      "name": "Embeddings OpenAI1",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1,
+      "position": [
+        760,
+        880
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "options": {}
+      },
+      "id": "215adce4-ef0b-4293-add7-6fa1d4095d3a",
+      "name": "Default Data Loader1",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        960,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "chunkSize": 300,
+        "chunkOverlap": 50,
+        "options": {}
+      },
+      "id": "cc962df6-ef23-44ca-a4f9-74b426ee31dd",
+      "name": "Recursive Character Text Splitter1",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        960,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "options": {
+          "pineconeNamespace": "Restaurant"
+        }
+      },
+      "id": "17745100-0f6c-45a1-938b-8bf22507a999",
+      "name": "Pinecone Vector Store1",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1,
+      "position": [
+        880,
+        620
+      ],
+      "credentials": {
+        "pineconeApi": {
+          "id": "9d13tIInEVamjOxI",
+          "name": "Convert411 PineconeApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "hour": 22
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/folders/1KWgk-dx0QFiTvGZ4Exg377JtU4eHGnA3",
+          "mode": "url"
+        },
+        "event": "fileUpdated",
+        "options": {}
+      },
+      "id": "1af95ed9-2a78-400e-b518-4a5141e295d8",
+      "name": "File Updated",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        620
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "NK7LhIx29QtOpLeP",
+          "name": "sean@alphafv.co Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Get File to Update\n \n",
+        "height": 260,
+        "width": 280,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -140,
+        540
+      ],
+      "typeVersion": 1,
+      "id": "978aa64f-7eeb-4f15-8439-b530306348cf",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "hour": 23
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/folders/1KWgk-dx0QFiTvGZ4Exg377JtU4eHGnA3",
+          "mode": "url"
+        },
+        "event": "fileCreated",
+        "options": {
+          "fileType": "all"
+        }
+      },
+      "id": "214050b6-d337-4dff-bbfe-9ffbfcf0811e",
+      "name": "New File",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        0
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "NK7LhIx29QtOpLeP",
+          "name": "sean@alphafv.co Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Get New File \n",
+        "height": 260,
+        "width": 280,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -140,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "8f35691b-122c-45d7-a3eb-e739f27c2003",
+      "name": "Sticky Note2"
     }
   ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:File Updated": {
+      "lastTimeChecked": "2025-03-14T04:35:25Z"
+    },
+    "node:New File": {
+      "lastTimeChecked": "2025-03-14T04:35:26Z"
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-03-14T01:10:42.405Z",
-  "versionId": "d4a6515b-4fb9-4427-9126-257887f1cea8"
+  "triggerCount": 2,
+  "updatedAt": "2025-03-14T04:37:44.657Z",
+  "versionId": "ce9e6601-6a54-4938-a81e-d056fb34ebef"
 }
