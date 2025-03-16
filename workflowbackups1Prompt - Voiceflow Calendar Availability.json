@@ -1,0 +1,241 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "checkAvailability": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "checkEmptySlots": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-15T23:53:27.526Z",
+  "id": "3XFnjde5gRtyZb0Q",
+  "meta": null,
+  "name": "1Prompt - Voiceflow Calendar Availability",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "8309846d-ac2e-4774-94b0-f3aee2e25e87",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a40d4178-7050-4188-9bc4-b01095c4843d",
+      "name": "Webhook",
+      "webhookId": "8309846d-ac2e-4774-94b0-f3aee2e25e87"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        560,
+        0
+      ],
+      "id": "db2b0595-585a-49cb-a14f-1faeb48374bd",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=**OBJECTIVE**  \nCheck appointment availability for the user and suggest the closest available time slots if the requested time is not available.\n\n**PROCESS**  \n1. **Determine User's Timezone**  \n   - Identify the user's timezone based on their provided location.\n   - Use a general conversion for their timezone to UTC:\n     - **Pacific Time:** UTC-8\n     - **Mountain Time:** UTC-7\n     - **Central Time:** UTC-6\n     - **Eastern Time:** UTC-5\n\n2. **Check Availability**  \n   - Run the `checkAvailability` tool for the requested time slot.\n   - If the requested slot is available, inform the user of the availability.\n   - If the requested slot is not available, proceed to find alternative slots.\n\n3. **Find Alternative Slots**  \n   - Use the `checkEmptySlots` tool to retrieve booked slots for the next 7 days.\n   - Working hours: 9 AM to 4 PM EST (converted to UTC is 2 PM to 9 PM UTC).\n   - Calculate all potential available slots within working hours.\n   - Deduct booked slots obtained from the tool.\n   - Identify and suggest the 2 closest available time slots to the user's original request.\n\n4. **Communicate Results**  \n   - Clearly inform the user about the availability or the suggested alternative time slots.\n   - Provide both local time and UTC time for clarity.\n\n**USER REQUEST DETAILS**  \n- Requested booking date and time: {{ $json.query.time }}\n- User's location, name, and email: {{ $json.query.state }}, {{ $json.query.fullName }}, {{ $json.query.email }}\n- Current date and time: {{ $now }}\n\n**OUTPUT RULES**  \n- Clearly confirm availability or offer alternative suggestions.\n- Use a professional and concise communication style.\n- Ensure all time conversions are accurate and communicated effectively.\n\n**NOTES**  \n- Ensure accurate conversion to reflect correct timezone differences.\n- Focus on presenting the best possible alternative slots if initial request is unavailable.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        200,
+        0
+      ],
+      "id": "f14f6bea-f928-4131-a722-58dfcb25c5a0",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        100,
+        260
+      ],
+      "id": "07cbc718-3886-4415-990e-1760ffd7ae90",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Run this tool to check 1 slot availability that the user wants.",
+        "resource": "calendar",
+        "calendar": {
+          "__rl": true,
+          "value": "eugene@quimple.agency",
+          "mode": "list",
+          "cachedResultName": "eugene@quimple.agency"
+        },
+        "timeMin": "={{ $fromAI('startTime') }}",
+        "timeMax": "={{ $fromAI('endTime') }}",
+        "options": {
+          "timezone": {
+            "__rl": true,
+            "value": "UTC",
+            "mode": "list",
+            "cachedResultName": "UTC"
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        280,
+        260
+      ],
+      "id": "f7fd44fa-b04a-43f1-a747-d33573965d9b",
+      "name": "checkAvailability"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Run this tool if the timeslot that the user wants is busy and we need to find more available slots.",
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "eugene@quimple.agency",
+          "mode": "list",
+          "cachedResultName": "eugene@quimple.agency"
+        },
+        "returnAll": true,
+        "options": {
+          "timeMin": "={{ $fromAI('startTime') }}",
+          "timeMax": "={{ $fromAI(\"nextSevenDaysAfterBookingTime\", \"check the date and time when the user wants to have the meeting and add seven days to it, so count seven days ahead\") }}",
+          "timeZone": {
+            "__rl": true,
+            "value": "America/New_York",
+            "mode": "list",
+            "cachedResultName": "America/New_York"
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        460,
+        260
+      ],
+      "id": "718d0647-0557-4a6e-bed3-b93bf3b39e8a",
+      "name": "checkEmptySlots"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "quimple.app.n8n.cloud",
+            "user-agent": "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)",
+            "accept": "*/*",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1; subreqs=1",
+            "cf-connecting-ip": "35.172.149.91",
+            "cf-ew-via": "15",
+            "cf-ipcountry": "US",
+            "cf-ray": "91a48a83d603578e-IAD",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "cf-worker": "n8n.cloud",
+            "x-forwarded-for": "35.172.149.91, 172.70.134.77",
+            "x-forwarded-host": "quimple.app.n8n.cloud",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "traefik-prod-users-gwc-10-6888ffdd77-2fzcd",
+            "x-is-trusted": "yes",
+            "x-real-ip": "35.172.149.91"
+          },
+          "params": {},
+          "query": {
+            "fullName": "ddasff",
+            "email": "adf",
+            "state": "adsf",
+            "time": "adf"
+          },
+          "body": {},
+          "webhookUrl": "https://quimple.app.n8n.cloud/webhook/8309846d-ac2e-4774-94b0-f3aee2e25e87",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-03-15T23:50:24.079Z",
+      "updatedAt": "2025-03-15T23:50:24.079Z",
+      "id": "Q7vufFav4FBPAGrU",
+      "name": "Inbound Voice Agent"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-15T23:53:27.526Z",
+  "versionId": "093ab625-a641-4568-a6b8-a9cb350c1f40"
+}
