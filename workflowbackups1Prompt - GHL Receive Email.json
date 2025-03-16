@@ -1,0 +1,106 @@
+{
+  "active": false,
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-15T22:50:55.728Z",
+  "id": "FRdK3GeFDHlStQ9m",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "1Prompt - GHL Receive Email",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "8cf737dc-96c2-442c-936a-775e1651416d",
+      "name": "Gmail Trigger",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "cKgOj8s3qT8I5sS7",
+          "name": "sean@alphafv.co Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/hooks/dzTOfajR3YuQKAqE1myz/webhook-trigger/hgVLWZCtHlWThvOc6M2D",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "threadId",
+              "value": "={{ $json.threadId }}"
+            },
+            {
+              "name": "from",
+              "value": "={{ $json.From.match(/[\\w.-]+@[\\w.-]+\\.\\w+/)[0] }}"
+            },
+            {
+              "name": "to",
+              "value": "={{ $json.To.match(/[\\w.-]+@[\\w.-]+\\.\\w+/)[0] }}"
+            },
+            {
+              "name": "subject",
+              "value": "={{ $json.Subject }}"
+            },
+            {
+              "name": "body",
+              "value": "={{ $json.snippet }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "03f23e81-b3ed-426f-aafd-63aafddf5e56",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-03-15T22:50:44.202Z",
+      "updatedAt": "2025-03-15T22:50:44.202Z",
+      "id": "3jEnHwogpaakY68E",
+      "name": "Omni Channel"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-15T22:51:02.720Z",
+  "versionId": "699c4949-c6ac-40cf-bac4-e3a7e9a38cce"
+}
