@@ -1,0 +1,160 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-15T22:51:34.554Z",
+  "id": "UTL7DFrVvZ6YXQV5",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "1Prompt - GHL Send Email",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "ac95c58b-f8b6-492b-8ccc-0d4c9e13e0b4",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "2b86ab29-61d8-471e-a9da-196b2817e7e0",
+      "name": "Webhook",
+      "webhookId": "ac95c58b-f8b6-492b-8ccc-0d4c9e13e0b4"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Generate a reply to the user email based on the content that I send you below (it means that we already created the text of what to write to the user - you can need to create a proper email from it).\n\nYou MUST output the body only - no additional characters of symbols - just body, I will copy and paste it exactly - again clean body. Don't mention user name or antyhing.\n\nHere:\n\n{{ $json.query.response1 }}\n{{ $json.query.response2 }}\n{{ $json.query.response3 }}\n{{ $json.query.response4 }}\n{{ $json.query.response5 }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        220,
+        0
+      ],
+      "id": "6bcb2458-92c5-4436-8c2f-b7957cc25fce",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('Webhook').item.json.query.threadId }}",
+        "message": "={{ $json.message.content }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        580,
+        0
+      ],
+      "id": "d92fafec-93f5-489d-8c93-a9a8ff48cee3",
+      "name": "Gmail",
+      "webhookId": "7ff85e2c-ca75-49f6-90c8-871fd95a0722",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "cKgOj8s3qT8I5sS7",
+          "name": "sean@alphafv.co Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "quimple.app.n8n.cloud",
+            "user-agent": "axios/0.21.4",
+            "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1; subreqs=1",
+            "cf-connecting-ip": "34.132.86.172",
+            "cf-ew-via": "15",
+            "cf-ipcountry": "US",
+            "cf-ray": "91287c1570e9eaef-ORD",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "cf-worker": "n8n.cloud",
+            "x-forwarded-for": "34.132.86.172, 172.71.254.215",
+            "x-forwarded-host": "quimple.app.n8n.cloud",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "traefik-prod-users-gwc-10-6888ffdd77-2fzcd",
+            "x-is-trusted": "yes",
+            "x-real-ip": "34.132.86.172"
+          },
+          "params": {},
+          "query": {
+            "response1": "Hey! Seems like you’ve got a question - what’s on your mind? 😊",
+            "response2": "",
+            "response3": "",
+            "response4": "",
+            "response5": "",
+            "threadId": "1950b8881c6f6587"
+          },
+          "body": {},
+          "webhookUrl": "https://quimple.app.n8n.cloud/webhook/ac95c58b-f8b6-492b-8ccc-0d4c9e13e0b4",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-03-15T22:50:44.202Z",
+      "updatedAt": "2025-03-15T22:50:44.202Z",
+      "id": "3jEnHwogpaakY68E",
+      "name": "Omni Channel"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-15T22:51:34.554Z",
+  "versionId": "f9e437e2-18c1-406f-a7ef-d73d6033f671"
+}
