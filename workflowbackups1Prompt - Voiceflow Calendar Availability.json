@@ -119,7 +119,13 @@
         260
       ],
       "id": "07cbc718-3886-4415-990e-1760ffd7ae90",
-      "name": "OpenAI Chat Model"
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "cYVk9wYudWzrwFIE",
+          "name": "OpenAi account"
+        }
+      }
     },
     {
       "parameters": {
@@ -236,6 +242,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-03-15T23:53:27.526Z",
-  "versionId": "093ab625-a641-4568-a6b8-a9cb350c1f40"
+  "updatedAt": "2025-03-16T03:14:34.363Z",
+  "versionId": "3ca53155-cf06-4e08-aec6-519e02f01bc7"
 }
