@@ -2607,7 +2607,7 @@
     },
     "node:Every 3 days": {
       "recurrenceRules": [
-        80
+        83
       ]
     },
     "node:Every Day": {
@@ -2617,7 +2617,7 @@
     },
     "node:Every 3 days_2": {
       "recurrenceRules": [
-        80
+        83
       ]
     },
     "node:(No need for schedule)": {
