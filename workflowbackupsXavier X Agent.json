@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Get Users": {
       "main": [
@@ -2587,7 +2587,7 @@
   "staticData": {
     "node:Every 4 hours": {
       "recurrenceRules": [
-        20
+        8
       ]
     },
     "node:Every 11 hours": {
@@ -2607,7 +2607,7 @@
     },
     "node:Every 3 days": {
       "recurrenceRules": [
-        101
+        104
       ]
     },
     "node:Every Day": {
@@ -2617,7 +2617,7 @@
     },
     "node:Every 3 days_2": {
       "recurrenceRules": [
-        101
+        104
       ]
     },
     "node:(No need for schedule)": {
@@ -2626,6 +2626,6 @@
   },
   "tags": [],
   "triggerCount": 8,
-  "updatedAt": "2025-03-11T19:57:53.904Z",
+  "updatedAt": "2025-04-14T16:46:39.471Z",
   "versionId": "2d0cae70-51eb-4da9-9c47-ee32cbd5dd41"
 }
